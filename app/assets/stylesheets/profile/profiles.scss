@@ -1,0 +1,81 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile-container h1 {
+  margin-bottom: 20px;
+  color: #007AB3
+}
+
+.profile-container p {
+  margin: 5px 0;
+  color: #0b0b0b
+}
+
+.profile-container .btn {
+  margin-top: 20px;
+}
+
+.label {
+  font-weight: bold;
+  color: black;
+}
+
+.profile-edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile-edit-container h1.profile-title {
+  margin-bottom: 20px;
+  color: #00A9F8;
+}
+
+.profile-edit-container .field {
+  margin: 10px 0;
+}
+
+.profile-edit-container .actions {
+  margin-top: 20px;
+}
+
+.profile-edit-container label.profile-label {
+  margin-bottom: 5px;
+  display: block;
+  color: #007AB3;
+}
+
+.profile-edit-container input,
+.profile-edit-container select,
+.profile-edit-container textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.profile-edit-container input:focus,
+.profile-edit-container select:focus,
+.profile-edit-container textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.profile-edit-container .btn.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+}
