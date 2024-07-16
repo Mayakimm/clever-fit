@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :group_classes
 
   has_one :profile
+
+  validates :email, presence: true, uniqueness: true
+  validates :encrypted_password, presence: true
 end
