@@ -10,39 +10,39 @@
 
 <%# #calendar of the week #with toggleable button %>
 <div class="weekly-calendar d-flex justify-content-evenly">
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+  <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Sun</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+  <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Mon</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+  <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Tue</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+  <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Wed</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+  <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Thu</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+  <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Fri</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
-    <div class="day d-flex flex-column border rounded-5 px-2 py-3">
+    <div class="daily-calendar d-flex flex-column border px-2 py-3">
     <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
+    <p class="mb-1">Sat</p>
     <p class="mb-1"><%= @today_date%></p>
   </div>
 </div>
@@ -76,18 +76,20 @@
 <%# #Class for you title with class cards %>
 <div class="group-class-index m-auto">
   <h2>Class for you</h2>
-  <div class="d-flex p-3">
-    <div class="group-class-image">image</div>
-    <div class="flex-grow-1 card-info ms-3 d-flex flex-column">
-      <div class="card-letters pt-3">
-        <p>Hot Yoga</p>
-        <p>Date</p>
-      </div>
-      <div class="price">
-        <p>Price</p>
+  <% @groupe_classes.each do |group_class|%>
+    <div class="group-class-card d-flex px-4 py-2">
+      <div class="group-class-image p-3">image</div>
+      <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
+        <div class="card-letters pt-3">
+          <p class="mb-0 fs-4"><%=group_class.name%></p>
+          <p class="mb-1"><%=group_class.time.strftime('%H:%M')%>, <%=group_class.date.day%>/<%=group_class.date.month%> (<%=group_class.date.strftime("%a")%>)</p>
+        </div>
+        <div class="price">
+          <p class="text-end fs-5">€ 30</p>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
 </div>
 <%# #the profile bar %>

@@ -22,21 +22,60 @@ body {
   font-weight: bolder;
 }
 
+.weekly-calendar {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.daily-calendar {
+  width: 50px;
+  border-radius: 100px;
+  align-items: center;
+  background-color: var($blue1);
+}
+
 .group-class-index{
   width: 90%;
 }
 
-.card {
-  overflow: hidden;
-  height: 120px;
-  background: white;
+.group-class-card {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
+  margin-top: 30px;
+  border-radius: 10px;
 }
+
+// .card {
+//   overflow: hidden;
+//   height: 120px;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+// }
 
 .group-class-image {
   background-color: rgb(185, 185, 255);
   width: 120px;
   text-align: center;
+  border-radius: 10px;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 24px;
+  width: 88%;
+  margin: O auto;
+  background-color: #00000024;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.bar-button {
+  text-align: center;
+  margin-bottom: 0;
+  padding: 8px;
 }

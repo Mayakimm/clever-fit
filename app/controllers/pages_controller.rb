@@ -13,6 +13,8 @@ class PagesController < ApplicationController
     @today_day = Date.today.strftime("%a")
     #workout info
     #class.all
+    @groupe_classes = GroupClass.all
+
     #the profile bar
   end
 end
