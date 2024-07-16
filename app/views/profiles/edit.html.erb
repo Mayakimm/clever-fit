@@ -1,0 +1,46 @@
+<div class="edit-profile-container">
+  <h1>Edit Your Profile</h1>
+
+  <%= form_for(@profile, url: profile_path) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :age %><br />
+      <%= f.number_field :age, in: 16..99 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :gender %><br />
+      <%= f.text_field :gender %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :height %><br />
+      <%= f.text_field :height, placeholder: 'Height (in meters)' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :weight %><br />
+      <%= f.text_field :weight, placeholder: 'Weight in kilos' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :goal %><br />
+      <%= f.text_area :goal, rows: 4 %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Save' %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back', profile_path %>
+</div>

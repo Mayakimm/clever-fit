@@ -10,8 +10,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to 'My Profile', profile_path %>
+      <% end %>
+    </nav>
 
     <%= yield %>
   </body>
