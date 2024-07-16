@@ -10,4 +10,9 @@ Rails.application.routes.draw do
 
   get "home", to: "pages#home"
 
+  resources :workouts, only: [] do
+    member do
+      get 'summary'
+    end
+  end
 end

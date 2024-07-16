@@ -19,5 +19,5 @@ class PagesController < ApplicationController
     @groupe_classes = GroupClass.all
 
     #the profile bar
-  end
+
 end
