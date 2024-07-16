@@ -2,18 +2,28 @@
 body {
   background-color: white;
 }
-.image-container{
+
+.img-container {
   width:80%;
   margin: 0px auto;
   margin-top: 30px;
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
+  position: relative;
+
+  .img-title {
+    position: absolute;
+    top:40px;
+    left:40px;
+    color: white;
+    font-weight: bolder;
+  }
 }
 
 .image-box {
   width: 90%;
   height: 230px;
-  position: absolute;
 }
+
 .rand-image {
   width: 100%;
   max-height: 230px;
@@ -21,12 +31,6 @@ body {
   object-position: center;
 }
 
-.img-heading {
-  position: relative;
-  top: 50x; left: 50px;
-  color: white;
-  font-weight: bolder;
-}
 
 .weekly-calendar {
   width: 80%;
@@ -47,6 +51,15 @@ body {
   }
 }
 
+.daily-summary {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: $blue1;
+  color: white;
+  padding: 20px;
+}
 .activity-section {
   width: 80%;
   margin: 0 auto;
@@ -58,8 +71,10 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.group-class-index{
-  width: 90%;
+.group-class-index {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 
 .group-class-card {
@@ -79,8 +94,10 @@ body {
 
 .group-class-image {
   background-color: rgb(185, 185, 255);
-  width: 120px;
+  width: 100px;
+  height: 100px;
   text-align: center;
+  align-items: center;
   border-radius: 10px;
 }
 
