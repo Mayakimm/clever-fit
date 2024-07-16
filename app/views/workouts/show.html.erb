@@ -1,0 +1,20 @@
+<h1><%= @workout.name %></h1>
+<p>Type: <%= @workout.workout_type %></p>
+
+<h2>Exercises</h2>
+<ul>
+  <% @workout_exercises.each do |workout_exercise| %>
+    <li>
+      <h3><%= workout_exercise.exercise.name %></h3>
+      <iframe width="560" height="315" src="<%= workout_exercise.exercise.video_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Description: <%= workout_exercise.exercise.description %></p>
+      <p>Instruction: <%= workout_exercise.exercise.instruction %></p>
+      <p>Equipment: <%= workout_exercise.exercise.equipment %></p>
+      <p>Muscle Group: <%= workout_exercise.exercise.muscle_group %></p>
+      <p>MET Value: <%= workout_exercise.exercise.met_value %></p>
+      <p>Weight: <%= workout_exercise.kg %> kg</p>
+      <p>Sets: <%= workout_exercise.set %></p>
+      <p>Calories burned: <%= workout_exercise.calories %></p>
+    </li>
+  <% end %>
+</ul>
