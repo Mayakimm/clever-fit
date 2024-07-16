@@ -15,16 +15,21 @@ class WorkoutsController < ApplicationController
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
 
     @total_kg_lifted = @exercises.sum(:kg)
+    @pr_count = 0
 
     @exercise_detail = @exercises.map do |exercise|
       workout_exercise = WorkoutExercise.find_by(exercise: exercise, workout: @workout)
+      pr = check_pr(exercise, workout_exercise.kg, @workout.user)
+      @pr_count += 1 if pr == 'PR'
+
       {
         name: exercise.name,
         volume: workout_exercise.volume,
         weight: workout_exercise.kg,
-        pr: check_pr(exercise, workout_exercise.kg, @workout.user)
+        pr: pr
       }
     end
+
     @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
   end
 

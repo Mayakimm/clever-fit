@@ -51,8 +51,8 @@ Workout.create!([
 
 WorkoutExercise.create!([
                           { kg: 0, set: 3, time: '00:30:00', calories: 150, exercise: Exercise.first, workout: Workout.first },
-                          { kg: 20, set: 4, time: '00:45:00', calories: 200, exercise: Exercise.second, workout: Workout.second },
-                          { kg: 0, set: 2, time: '01:00:00', calories: 100, exercise: Exercise.third, workout: Workout.third },
-                          { kg: 10, set: 5, time: '00:35:00', calories: 250, exercise: Exercise.fourth, workout: Workout.fourth },
-                          { kg: 30, set: 3, time: '00:25:00', calories: 300, exercise: Exercise.fifth, workout: Workout.fifth }
+                          { kg: 20, set: 4, time: '00:45:00', calories: 200, exercise: Exercise.second, workout: Workout.first },
+                          { kg: 0, set: 2, time: '01:00:00', calories: 100, exercise: Exercise.third, workout: Workout.first },
+                          { kg: 10, set: 5, time: '00:35:00', calories: 250, exercise: Exercise.fourth, workout: Workout.first },
+                          { kg: 30, set: 3, time: '00:25:00', calories: 300, exercise: Exercise.fifth, workout: Workout.first }
                         ])
