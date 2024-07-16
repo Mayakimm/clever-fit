@@ -26,11 +26,11 @@ Profile.create!([
                 ])
 
 Exercise.create!([
-                   { name: 'Push-up', video_url: 'https://www.youtube.com/watch?v=_l3ySVKYVJ8', description: 'A basic push-up exercise', instruction: 'Keep your body straight', equipment: 'None', muscle_group: 'Chest', met_value: 8.0 },
-                   { name: 'Squat', video_url: 'https://www.youtube.com/watch?v=aclHkVaku9U', description: 'A basic squat exercise', instruction: 'Keep your back straight', equipment: 'None', muscle_group: 'Legs', met_value: 7.5 },
-                   { name: 'Pull-up', video_url: 'https://www.youtube.com/watch?v=eGo4IYlbE5g', description: 'A basic pull-up exercise', instruction: 'Pull yourself up', equipment: 'Pull-up bar', muscle_group: 'Back', met_value: 9.0 },
-                   { name: 'Bicep Curl', video_url: 'https://www.youtube.com/watch?v=in7PaeYlhrM', description: 'A basic bicep curl exercise', instruction: 'Curl the dumbbells', equipment: 'Dumbbells', muscle_group: 'Arms', met_value: 6.0 },
-                   { name: 'Bench Press', video_url: 'https://www.youtube.com/watch?v=rT7DgCr-3pg', description: 'A basic bench press exercise', instruction: 'Press the barbell', equipment: 'Barbell', muscle_group: 'Chest', met_value: 9.5 }
+                   { name: 'Push-up', video_url: 'https://youtu.be/0pkjOk0EiAk?si=MzN0X159QPBp0b3L', description: 'A basic push-up exercise', instruction: 'Keep your body straight', equipment: 'None', muscle_group: 'Chest', met_value: 8.0 },
+                   { name: 'Squat', video_url: 'https://youtu.be/xqvCmoLULNY?si=ZFzMf9lKKr6IHdsG', description: 'A basic squat exercise', instruction: 'Keep your back straight', equipment: 'None', muscle_group: 'Quadriceps', met_value: 7.5 },
+                   { name: 'Pull-up', video_url: 'https://youtu.be/HRV5YKKaeVw?si=AbS4APZYRg-qqhQ0', description: 'A basic pull-up exercise', instruction: 'Pull yourself up', equipment: 'Pull-up bar', muscle_group: 'Back', met_value: 9.0 },
+                   { name: 'Bicep Curl', video_url: 'https://youtu.be/ykJmrZ5v0Oo?si=-TSm_mbEaqY6SZkb', description: 'A basic bicep curl exercise', instruction: 'Curl the dumbbells', equipment: 'Dumbbells', muscle_group: 'Arms', met_value: 6.0 },
+                   { name: 'Bench Press', video_url: 'https://youtu.be/SCVCLChPQFY?si=-3dZtikmwYos8ILy', description: 'A basic bench press exercise', instruction: 'Press the barbell', equipment: 'Barbell', muscle_group: 'Chest', met_value: 9.5 }
                  ])
 
 GroupClass.create!([
