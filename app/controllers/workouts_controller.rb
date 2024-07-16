@@ -1,4 +1,13 @@
 class WorkoutsController < ApplicationController
+  def index
+    @workouts = Workout.all
+  end
+
+  def show
+    @workout = Workout.find(params[:id])
+    @workout_exercises = @workout.workout_exercises.includes(:exercise)
+  end
+
   def summary
     @workout = Workout.find(params[:id])
     @exercises = @workout.exercises
@@ -13,8 +22,8 @@ class WorkoutsController < ApplicationController
       {
         name: exercise.name,
         volume: workout_exercise.volume,
-        weight: workout_exercise.kg
-        # pr: exercise.pr
+        weight: workout_exercise.kg,
+        pr: check_pr(exercise, workout_exercise.kg, @workout.user)
       }
     end
   end
