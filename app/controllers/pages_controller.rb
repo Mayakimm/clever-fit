@@ -12,6 +12,9 @@ class PagesController < ApplicationController
     @today_date = Date.today.day
     @today_day = Date.today.strftime("%a")
     #workout info
+    @workout_types = Workout.all.map(&:workout_type)
+      raise
+    end
     #class.all
     @groupe_classes = GroupClass.all
 

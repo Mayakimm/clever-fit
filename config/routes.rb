@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:edit, :update, :show]
 
-
   get "home", to: "pages#home"
 
 end
