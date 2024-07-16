@@ -9,6 +9,8 @@ class PagesController < ApplicationController
       "https://cdn10.picryl.com/photo/1981/09/03/a-recruit-from-the-physical-conditioning-platoon-does-weight-lifting-exercises-390008-1024.jpg"]
     @rand_img = @img_sources.sample
     #workout status of the day
+    @today_date = Date.today.day
+    @today_day = Date.today.strftime("%a")
     #workout info
     #class.all
     #the profile bar
