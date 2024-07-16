@@ -15,4 +15,6 @@ Rails.application.routes.draw do
       get 'summary'
     end
   end
+
+  get "home", to:"pages#home"
 end
