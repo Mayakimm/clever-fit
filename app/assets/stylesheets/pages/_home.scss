@@ -29,9 +29,16 @@ body {
 
 .daily-calendar {
   width: 50px;
+  border-style: solid;
+  border-width: 0.2px;
   border-radius: 100px;
   align-items: center;
-  background-color: var($blue1);
+  border-color: $blue1;
+  color: $blue1;
+  &:hover {
+    background-color: $blue1;
+    color: white;
+  }
 }
 
 .group-class-index{
@@ -66,7 +73,7 @@ body {
   left: 24px;
   width: 88%;
   margin: O auto;
-  background-color: #00000024;
+  background-color: $blue1;
   box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
