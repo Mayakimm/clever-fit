@@ -9,12 +9,11 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile || current_user.build_profile(profile_params)
 
     if @profile.update(profile_params)
-      redirect_to root_path, notice: 'Profile was successfully updated.'
+      redirect_to root_path, notice: 'Thank you! Profile was successfully updated! :D'
     else
       render :edit
     end
   end
-
 
   def show
     @profile = current_user.profile
