@@ -6,5 +6,12 @@ class User < ApplicationRecord
   has_many :workouts
   has_many :group_classes
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
+  after_create :create_profile
+
+  private
+
+  def create_profile
+    Profile.create(user: self)
+  end
 end
