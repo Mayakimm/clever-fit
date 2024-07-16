@@ -11,24 +11,31 @@
 @import "components/index";
 @import "pages/index";
 
-
-//.profile-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
-  margin-top: 50px;
+  box-sizing: border-box;
 }
 
-//.edit-profile-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
+.profile-container h1 {
+  margin-bottom: 20px;
   color: #007AB3
 }
 
-//h1 {
-  color: #003A54
+.profile-container p {
+  margin: 5px 0;
+  color: #00A9F8
+}
+
+.profile-container .btn {
+  margin-top: 20px;
+}
+
+.label {
+  font-weight: bold;
+  color: black;
 }
