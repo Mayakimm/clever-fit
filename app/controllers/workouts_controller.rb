@@ -15,7 +15,6 @@ class WorkoutsController < ApplicationController
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
 
     @total_kg_lifted = @exercises.sum(:kg)
-    @calories_burnt = total_calories_burnt
 
     @exercise_detail = @exercises.map do |exercise|
       workout_exercise = WorkoutExercise.find_by(exercise: exercise, workout: @workout)
@@ -26,11 +25,13 @@ class WorkoutsController < ApplicationController
         pr: check_pr(exercise, workout_exercise.kg, @workout.user)
       }
     end
+    @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
   end
 
   private
 
-  def calculate_calories_burnt(workout_exercises, profile)
+  def calculate_calories_burnt(workout_exercises)
+    profile = current_user.profile
     age = profile.age
     height = profile.height # in cm
     weight = profile.weight # in kg
@@ -62,7 +63,7 @@ class WorkoutsController < ApplicationController
 
   def check_pr(exercise, current_weight, user)
     max_weight = WorkoutExercise.joins(:workout)
-                                .where(workouts: { user_id: user.id }, exercise: exercise)
+                                .where(workouts: { user: user }, exercise: exercise)
                                 .maximum(:kg)
     current_weight > max_weight ? 'PR' : nil
   end
