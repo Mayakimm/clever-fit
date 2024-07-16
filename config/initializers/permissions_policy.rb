@@ -11,3 +11,6 @@
 #   policy.fullscreen  :self
 #   policy.payment     :self, "https://secure.example.com"
 # end
+Rails.application.config.content_security_policy do |policy|
+  policy.frame_ancestors :self, 'https://www.youtube.com'
+end
