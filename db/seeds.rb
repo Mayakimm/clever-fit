@@ -33,7 +33,7 @@ Profile.create!([
     experience_points: calculate_xp(510, 200), level: 1 },
   { name: 'Bob Brown', gender: 'Male', age: 35, goal: 'Cardio Fitness', address: '101 Pine St, Rome, Italy', city: 'Rome', user: User.fourth, weight: 85.0, height: 180.0,
     experience_points: calculate_xp(1010, 300), level: 3 },
-  { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', , city: 'New York', user: User.fifth, weight: 90.0, height: 175.0,
+  { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', city: 'New York', user: User.fifth, weight: 90.0, height: 175.0,
     experience_points: calculate_xp(750, 270), level: 2 }
 ])
 
