@@ -3,7 +3,6 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
-
   def overview
     @workout = Workout.find(params[:id])
     @exercises = @workout.exercises.includes(:exercise_category)
@@ -40,7 +39,24 @@ class WorkoutsController < ApplicationController
     @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
   end
 
+  def create
+    @workout = Workout.new(workout_params)
+    @workout.user = current_user
+
+    if @workout.save
+      @workout.calculate_total_volume
+      current_user.calculate_xp  # Update XP after saving the workout
+      redirect_to @workout, notice: 'Workout was successfully created.'
+    else
+      render :new
+    end
+  end
+
   private
+
+  def workout_params
+    params.require(:workout).permit(:name, :workout_type, :user_id, :start_time, :end_time)
+  end
 
   def calculate_calories_burnt(workout_exercises)
     profile = current_user.profile
