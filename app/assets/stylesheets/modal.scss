@@ -1,28 +1,27 @@
 .modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
-
-
 .modal-content {
   background-color: #FAF6F4;
   padding: 20px;
   border: 1px solid #888;
   max-width: 400px;
   width: 90%;
-  text-align: center; /* Center align text within modal content */
+  text-align: center;
+  margin: auto;
+  margin-top: 10%;
+  border-radius: 20px;
 }
 
+
 .modal-content h2 {
-  margin-top: 10px; /* Remove default margin */
+  margin-top: 10px;
   margin-bottom: 20px;
   color: #007AB3;
   font-weight: bold;
@@ -32,7 +31,7 @@
 .modal-content ul {
   list-style-type: none;
   padding: 0;
-  text-align: center; /* Center align content horizontally */
+  text-align: center;
 }
 
 .close {
@@ -60,11 +59,11 @@
   color: #007AB3;
   border-color: #007AB3;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: background-color 0.3s ease;
   width: 200px;
   height: 50px;
-  display: inline-block; /* Ensure buttons are displayed inline */
+  display: inline-block;
 }
 
 .workout-type-button:hover {
