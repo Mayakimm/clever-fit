@@ -1,25 +1,38 @@
-<h1>Awesome!<h1>
+<div class="workout_summary">
 
-<div class="workout-summary">
-  <p> Total Time <%= @duration %> minutes <p>
-  <p> Total Volume <%= @total_kg_lifted %> KG <p>
-  <p> Total Calories Burnt <%= @calories_burnt %> kcal <p>
-  <p> PR's <%= @pr_count %>
+  <h1>Awesome!</h1>
+
+  <div class="card">
+    <p>Total Time:</p>
+    <p><%= @duration %> minutes</p>
+  </div>
+  <div class="card">
+    <p>Total Volume:</p>
+    <p><%= @total_kg_lifted %> KG</p>
+  </div>
+  <div class="card">
+    <p>Total Calories Burnt:</p>
+    <p><%= @calories_burnt %> kcal</p>
+  </div>
+  <div class="card">
+    <p>PRs:</p>
+    <p><%= @pr_count %></p>
+  </div>
 
   <table>
     <thead>
       <tr>
         <th>Exercise</th>
-        <th>Volume
+        <th>Volume</th>
       </tr>
     </thead>
     <tbody>
-    <% @exercise_detail.each do |exercise| %>
-      <tr>
-        <td><%= exercise[:name] %></td>
-        <td><%= exercise[:volume] %></td>
-      </tr>
-    <% end %>
-  </tbody>
+      <% @exercise_detail.each do |exercise| %>
+        <tr>
+          <td><%= exercise[:name] %></td>
+          <td><%= exercise[:volume] %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

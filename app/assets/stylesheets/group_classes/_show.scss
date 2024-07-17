@@ -28,14 +28,16 @@
     .group-class-img-info {
       width: 120px;
       position: absolute;
-      bottom: 50px;
-      left: 40px;
+      top: 30px;
+      right: 30px;
       color: white;
     }
   }
 }
 
-
+.activity-category {
+  margin-left: 10px;
+}
 .activity-item {
   background-color: white;
   font-size:10px;
@@ -46,6 +48,7 @@
 .activity-result {
   font-size:9px;
   margin-top: 5px;
+  margin-bottom: 0;
   text-align: center;
   font-weight:lighter
 }
