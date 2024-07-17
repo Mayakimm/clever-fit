@@ -8,5 +8,5 @@
   <p><strong>Weight:</strong> <%= @profile.weight %></p>
   <p><strong>Address:</strong> <%= @profile.address %></p>
   <%= link_to 'Edit Profile', edit_profile_path, class: 'btn btn-primary' %>
-  <%= link_to 'Back', home_path %>
+  <%= link_to "Back", home_path, class: "btn btn-secondary", onclick: "window.location.href='#{home_path}'" %>
 </div>

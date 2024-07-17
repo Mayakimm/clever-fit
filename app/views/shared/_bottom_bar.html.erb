@@ -1,6 +1,6 @@
 <div class="bottom-bar rounded-pill">
     <p class="bar-button ms-3">
-        <%= link_to home_path, class: "text-decoration-none text-white" do %>
+        <%= link_to home_path, class: "text-decoration-none text-white", onclick: "window.location.href='#{home_path}'" do %>
             <i class="fa-solid fa-house" style="color: #ffffff;"></i>
         <% end %>
     </p>

@@ -11,7 +11,7 @@
   background-color: #FAF6F4;
   padding: 20px;
   border: 1px solid #888;
-  max-width: 400px;
+  max-width: 300px;
   width: 90%;
   text-align: center;
   margin: auto;
@@ -19,6 +19,12 @@
   border-radius: 20px;
 }
 
+.modal-content h1 {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #007AB3;
+}
 
 .modal-content h2 {
   margin-top: 10px;
