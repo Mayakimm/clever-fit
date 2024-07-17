@@ -9,7 +9,10 @@
 }
 
 .workout_summary h1 {
-  color: red;
+  color: #2c3e50;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
 .workout_summary .card {
@@ -20,11 +23,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 80px;
   margin: 10px 0;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .workout_summary p {
-  font: 18px;
-  margin: 10 px 0;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.workout_summary table {
+  width: 80%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #007AB3;
+}
+
+.workout_summary th, .workout_summary td {
+  border: none;
+  padding: 12px;
+  text-align: center;
+  color: white;
+}
+
+.workout_summary th {
+  background-color: #007AB3;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.workout_summary td {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
