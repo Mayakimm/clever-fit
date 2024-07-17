@@ -18,11 +18,11 @@ User.create!([
 ])
 
 Profile.create!([
-  { name: 'John Doe', gender: 'Male', age: 30, goal: 'Weight Loss', address: '123 Main St, London, UK', city: 'London', user: User.first, weight: 80.5, height: 175.0 },
-  { name: 'Jane Smith', gender: 'Female', age: 25, goal: 'Muscle Gain', address: '456 Elm St, Paris, France', city: 'Paris', user: User.second, weight: 65.0, height: 165.0 },
-  { name: 'Alice Jones', gender: 'Female', age: 28, goal: 'Maintain Fitness', address: '789 Oak St, Berlin, Germany', city: 'Berlin', user: User.third, weight: 70.0, height: 170.0 },
-  { name: 'Bob Brown', gender: 'Male', age: 35, goal: 'Cardio Fitness', address: '101 Pine St, Rome, Italy', city: 'Rome', user: User.fourth, weight: 85.0, height: 180.0 },
-  { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', city: 'New York', user: User.fifth, weight: 90.0, height: 175.0 }
+  { name: 'John Doe', gender: 'Male', age: 30, goal: 'Weight Loss', address: '123 Main St, London, UK', user: User.first, weight: 80.5, height: 175.0 },
+  { name: 'Jane Smith', gender: 'Female', age: 25, goal: 'Muscle Gain', address: '456 Elm St, Paris, France', user: User.second, weight: 65.0, height: 165.0 },
+  { name: 'Alice Jones', gender: 'Female', age: 28, goal: 'Maintain Fitness', address: '789 Oak St, Berlin, Germany', user: User.third, weight: 70.0, height: 170.0 },
+  { name: 'Bob Brown', gender: 'Male', age: 35, goal: 'Cardio Fitness', address: '101 Pine St, Rome, Italy', user: User.fourth, weight: 85.0, height: 180.0 },
+  { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', user: User.fifth, weight: 90.0, height: 175.0 }
 ])
 
 Exercise.create!([
@@ -56,14 +56,6 @@ Exercise.create!([
 ])
 
 GroupClass.create!([
-  { name: 'Yoga Class', address: 'Studio 1, London, UK', city: 'London', date: '2024-07-20', time: '10:00', limit_of_students: 20, description: 'A relaxing yoga class', contact: 'contact@yoga.com', user: User.first, level:'Beginner'},
-  { name: 'HIIT Class', address: 'Gym B, Paris, France', city: 'Paris', date: '2024-07-21', time: '11:00', limit_of_students: 15, description: 'High-intensity interval training', contact: 'contact@hiit.com', user: User.second, level:'All-level' },
-  { name: 'Pilates Class', address: 'Fitness Center, Berlin, Germany', city: 'Berlin', date: '2024-07-22', time: '12:00', limit_of_students: 10, description: 'A core-strengthening pilates class', contact: 'contact@pilates.com', user: User.third, level:'Expert' },
-  { name: 'Spin Class', address: 'Cycling Studio, Rome, Italy', city: 'Rome', date: '2024-07-23', time: '13:00', limit_of_students: 25, description: 'An energetic spin class', contact: 'contact@spin.com', user: User.fourth, level:'Beginner' },
-  { name: 'Zumba Class', address: 'Dance Hall, New York, USA', city: 'New York', date: '2024-07-24', time: '14:00', limit_of_students: 30, description: 'A fun Zumba dance class', contact: 'contact@zumba.com', user: User.fifth, level:'Intermediate' }
-])
-
-GroupClass.create!([
   { name: 'Hot Yoga', address: 'Studio 1, London, UK', city: 'London', date: '2024-07-20', time: '10:00', limit_of_students: 20, description: 'Join us for a relaxing hot yoga session where you will be guided through a series of stretches and poses designed to improve flexibility and reduce stress. Suitable for all levels, our experienced instructor, Sarah, will ensure you leave feeling refreshed and rejuvenated.', contact: 'contact@yoga.com', user: User.first, level: 'Beginner' },
   { name: 'Power HIIT', address: 'Gym B, Paris, France', city: 'Paris', date: '2024-07-21', time: '11:00', limit_of_students: 15, description: 'Experience a high-intensity interval training (HIIT) session that will push you to your limits. This class is designed to burn maximum calories in a short amount of time through intense bursts of exercise followed by short recovery periods. Perfect for those looking to increase their fitness level. Led by our expert trainer, John.', contact: 'contact@hiit.com', user: User.second, level: 'All-level' },
   { name: 'Reformer Pilates', address: 'Fitness Center, Berlin, Germany', city: 'Berlin', date: '2024-07-22', time: '12:00', limit_of_students: 10, description: 'Strengthen your core and improve your overall fitness with our reformer pilates class. This session focuses on controlled movements and breathing techniques to enhance your physical strength, flexibility, and posture. Ideal for individuals seeking a balanced and low-impact workout. Your instructor, Emily, is highly skilled in pilates techniques.', contact: 'contact@pilates.com', user: User.third, level: 'Expert' },
@@ -73,6 +65,14 @@ GroupClass.create!([
   { name: 'Advanced HIIT', address: 'Gym C, London, UK', city: 'London', date: '2024-07-26', time: '16:00', limit_of_students: 15, description: 'Push your limits with our advanced HIIT class designed for those who are ready to take their fitness to the next level. Our experienced trainer, David, will guide you through high-intensity intervals for a maximum calorie burn.', contact: 'contact@advancedhiit.com', user: User.second, level: 'Expert' },
   { name: 'Pilates for Beginners', address: 'Fitness Center, London, UK', city: 'London', date: '2024-07-27', time: '17:00', limit_of_students: 10, description: 'Perfect for those new to pilates, this class focuses on the fundamentals of pilates to build a strong foundation. Our instructor, Lisa, has years of experience and will ensure you learn the correct techniques and postures.', contact: 'contact@pilatesbeginners.com', user: User.third, level: 'Beginner' },
   { name: 'Cardio Spin', address: 'Cycling Studio, London, UK', city: 'London', date: '2024-07-28', time: '18:00', limit_of_students: 25, description: 'Join our cardio spin class for an intense workout that focuses on building cardiovascular endurance. Led by our enthusiastic instructor, Paul, this class is perfect for those looking to get their heart rate up and burn calories.', contact: 'contact@cardiospin.com', user: User.fourth, level: 'All-level' },
+  ])
+
+Workout.create!([
+  { name: 'Push', workout_type: 'Push', user: User.first, start_time: '2024-07-20 08:00:00', end_time: '2024-07-20 09:00:00' },
+  { name: 'Pull', workout_type: 'Pull', user: User.second, start_time: '2024-07-21 08:00:00', end_time: '2024-07-21 09:00:00' },
+  { name: 'Legs', workout_type: 'Legs', user: User.third, start_time: '2024-07-22 08:00:00', end_time: '2024-07-22 09:00:00' },
+  { name: 'Cardio', workout_type: 'Cardio', user: User.fourth, start_time: '2024-07-23 08:00:00', end_time: '2024-07-23 09:00:00' },
+  { name: 'Freestyle', workout_type: 'Freestyle', user: User.fifth, start_time: '2024-07-24 08:00:00', end_time: '2024-07-24 09:00:00' }
 ])
 
 WorkoutExercise.create!([
