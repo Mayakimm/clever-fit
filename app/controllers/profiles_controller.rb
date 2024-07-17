@@ -45,6 +45,8 @@ class ProfilesController < ApplicationController
       50
     when 'Cardio'
       100
+    else
+      0
     end
   end
 end

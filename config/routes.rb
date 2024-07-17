@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :workouts, only: [:index, :show] do
+  resources :workouts, only: %i[index show create] do
     member do
       get 'overview'
       get 'description'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [:edit, :update, :show] do
+  resource :profile, only: %i[edit update show] do
     member do
       get 'profile_dashboard'
     end
