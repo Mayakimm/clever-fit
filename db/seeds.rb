@@ -73,14 +73,14 @@ Workout.create!([
 
 WorkoutExercise.create!([
   # Push Workout Exercises
-  { kg: 0, set: 3, time: '00:30:00', calories: 150, volume: 0, exercise: Exercise.find_by(name: 'Push-up'), workout: Workout.find_by(name: 'Push') },
+  { kg: 0, set: 3, time: '00:30:00', calories: 150, volume: 25, exercise: Exercise.find_by(name: 'Push-up'), workout: Workout.find_by(name: 'Push') },
   { kg: 20, set: 4, time: '00:45:00', calories: 200, volume: 80, exercise: Exercise.find_by(name: 'Bench Press'), workout: Workout.find_by(name: 'Push') },
   { kg: 30, set: 4, time: '00:45:00', calories: 220, volume: 120, exercise: Exercise.find_by(name: 'Overhead Press'), workout: Workout.find_by(name: 'Push') },
-  { kg: 0, set: 3, time: '00:30:00', calories: 100, volume: 0, exercise: Exercise.find_by(name: 'Tricep Dip'), workout: Workout.find_by(name: 'Push') },
+  { kg: 0, set: 3, time: '00:30:00', calories: 100, volume: 25, exercise: Exercise.find_by(name: 'Tricep Dip'), workout: Workout.find_by(name: 'Push') },
   { kg: 25, set: 4, time: '00:35:00', calories: 210, volume: 100, exercise: Exercise.find_by(name: 'Incline Bench Press'), workout: Workout.find_by(name: 'Push') },
 
   # Pull Workout Exercises
-  { kg: 0, set: 3, time: '00:30:00', calories: 150, volume: 0, exercise: Exercise.find_by(name: 'Pull-up'), workout: Workout.find_by(name: 'Pull') },
+  { kg: 0, set: 3, time: '00:30:00', calories: 150, volume: 10, exercise: Exercise.find_by(name: 'Pull-up'), workout: Workout.find_by(name: 'Pull') },
   { kg: 50, set: 4, time: '00:45:00', calories: 250, volume: 200, exercise: Exercise.find_by(name: 'Deadlift'), workout: Workout.find_by(name: 'Pull') },
   { kg: 40, set: 4, time: '00:45:00', calories: 230, volume: 160, exercise: Exercise.find_by(name: 'Bent-over Row'), workout: Workout.find_by(name: 'Pull') },
   { kg: 30, set: 3, time: '00:30:00', calories: 180, volume: 90, exercise: Exercise.find_by(name: 'Lat Pulldown'), workout: Workout.find_by(name: 'Pull') },
