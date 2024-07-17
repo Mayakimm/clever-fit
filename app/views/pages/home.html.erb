@@ -84,22 +84,27 @@
 <%# #Class for you title with class cards %>
 <div class="group-class-index">
   <h2>Class for you</h2>
-  <% @groupe_classes.each do |group_class|%>
-    <%= link_to group_class_path(group_class), class: "group-class-card-link text-decoration-none text-dark" do %>
-      <div class="group-class-card d-flex px-4 py-2">
-        <div class="group-class-image p-3">image</div>
-        <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
-          <div class="card-letters pt-1 pb-3">
-            <p class="mb-0 fs-5"><%=group_class.name%></p>
-            <p class="mb-1"><%=group_class.time.strftime('%H:%M')%>, <%=group_class.date.day%>/<%=group_class.date.month%> (<%=group_class.date.strftime("%a")%>)</p>
+  <% if @groupe_classes.any? %>
+    <% @groupe_classes.each do |group_class|%>
+      <%= link_to group_class_path(group_class), class: "group-class-card-link text-decoration-none text-dark" do %>
+        <div class="group-class-card d-flex px-4 py-2">
+          <div class="group-class-image p-3">
+            <%= image_tag group_class.image_url, alt: "GroupClass Image", class: "group-class-img"%>
           </div>
-          <%# <div class="price"> %>
-            <%# <p class="text-end fs-5 mb-0">€ <%= group_class.price %>
-          <%# </div> %>
+          <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
+            <div class="card-letters pt-1 pb-3">
+              <p class="mb-0 fs-5"><%=group_class.name%></p>
+              <p class="mb-1"><%=group_class.time.strftime('%H:%M')%>, <%=group_class.date.day%>/<%=group_class.date.month%> (<%=group_class.date.strftime("%a")%>)</p>
+            </div>
+            <%# <div class="price"> %>
+              <%# <p class="text-end fs-5 mb-0">€ <%= group_class.price %>
+            <%# </div> %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-
+  <%else%>
+    <p>No upcoming class.</p>
+  <%end%>
 </div>
 <%# #the profile bar %>

@@ -94,12 +94,23 @@ body {
 // }
 
 .group-class-image {
-  background-color: rgb(185, 185, 255);
+  // background-color: rgb(185, 185, 255);
   width: 100px;
   height: 100px;
   text-align: center;
   align-items: center;
   border-radius: 10px;
+  overflow: hidden;  /* Prevents the image from overflowing the div */
+  position: relative;
+
+  .group-class-img {
+    width: 100%;  /* Makes the image take up the full width of the div */
+    height: 100%; /* Makes the image take up the full height of the div */
+    object-fit: cover;  /* Ensures the image covers the div without distortion */
+    position: absolute; /* Allows the image to be positioned absolutely within the div */
+    top: 0;
+    left: 0;
+  }
 }
 
 .bottom-bar {
