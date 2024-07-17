@@ -5,6 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :workouts
   has_many :group_classes
+  has_one :profile, dependent: :destroy
 
-  has_one :profile
+  after_create :create_profile
+
+  validates :email, presence: true, uniqueness: true
+  validates :encrypted_password, presence: true
+
+  private
+
+  def create_profile
+    Profile.create(user: self)
+  end
 end

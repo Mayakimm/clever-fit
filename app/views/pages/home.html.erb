@@ -1,93 +1,103 @@
 <%# #image box where it is writtne Weekly Hightlights%>
-<div>
-  <div class="image-container d-flex justify-content-center mx-3 my-3">
+<div class="img-container">
+  <div class="img-box d-flex justify-content-center">
     <%= image_tag @rand_img, alt: "Random Image", class:"rand-image rounded-5"%>
   </div>
-  <%# <div class="img-heading">
-    <h2>Weekly<br>Highlights</h2>
-  </div> %>
+  <div class="img-title">
+    <h2 class="fs-1">Weekly<br>Highlights</h2>
+  </div>
 </div>
 
 <%# #calendar of the week #with toggleable button %>
-<div class="weekly-calendar d-flex justify-content-evenly">
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+<div class="weekly-calendar d-flex justify-content-between">
+  <div class="daily-calendar d-flex flex-column py-0">
+    <p class="mt-1 mb-0">●</p> <%# if there is a record%>
+    <p class="mb-0">Sun</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+  <div class="daily-calendar d-flex flex-column py-0">
+    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
+    <p class="mb-0">Mon</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+  <div class="daily-calendar d-flex flex-column py-0">
+    <p class="mt-1 mb-0">●</p> <%# if there is a record%>
+    <p class="mb-0">Tue</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+  <div class="daily-calendar d-flex flex-column py-0">
+    <p class="mt-1 mb-0">●</p> <%# if there is a record%>
+    <p class="mb-0">Wed</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+  <div class="daily-calendar d-flex flex-column py-0">
+    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
+    <p class="mb-0">Thu</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
-  <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+  <div class="daily-calendar d-flex flex-column py-0">
+    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
+    <p class="mb-0">Fri</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
-    <div class="day d-flex flex-column border rounded-5 px-2 py-3">
-    <p class="mb-1">*</p> <%# if there is a record%>
-    <p class="mb-1"><%= @today_day %></p>
-    <p class="mb-1"><%= @today_date%></p>
+    <div class="daily-calendar d-flex flex-column px-2 py-0">
+    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
+    <p class="mb-0">Sat</p>
+    <p class="mt-0 mb-1"><%= @today_date%></p>
   </div>
 </div>
 
+<div class="daily-summary d-none">
+  <p class="mb-0 fs-6">
+    💪 Workout Type : “Strength Training”<br>
+    ⏳ Duration : 45 mins<br>
+    🔥 Calories Burnt : 350 kcal
+  </p>
+</div>
 <%# #Activities list %>
-<div class="my-5 mx-4">
+<div class="activity-section">
   <h2>Activities</h2>
-  <div class="d-flex justify-content-evenly mt-3">
+  <div class="activity-category d-flex justify-content-evenly mt-3">
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <p class="border rounded-circle p-3 mb-0">🧘‍♀️</p>
+      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
       <p> type </p>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-      <p class="border rounded-circle p-3 mb-0">🧘‍♀️</p>
+    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
+      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
       <p> type </p>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-      <p class="border rounded-circle p-3 mb-0">🧘‍♀️</p>
+    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
+      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
       <p> type </p>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-      <p class="border rounded-circle p-3 mb-0">🧘‍♀️</p>
+    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
+      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
       <p> type </p>
     </div>
-    <div class="d-flex flex-column justify-content-center align-items-center">
-      <p class="border rounded-circle p-3 mb-0">🧘‍♀️</p>
+    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
+      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
       <p> type </p>
     </div>
   </div>
 </div>
+
 <%# #Class for you title with class cards %>
-<div class="group-class-index m-auto">
+<div class="group-class-index">
   <h2>Class for you</h2>
-  <div class="d-flex p-3">
-    <div class="group-class-image">image</div>
-    <div class="flex-grow-1 card-info ms-3 d-flex flex-column">
-      <div class="card-letters pt-3">
-        <p>Hot Yoga</p>
-        <p>Date</p>
-      </div>
-      <div class="price">
-        <p>Price</p>
+  <% @groupe_classes.each do |group_class|%>
+    <div class="group-class-card d-flex px-4 py-2">
+      <div class="group-class-image p-3">image</div>
+      <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
+        <div class="card-letters pt-3">
+          <p class="mb-0 fs-4"><%=group_class.name%></p>
+          <p class="mb-1"><%=group_class.time.strftime('%H:%M')%>, <%=group_class.date.day%>/<%=group_class.date.month%> (<%=group_class.date.strftime("%a")%>)</p>
+        </div>
+        <%# <div class="price"> %>
+          <%# <p class="text-end fs-5 mb-0">€ <%= group_class.price %>
+        <%# </div> %>
       </div>
     </div>
-  </div>
+  <% end %>
 
 </div>
 <%# #the profile bar %>

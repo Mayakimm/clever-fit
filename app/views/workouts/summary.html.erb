@@ -1,0 +1,25 @@
+<h1>Awesome!<h1>
+
+<div class="workout-summary">
+  <p> Total Time <%= @duration %> minutes <p>
+  <p> Total Volume <%= @total_kg_lifted %> KG <p>
+  <p> Total Calories Burnt <%= @calories_burnt %> kcal <p>
+  <p> PR's <%= @pr_count %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Volume
+      </tr>
+    </thead>
+    <tbody>
+    <% @exercise_detail.each do |exercise| %>
+      <tr>
+        <td><%= exercise[:name] %></td>
+        <td><%= exercise[:volume] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>
