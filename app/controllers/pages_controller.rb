@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @today_date = Date.today.day
     @today_day = Date.today.strftime("%a")
     #workout info
+
     def index
       @workout_types = Workout.distinct.pluck(:workout_type)
     end
