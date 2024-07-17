@@ -1,7 +1,13 @@
 <div class="center-content">
   <h1>Today is <%= @workout.name %> day</h1>
+
   <%= image_tag "#{@workout.name.downcase}.png" %>
-  
+
+  <div>
+    <p><strong>Activated muscles:</strong> <%= @workout.muscle_group %></p>
+    <p> <%= @workout.muscle_group %></p>
+      <p>⏰ <%= @duration %> minutes</p>
+  </div>
 
   <div class="button-container">
     <%= link_to "Change Body Part", "#", class: "btn btn-primary-custom" %>

@@ -68,7 +68,7 @@ GroupClass.create!([
   ])
 
 Workout.create!([
-  { name: 'Push', workout_type: 'Push', user: User.first, start_time: '2024-07-20 08:00:00', end_time: '2024-07-20 09:00:00' },
+  { name: 'Push', workout_type: 'Push', user: User.first, start_time: '2024-07-20 08:00:00', end_time: '2024-07-20 09:00:00'  },
   { name: 'Pull', workout_type: 'Pull', user: User.second, start_time: '2024-07-21 08:00:00', end_time: '2024-07-21 09:00:00' },
   { name: 'Legs', workout_type: 'Legs', user: User.third, start_time: '2024-07-22 08:00:00', end_time: '2024-07-22 09:00:00' },
   { name: 'Cardio', workout_type: 'Cardio', user: User.fourth, start_time: '2024-07-23 08:00:00', end_time: '2024-07-23 09:00:00' },
