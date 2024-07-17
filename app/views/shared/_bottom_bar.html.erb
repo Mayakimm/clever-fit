@@ -1,13 +1,35 @@
 <div class="bottom-bar rounded-pill">
     <p class="bar-button ms-3">
-      <%= link_to home_path, class: "text-decoration-none text-white" do %>
-        <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-      <% end %>
+        <%= link_to home_path, class: "text-decoration-none text-white", onclick: "window.location.href='#{home_path}'" do %>
+            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+        <% end %>
     </p>
-    <p class="bar-button"><%= link_to "ChooseWorkout", home_path, class:"text-decoration-none text-white" %></p>
+
+    <p class="bar-button">
+        <%= link_to "#", id: "chooseWorkoutButton", class: "text-decoration-none text-white btn btn-link" do %>
+        Choose Workout
+        <% end %>
+    </p>
     <p class="bar-button me-3">
-      <%= link_to home_path, class:"text-decoration-none text-white" do %>
-        <i class="fa-solid fa-user" style="color: #ffffff;"></i>
-      <% end %>
+        <%= link_to profile_path, class: "text-decoration-none text-white" do %>
+            <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+        <% end %>
     </p>
 </div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>💪</h1>
+        <h2>Choose Today's Program!</h2>
+        <ul>
+            <li><button id="workoutType1" class="workout-type-button">PUSH</button></li>
+            <li><button id="workoutType2" class="workout-type-button">PULL</button></li>
+            <li><button id="workoutType3" class="workout-type-button">LEGS</button></li>
+            <li><button id="workoutType4" class="workout-type-button">CARDIO</button></li>
+            <li><button id="workoutType5" class="workout-type-button">FREESTYLE</button></li>
+        </ul>
+    </div>
+</div>
+
+<script src="<%= asset_path('modal.js') %>"></script>
