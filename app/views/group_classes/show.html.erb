@@ -1,0 +1,16 @@
+<div class="img-container">
+  <div class="img-box d-flex justify-content-center">
+    <%= image_tag @rand_img, alt: "Random Image", class:"rand-image rounded-5"%>
+  </div>
+  <div class="img-title">
+    <h2 class="fs-1"><%= @group_class.name %></h2>
+  </div>
+</div>
+
+<div class="text-container">
+  <%= @group_class.address %>
+  <p><%= @group_class.time %>, <%=@group_class.date.day %> <%=@group_class.date.month %> (<%=@group_class.strftime("%a")%>)</p>
+</div>
+name: 'Yoga Class',
+address: 'Studio 1, London, UK',
+date: '2024-07-20', time: '10:00', limit_of_students: 20, description: 'A relaxing yoga class', contact: 'contact@yoga.com', user: User.first },
