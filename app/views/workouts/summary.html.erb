@@ -1,10 +1,18 @@
 <h1>Awesome!</h1>
 
 <div class="workout-summary">
-  <p>Total Time: <%= @duration %> minutes</p>
-  <p>Total Volume: <%= @total_kg_lifted %> KG</p>
-  <p>Total Calories Burnt: <%= @calories_burnt %> kcal</p>
-  <p>PRs: <%= @pr_count %></p>
+  <div class="card">
+    <p>Total Time: <%= @duration %> minutes</p>
+  </div>
+  <div class="card">
+    <p>Total Volume: <%= @total_kg_lifted %> KG</p>
+  </div>
+  <div class="card">
+    <p>Total Calories Burnt: <%= @calories_burnt %> kcal</p>
+  </div>
+  <div class="card">
+    <p>PRs: <%= @pr_count %></p>
+  </div>
 
   <table>
     <thead>
