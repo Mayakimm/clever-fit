@@ -1,7 +1,6 @@
 <div class="center-content">
-  <h1><%= @workout.name %></h1>
+  <h1>Today is <%= @workout.name %> day</h1>
 
-  <h2>Exercises in This Workout</h2>
   <ul>
     <% @workout_exercises.each do |workout_exercise| %>
       <li>
