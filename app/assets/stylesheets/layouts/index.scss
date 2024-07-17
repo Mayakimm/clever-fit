@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+
+/* Button styles */
+.btn-primary-custom {
+  background-color: #007AB3;
+  border-color: #007AB3;
+  border-radius: 25px;
+  color: white;
+}
+
+.btn-primary-custom:hover {
+  background-color: darken(#007AB3, 10%);
+  border-color: darken(#007AB3, 10%);
+}
+
+.btn-success-custom {
+  background-color: #00A9F8;
+  border-color: #00A9F8;
+  border-radius: 25px;
+  color: white;
+}
+
+.btn-success-custom:hover {
+  background-color: darken(#00A9F8, 10%);
+  border-color: darken(#00A9F8, 10%);
+}
