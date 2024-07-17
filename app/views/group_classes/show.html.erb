@@ -1,18 +1,18 @@
 <div class="group-class-img-container">
   <div class="img-box d-flex justify-content-center">
-    <%= image_tag @rand_img, alt: "Random Image", class:"rand-image rounded-5" %>
-    <div class="group-class-img-info d-flex justify-content-between">
-      <div class="activity-category d-flex flex-column justify-content-center align-items-center">
+    <%= image_tag @group_class.image_url, alt: "Random Image", class:"rand-image rounded-5" %>
+    <div class="group-class-img-info d-flex justify-content-end">
+      <%# <div class="activity-category d-flex flex-column justify-content-center align-items-center">
         <p class="activity-item mb-0 rounded-circle" >🔥</p>
-        <p class="activity-result"> 225kcal </p>
-      </div>
+        <p class="activity-result"> 225kcal </p> %>
+      <%# </div> %>
       <div class="activity-category d-flex flex-column justify-content-center align-items-center">
-        <p class="activity-item mb-0 rounded-circle" >⏳</p>
+        <p class="activity-item mb-0 rounded-circle">⏳</p>
         <p class="activity-result"> 60min </p>
       </div>
       <div class="activity-category d-flex flex-column justify-content-center align-items-center">
         <p class="activity-item mb-0 rounded-circle" >⛳️</p>
-        <p class="activity-result"> Beginner </p>
+        <p class="activity-result"> <%=@group_class.level%> </p>
       </div>
     </div>
     <div class="group-class-img-title">
