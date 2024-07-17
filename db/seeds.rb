@@ -27,7 +27,7 @@ Profile.create!([
 
 Exercise.create!([
   # Push Exercises
-  { name: 'Push-up', video_url: 'https://youtu.be/0pkjOk0EiAk?si=MzN0X159QPBp0b3L', description: 'A basic push-up exercise', instruction: 'Keep your body straight', equipment: 'None', muscle_group: 'Chest', met_value: 8.0 },
+  { name: 'Push-up', video_url: 'https://youtu.be/0pkjOk0EiAk?si=MzN0X159QPBp0b3L',  description: 'A basic push-up exercise', instruction: 'Keep your body straight', equipment: 'None', muscle_group: 'Chest', met_value: 8.0 },
   { name: 'Bench Press', video_url: 'https://youtu.be/SCVCLChPQFY?si=-3dZtikmwYos8ILy', description: 'A basic bench press exercise', instruction: 'Press the barbell', equipment: 'Barbell', muscle_group: 'Chest', met_value: 9.5 },
   { name: 'Overhead Press', video_url: 'https://youtu.be/F3QY5vMz_6I?si=NHISwEMyZB8a5Bl3', description: 'A basic overhead press exercise', instruction: 'Press the barbell overhead', equipment: 'Barbell', muscle_group: 'Shoulders', met_value: 8.5 },
   { name: 'Tricep Dip', video_url: 'https://youtu.be/6kALZikXxLc?si=fhXaQxZdvN4-uZbb', description: 'A basic tricep dip exercise', instruction: 'Lower your body', equipment: 'Parallel Bars', muscle_group: 'Triceps', met_value: 7.0 },
