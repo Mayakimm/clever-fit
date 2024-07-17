@@ -3,5 +3,49 @@
   border-radius: 10px;
   width: 80%;
   margin: 0 auto;
+  padding: 30px 20px;
+}
 
+
+.group-class-img-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  position: relative;
+
+  .img-box {
+    position: relative;
+
+    .group-class-img-title {
+      position: absolute;
+      bottom: 20px;
+      left: 40px;
+      color: white;
+      font-weight: bolder;
+    }
+
+    .group-class-img-info {
+      width: 120px;
+      position: absolute;
+      bottom: 50px;
+      left: 40px;
+      color: white;
+    }
+  }
+}
+
+
+.activity-item {
+  background-color: white;
+  font-size:10px;
+  padding: 6px 7px;
+  align-items: center;
+  text-align: center;
+}
+.activity-result {
+  font-size:9px;
+  margin-top: 5px;
+  text-align: center;
+  font-weight:lighter
 }
