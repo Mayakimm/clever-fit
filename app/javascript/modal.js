@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
       modal.style.display = "flex";
   });
 
+  btn.onclick = function() {
+    modal.style.display = "block";
+}
   span.onclick = function() {
       modal.style.display = "none";
   };
