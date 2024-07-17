@@ -5,7 +5,8 @@ class WorkoutsController < ApplicationController
 
   def overview
     @workout = Workout.find(params[:id])
-    @exercises = @workout.exercises
+    @exercises = @workout.exercises.includes(:exercise_category)
+    @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
   end
 
   def description
