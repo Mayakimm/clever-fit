@@ -1,25 +1,26 @@
+<div class="center-content">
+  <h1><%= @workout.name %></h1>
 
-<h1><%= @workout.name %></h1>
+  <h2>Exercises in This Workout</h2>
+  <ul>
+    <% @workout_exercises.each do |workout_exercise| %>
+      <li>
+        <h3><%= workout_exercise.exercise.name %></h3>
+        <%= image_tag "#{workout_exercise.exercise.muscle_group}.png" %>
+        <p>Description: <%= workout_exercise.exercise.description %></p>
+        <p>Instruction: <%= workout_exercise.exercise.instruction %></p>
+        <p>Equipment: <%= workout_exercise.exercise.equipment %></p>
+        <p>MET Value: <%= workout_exercise.exercise.met_value %></p>
+        <p>Weight: <%= workout_exercise.kg %> kg</p>
+        <p>Sets: <%= workout_exercise.set %></p>
+        <p>Calories burned: <%= workout_exercise.calories %></p>
+      </li>
+    <% end %>
+  </ul>
 
-<h2>Exercises in This Workout</h2>
-<ul>
-  <% @workout_exercises.each do |workout_exercise| %>
-    <li>
-      <h3><%= workout_exercise.exercise.name %></h3>
-      <%= image_tag "#{workout_exercise.exercise.muscle_group}.png" %>
-      <p>Description: <%= workout_exercise.exercise.description %></p>
-      <p>Instruction: <%= workout_exercise.exercise.instruction %></p>
-      <p>Equipment: <%= workout_exercise.exercise.equipment %></p>
-      <p>MET Value: <%= workout_exercise.exercise.met_value %></p>
-      <p>Weight: <%= workout_exercise.kg %> kg</p>
-      <p>Sets: <%= workout_exercise.set %></p>
-      <p>Calories burned: <%= workout_exercise.calories %></p>
-    </li>
-  <% end %>
-</ul>
-
-<div>
-  <%= link_to "Change Body Part", "#", class: "btn btn-primary" %>
-  <%= link_to "See List of Exercises in This Program", "#", class: "btn btn-primary" %>
-  <%= link_to "Start Workout", "#", class: "btn btn-success" %>
+  <div class="button-container">
+    <%= link_to "Change Body Part", "#", class: "btn btn-primary-custom" %>
+    <%= link_to "See List of Exercises in This Program", "#", class: "btn btn-primary-custom" %>
+    <%= link_to "Start Workout", "#", class: "btn btn-success-custom" %>
+  </div>
 </div>
