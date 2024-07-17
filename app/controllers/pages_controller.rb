@@ -19,7 +19,6 @@ class PagesController < ApplicationController
     #class.all
     @profile = Profile.find(current_user.id)
     @groupe_classes = GroupClass.where(city: @profile.city)
-
     #the profile bar
   end
 end
