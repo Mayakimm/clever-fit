@@ -3,9 +3,15 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
-  def show
+
+  def overview
     @workout = Workout.find(params[:id])
-    @workout_exercises = @workout.workout_exercises.includes(:exercise)
+    @exercises = @workout.exercises
+  end
+
+  def description
+    @workout = Workout.find(params[:id])
+    @workout_exercises = @workout.workout_exercises
   end
 
   def summary
