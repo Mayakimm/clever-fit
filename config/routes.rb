@@ -5,6 +5,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :events, only: [:index, :show] do
+
+  resources :events, only: [:index]
+end
+
   resources :workouts, only: %i[index show create] do
     member do
       get 'overview'
@@ -22,5 +27,4 @@ Rails.application.routes.draw do
 
   resources :group_classes, only: [:show]
   get "home", to: "pages#home"
-
 end
