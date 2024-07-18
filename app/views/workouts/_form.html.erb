@@ -2,9 +2,14 @@
   <h1>Today is <%= @workout.name %> day</h1>
   <%= image_tag "#{@workout.name.downcase}.png" %>
 
+  <p>Activated muscles:
+    <% @muscle_groups.each do |muscle| %>
+      <%= muscle %>,
+    <% end %>
+  </p>
   <div class="button-container">
     <%= link_to "Change Body Part", "#", class: "btn btn-primary-custom" %>
-    <%= link_to "See List of Exercises in This Program", workout_description_path(@workout), class: "btn btn-primary-custom" %>
+    <%= link_to "See List of Exercises in This Program", description_workout_path(@workout), class: "btn btn-primary-custom" %>
     <%= link_to "Start Workout", "#", class: "btn btn-success-custom" %>
   </div>
 </div>

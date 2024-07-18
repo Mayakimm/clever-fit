@@ -12,6 +12,8 @@ class PagesController < ApplicationController
     @today_date = Date.today.day
     @today_day = Date.today.strftime("%a")
     #workout info
+    @workout_exercises = WorkoutExercise.all
+    @workout_names = @workout_exercises.map {|workout_exercise| workout_exercise.workout.name}.uniq
 
     def index
       @workout_types = Workout.distinct.pluck(:workout_type)

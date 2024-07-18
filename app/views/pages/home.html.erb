@@ -58,26 +58,12 @@
 <div class="activity-section">
   <h2>Activities</h2>
   <div class="activity-category d-flex justify-content-evenly mt-3">
-    <div class="d-flex flex-column justify-content-center align-items-center">
-      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
-      <p> type </p>
-    </div>
-    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
-      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
-      <p> type </p>
-    </div>
-    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
-      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
-      <p> type </p>
-    </div>
-    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
-      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
-      <p> type </p>
-    </div>
-    <div class="activity-category d-flex flex-column justify-content-center align-items-center">
-      <p class="activity-item p-3 mb-0">🧘‍♀️</p>
-      <p> type </p>
-    </div>
+    <% @workout_names.each do |type| %>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <p class="activity-item p-3 mb-0">🧘‍♀️</p>
+        <p> <%= type %> </p>
+      </div>
+    <% end %>
   </div>
 </div>
 

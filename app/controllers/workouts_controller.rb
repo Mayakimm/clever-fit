@@ -3,6 +3,12 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
+  def show
+    @workout = Workout.find(params[:id])
+    @workout_exercises = @workout.workout_exercises
+    @muscle_groups = @workout_exercises.map {|workout_exercise| workout_exercise.exercise.muscle_group}.uniq
+  end
+
   def overview
     @workout = Workout.find(params[:id])
     @exercises = @workout.exercises.includes(:exercise_category)
