@@ -36,6 +36,8 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 // GET HELP FOR IMAGE
 // ------------------------------------------
 
-// LOGOUT BUTTON
+// LOGOUT BUTTON AND EDIT PROFILE BUTTON put in a ... button top right
 // ------------------------------------------
-// 
+//
+
+//
