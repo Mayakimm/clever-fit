@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :group_classes, only: [:show]
   get "home", to: "pages#home"
 

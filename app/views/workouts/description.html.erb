@@ -1,5 +1,5 @@
 <div class="header-image">
-  <%= image_tag 'https://img.freepik.com/free-photo/woman-gym-with-smartphone-template_23-2148111618.jpg?w=1800&t=st=1721248405~exp=1721249005~hmac=6a215378d17db3cfeef770beaabcf3461693e33141c0004b5f8a078d2b7ff949', alt: 'Header Image' %>
+  <img src="https://img.freepik.com/free-photo/woman-gym-with-smartphone-template_23-2148111618.jpg?w=1800&t=st=1721248405~exp=1721249005~hmac=6a215378d17db3cfeef770beaabcf3461693e33141c0004b5f8a078d2b7ff949" alt="Gym Image">
 </div>
 
 <div class="content">
@@ -8,12 +8,10 @@
   <ul class="workout-exercises-list">
     <% @workout_exercises.each do |workout_exercise| %>
       <li class="workout-exercise-item">
-        <div class="exercise-image">
-          <%= image_tag workout_exercise.exercise.image_url, alt: workout_exercise.exercise.name %>
-        </div>
+        <img class="exercise-image" src="<%= workout_exercise.exercise.image_url %>" alt="<%= workout_exercise.exercise.name %>">
         <div class="exercise-details">
           <h3 class="exercise-name"><%= workout_exercise.exercise.name %></h3>
-          <p class="exercise-instruction">Description: <%= workout_exercise.exercise.description %></p>
+          <p class="exercise-instruction"><%= workout_exercise.exercise.description %></p>
           <p class="exercise-sets">Sets: <%= workout_exercise.set %></p>
         </div>
       </li>
@@ -24,6 +22,5 @@
     <%= link_to "Change Body Part", "#", class: "btn btn-primary-custom" %>
     <%= link_to "Back to Overview", overview_workout_path(@workout), class: "btn btn-primary-custom" %>
     <%= link_to "Start Workout", "#", class: "btn btn-success-custom" %>
-    <%= link_to "See List of Exercises in This Program", workouts_path, class: "btn btn-primary-custom" %>
   </div>
 </div>
