@@ -23,6 +23,26 @@
         <h1>💪</h1>
         <h2>Choose Today's Program!</h2>
         <ul>
+          <% @workouts.each do |workout| %>
+            <li>
+                <%= link_to workout_path(workout) do %>
+                <button id="workoutType1" class="workout-type-button"><%= workout.name %></button>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+</div>
+
+<script src="<%= asset_path('modal.js') %>"></script>
+
+<%# Below is hardcodeb version %>
+<%# <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>💪</h1>
+        <h2>Choose Today's Program!</h2>
+        <ul>
             <li><button id="workoutType1" class="workout-type-button">PUSH</button></li>
             <li><button id="workoutType2" class="workout-type-button">PULL</button></li>
             <li><button id="workoutType3" class="workout-type-button">LEGS</button></li>
@@ -30,6 +50,6 @@
             <li><button id="workoutType5" class="workout-type-button">FREESTYLE</button></li>
         </ul>
     </div>
-</div>
+</div> %>
 
-<script src="<%= asset_path('modal.js') %>"></script>
+<%# <script src="= asset_path('modal.js')"></script> %>
