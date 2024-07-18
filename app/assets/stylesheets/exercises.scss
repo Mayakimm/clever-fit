@@ -25,21 +25,23 @@
 
   .workout-exercise-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center; /* Center align items */
     margin-bottom: 30px;
   }
 
-  .exercise-image.left {
-    float: left;
-    width: 50px; /* Smaller image size */
+  .exercise-image {
+    width: 70px; /* Smaller image size */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
+    border: 2px solid white; /* Add border around image */
+    padding: 5px; /* Add padding inside the border */
   }
 
   .exercise-details {
-    text-align: right;
+    text-align: left;
+    font-style: sans-serif;
     flex-grow: 1; /* Ensures the details take the remaining space */
   }
 
