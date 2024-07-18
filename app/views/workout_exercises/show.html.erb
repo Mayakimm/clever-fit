@@ -1,6 +1,6 @@
 <h1> You're doing <%= @current_exercise.name %></h1>
 
-<div class="button-container">
+<div class="update-container d-flex justify-content-evenly">
   <p class= "btn  btn-primary rounded">
     Calories 500kcal
   </p>
@@ -12,18 +12,24 @@
 <div class="exercise-instruction d-flex flex-column m-auto p-3" style="width:80%; margin:0 auto; box-shadow: 10px 5px 5px gray;">
   <h3 class="text-center my-3"><%= @current_exercise.description %></h3>
   <%= image_tag @current_exercise.image_url, style:"width:80%; margin:0 auto" %>
-  <div classs="exercise-info" style="margin-top: 30px">
+  <div class="exercise-info" style="margin-top: 30px">
     <p>Activated Muscles: <%= @current_exercise.muscle_group %></p>
     <p>Instruction:<br><%= @current_exercise.instruction %></p>
   </div>
-  <div class="exercise-buttons m-auto">
+  <div class="exercise-buttons m-auto" data-controller="toggle-video">
     <button> history </button>
-    <button> watch video </button>
+    <button data-toggle-video-target="watch" data-action="click->toggle-video#toggle">Watch Video</button>
+    <div data-toggle-video-target="content">
+      <%# <p class="">hello</p> %>
+      <%#= video_tag @current_exercise.video_url, class:"" %>
+      <iframe class="mt-3"style="width:95%; margin:0 auto;" src="<%= @current_exercise.video_url %>" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 
-<div class="button-container">
-    <%= link_to "EndWorkout", "#", class: "btn btn-primary-custom" %>
-    <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
-    <%= link_to "Complete this set", "#", class: "btn btn-success-custom" %>
+<div class="button-container" style="width:80%; margin:0 auto; margin-top: 30px; margin-bottom:200px">
+  <%= link_to "EndWorkout", "#", class: "btn btn-primary-custom" %>
+  <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
+  <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%>" data-action="click->next#next"> Complete this set</button>
+  <%#= button_to "Next set", next_set_workout_exercise_path(@workout_exercise.id += 1), class: "btn btn-primary-custom" %>
   </div>
