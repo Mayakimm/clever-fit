@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get 'summary'
       post 'complete'
     end
+
+    resources :workout_exercises, only: %i[show]
   end
 
   resource :profile, only: %i[edit update show] do

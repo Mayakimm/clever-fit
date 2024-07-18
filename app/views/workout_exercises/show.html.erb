@@ -1,0 +1,29 @@
+<h1> You're doing <%= @current_exercise.name %></h1>
+
+<div class="button-container">
+  <p class= "btn  btn-primary rounded">
+    Calories 500kcal
+  </p>
+  <p class= "btn btn-primary rounded">
+      Time in Gym
+  </p>
+</div>
+
+<div class="exercise-instruction d-flex flex-column m-auto p-3" style="width:80%; margin:0 auto; box-shadow: 10px 5px 5px gray;">
+  <h3 class="text-center my-3"><%= @current_exercise.description %></h3>
+  <%= image_tag @current_exercise.image_url, style:"width:80%; margin:0 auto" %>
+  <div classs="exercise-info" style="margin-top: 30px">
+    <p>Activated Muscles: <%= @current_exercise.muscle_group %></p>
+    <p>Instruction:<br><%= @current_exercise.instruction %></p>
+  </div>
+  <div class="exercise-buttons m-auto">
+    <button> history </button>
+    <button> watch video </button>
+  </div>
+</div>
+
+<div class="button-container">
+    <%= link_to "EndWorkout", "#", class: "btn btn-primary-custom" %>
+    <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
+    <%= link_to "Complete this set", "#", class: "btn btn-success-custom" %>
+  </div>
