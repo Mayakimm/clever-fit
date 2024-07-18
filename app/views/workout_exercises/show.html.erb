@@ -30,6 +30,6 @@
 <div class="button-container" style="width:80%; margin:0 auto; margin-top: 30px; margin-bottom:200px">
   <%= link_to "EndWorkout", "#", class: "btn btn-primary-custom" %>
   <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
-  <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%>" data-action="click->next#next"> Complete this set</button>
-  <%#= button_to "Next set", next_set_workout_exercise_path(@workout_exercise.id += 1), class: "btn btn-primary-custom" %>
+  <%# <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%> <%#" data-action="click->next#next"> Complete this set</button> %>
+  <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "btn btn-primary-custom" %>
   </div>
