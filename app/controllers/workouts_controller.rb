@@ -39,19 +39,6 @@ class WorkoutsController < ApplicationController
     @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
   end
 
-  def create
-    @workout = Workout.new(workout_params)
-    @workout.user = current_user
-
-    if @workout.save
-      @workout.calculate_total_volume
-      current_user.calculate_xp  # Update XP after saving the workout
-      redirect_to @workout, notice: 'Workout was successfully created.'
-    else
-      render :new
-    end
-  end
-
   private
 
   def workout_params
