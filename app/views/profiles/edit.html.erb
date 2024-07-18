@@ -1,7 +1,7 @@
 <div class="profile-edit-container">
   <h1 class="profile-title">Edit Your Profile</h1>
 
-  <%= form_for(@profile, url: profile_path) do |f| %>
+  <%= form_for(@profile, url: profile_path, method: :patch) do |f| %>
     <div class="field">
       <%= f.label :name, class: 'profile-label' %>
       <%= f.text_field :name %>
@@ -21,6 +21,14 @@
     <div class="field">
       <%= f.label :weight, class: 'profile-label' %>
       <%= f.text_field :weight, placeholder: "Weight in kilos" %>
+    </div>
+    <div class="field">
+      <%= f.label :city, class: 'profile-label' %>
+       <%= f.text_field :city, placeholder: "City where you live" %>
+    </div>
+    <div class="field">
+      <%= f.label :address, class: 'profile-label' %>
+       <%= f.text_field :address, placeholder: "Your address" %>
     </div>
     <div class="field">
       <%= f.label :goal, class: 'profile-label' %>

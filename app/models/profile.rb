@@ -7,6 +7,8 @@ class Profile < ApplicationRecord
   validates :goal, presence: true
   validates :height, numericality: true
   validates :weight, numericality: true
+  validates :city, presence: true
+  validates :address, presence: true
 
   def xp_needed_for_next_level
     level_thresholds[level] || Float::INFINITY
