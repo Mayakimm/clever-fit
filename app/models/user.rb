@@ -17,14 +17,4 @@ class User < ApplicationRecord
   def create_profile
     Profile.create(user: self)
   end
-
-  def calculate_xp
-    xp = 0
-
-    xp += workouts.sum(:total_volume) / 10
-
-    xp += achievements.sum(:points)
-
-    update(experience_points: xp)
-  end
 end

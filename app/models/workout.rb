@@ -6,10 +6,4 @@ class Workout < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-
-  def calculate_total_volume
-    total_volume = workout_exercises.sum(:volume)
-    update(total_volume: total_volume)
-    total_volume
-  end
 end

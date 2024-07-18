@@ -1,12 +1,49 @@
 <div class="profile-container">
-  <h1>Your Profile</h1>
-  <p><strong>Name:</strong> <%= @profile.name %></p>
-  <p><strong>Age:</strong> <%= @profile.age %></p>
-  <p><strong>Gender:</strong> <%= @profile.gender %></p>
-  <p><strong>Goal:</strong> <%= @profile.goal %></p>
-  <p><strong>Height:</strong> <%= @profile.height %></p>
-  <p><strong>Weight:</strong> <%= @profile.weight %></p>
-  <p><strong>Address:</strong> <%= @profile.address %></p>
-  <%= link_to 'Edit Profile', edit_profile_path, class: 'btn btn-primary' %>
-  <%= link_to "Back", home_path, class: "btn btn-secondary", onclick: "window.location.href='#{home_path}'" %>
+  <button class="btn btn-dots" >...</button>
+
+
+  <div class="card profile-card">
+    <div class="profile-details">
+      <img src="" alt="placeholder image" class="profile-image">
+      <div class="profile-info">
+        <p><strong></strong> <%= @profile.name %></p>
+        <p><strong>"</strong> <%= @profile.goal %>"</p>
+        <div class="level-bar-container">
+          <div class="level-bar">
+            <div class="level-bar-fill" id="level-bar-fill"></div>
+          </div>
+          <p id="xp-display"><span id="current-xp">5,977</span>/<span id="xp-to-next-level">19,000</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card achievements-card">
+    <div class="achievements-images">
+      <img src="" alt="Achievement 1">
+      <img src="" alt="Achievement 2">
+      <img src="" alt="Achievement 3">
+    </div>
+  </div>
+
+  <div class="card stats-card">
+    <div class="stats-details">
+      <div class="stat">
+        <p id="total-workouts" class="stat-number">18</p>
+        <p class="stat-value"><strong># Workouts</strong></p>
+      </div>
+      <div class="stat">
+        <p id="total-volume" class="stat-number">66k kgs</p>
+        <p class="stat-value"><strong>Total Volume</strong></p>
+      </div>
+      <div class="stat">
+        <p id="total-time" class="stat-number">14 hrs 12m</p>
+        <p class="stat-value"><strong>Time in Gym</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card dynamic-image-card">
+    <img src="" alt="Dynamic image placeholder" class="dynamic-image">
+  </div>
 </div>

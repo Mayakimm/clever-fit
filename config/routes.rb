@@ -14,11 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: %i[edit update show] do
-    member do
-      get 'profile_dashboard'
-    end
-  end
+  resource :profile, only: %i[edit update show]
 
   resources :group_classes, only: [:show]
   get "home", to: "pages#home"
