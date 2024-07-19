@@ -48,15 +48,15 @@
   </div>
 </div>
 
-<%= week_calendar(events: @workouts, end_attribute: :end_time) do |date, workouts| %>
-  <%= date %>
+<%#= week_calendar(events: @workouts, end_attribute: :end_time) do |date, workouts| %>
+  <%#= date %>
 
-  <% workouts.each do |workout| %>
-    <div class="workout">
-      <p><%= workout.name %></p>
-    </div>
-  <% end %>
-<% end %>
+  <%# workouts.each do |workout| %>
+    <%# <div class="workout"> %>
+      <%# <p><%= workout.name %></p>
+    <%# </div> %>
+  <%# <% end %>
+<%# <% end %>
 
 <div class="daily-summary d-none">
   <p class="mb-0 fs-6">

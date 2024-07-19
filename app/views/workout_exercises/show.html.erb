@@ -31,5 +31,9 @@
   <%= link_to "EndWorkout", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
   <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
   <%# <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%> <%#" data-action="click->next#next"> Complete this set</button> %>
+  <% if @current_index < @max_index %>
   <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "btn btn-primary-custom" %>
+  <% else %>
+    <%= link_to "COMPLETED", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+  <% end %>
   </div>
