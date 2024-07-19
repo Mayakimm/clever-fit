@@ -34,6 +34,6 @@
   <% if @current_index < @max_index %>
   <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "btn btn-primary-custom" %>
   <% else %>
-    <p>Done!</p>
+    <%= link_to "COMPLETED", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
   <% end %>
   </div>
