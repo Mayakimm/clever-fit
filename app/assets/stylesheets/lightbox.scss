@@ -1,4 +1,5 @@
-.modal {
+.lightbox {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,8 +8,13 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
-.modal-content {
-  background-color: #FAF6F4;
+
+.lightbox.open {
+  display: block;
+}
+
+.lightbox-content {
+  background-color: #faf6f4;
   padding: 20px;
   border: 1px solid #888;
   max-width: 300px;
@@ -17,30 +23,34 @@
   margin: auto;
   margin-top: 10%;
   border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.modal-content h1 {
+.lightbox-content h1 {
   font-size: 2em;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: #007AB3;
+  color: #007ab3;
 }
 
-.modal-content h2 {
+.lightbox-content h2 {
   margin-top: 10px;
   margin-bottom: 20px;
-  color: #007AB3;
+  color: #007ab3;
   font-weight: bold;
   font-size: 20px;
 }
 
-.modal-content ul {
+.lightbox-content ul {
   list-style-type: none;
   padding: 0;
   text-align: center;
 }
 
-.close {
+.lightbox-content .close {
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
@@ -50,8 +60,8 @@
   cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
+.lightbox-content .close:hover,
+.lightbox-content .close:focus {
   color: black;
   text-decoration: none;
 }
@@ -61,19 +71,19 @@
   padding: 15px 30px;
   font-size: 18px;
   font-weight: bold;
-  background-color: #FAF6F4;
-  color: #007AB3;
-  border-color: #007AB3;
+  background-color: #faf6f4;
+  color: #007ab3;
+  border: 2px solid #007ab3;
   cursor: pointer;
   border-radius: 20px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   width: 200px;
   height: 50px;
   display: inline-block;
 }
 
 .workout-type-button:hover {
-  background-color: #007AB3;
-  border-color: #007AB3;
+  background-color: #007ab3;
+  border-color: #007ab3;
   color: white;
 }

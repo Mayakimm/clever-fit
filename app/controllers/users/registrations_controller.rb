@@ -3,14 +3,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super do |user|
-      user.build_profile(profile_params)
-      user.save
+      Profile.create(user: user) unless user.profile.present?
     end
   end
 
   private
 
-  def profile_params
-    params.require(:user).require(:profile).permit(:name, :age, :gender, :height, :weight, :goals)
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation])
   end
 end
