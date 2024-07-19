@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile || current_user.build_profile
     if @profile.update(profile_params)
-      redirect_to root_path, notice: 'Thank you! Profile was successfully updated! :D'
+      redirect_to home_path, notice: 'Thank you! Profile was successfully updated! :D'
     else
       render :edit
     end
