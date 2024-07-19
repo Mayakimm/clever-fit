@@ -9,8 +9,8 @@
 }
 
 .content {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   padding: 20px;
   text-align: center;
 
@@ -35,7 +35,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
-    border: 2px solid white; /* Add border around image */
+    border: 2px solid black; /* Add border around image */
     padding: 5px; /* Add padding inside the border */
   }
 
