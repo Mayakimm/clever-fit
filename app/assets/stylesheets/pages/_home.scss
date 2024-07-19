@@ -132,3 +132,19 @@ body {
   margin-bottom: 0;
   padding: 8px;
 }
+
+.calendar-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  background-color: white;
+  padding: 20px;
+}
+
+.calendar {
+  max-width: 100%;
+  margin: 0 auto;
+}

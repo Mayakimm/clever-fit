@@ -13,11 +13,13 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @exercises = @workout.exercises.includes(:exercise_category)
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
+    @workout_exercise = @workout.workout_exercises.first
   end
 
   def description
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
+    @workout_exercise = @workout_exercises.first
   end
 
   def summary
@@ -43,19 +45,6 @@ class WorkoutsController < ApplicationController
     end
 
     @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
-  end
-
-  def create
-    @workout = Workout.new(workout_params)
-    @workout.user = current_user
-
-    if @workout.save
-      @workout.calculate_total_volume
-      current_user.calculate_xp  # Update XP after saving the workout
-      redirect_to @workout, notice: 'Workout was successfully created.'
-    else
-      render :new
-    end
   end
 
   private

@@ -8,6 +8,7 @@
   </div>
 </div>
 
+
 <%# #calendar of the week #with toggleable button %>
 <div class="weekly-calendar d-flex justify-content-between">
   <div class="daily-calendar d-flex flex-column py-0">
@@ -47,6 +48,16 @@
   </div>
 </div>
 
+<%= week_calendar(events: @workouts, end_attribute: :end_time) do |date, workouts| %>
+  <%= date %>
+
+  <% workouts.each do |workout| %>
+    <div class="workout">
+      <p><%= workout.name %></p>
+    </div>
+  <% end %>
+<% end %>
+
 <div class="daily-summary d-none">
   <p class="mb-0 fs-6">
     💪 Workout Type : “Strength Training”<br>
@@ -70,27 +81,27 @@
 <%# #Class for you title with class cards %>
 <div class="group-class-index">
   <h2>Class for you</h2>
-  <% if @groupe_classes.any? %>
-    <% @groupe_classes.each do |group_class|%>
+  <% if @groupe_classes.present? %>  <%# Check if @groupe_classes is not nil or empty %>
+    <% @groupe_classes.each do |group_class| %>
       <%= link_to group_class_path(group_class), class: "group-class-card-link text-decoration-none text-dark" do %>
         <div class="group-class-card d-flex px-4 py-2">
           <div class="group-class-image p-3">
-            <%= image_tag group_class.image_url, alt: "GroupClass Image", class: "group-class-img"%>
+            <%= image_tag group_class.image_url, alt: "GroupClass Image", class: "group-class-img" %>
           </div>
           <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
             <div class="card-letters pt-1 pb-3">
-              <p class="mb-0 fs-5"><%=group_class.name%></p>
-              <p class="mb-1"><%=group_class.time.strftime('%H:%M')%>, <%=group_class.date.day%>/<%=group_class.date.month%> (<%=group_class.date.strftime("%a")%>)</p>
+              <p class="mb-0 fs-5"><%= group_class.name %></p>
+              <p class="mb-1"><%= group_class.time.strftime('%H:%M') %>, <%= group_class.date.day %>/<%= group_class.date.month %> (<%= group_class.date.strftime("%a") %>)</p>
             </div>
+            <%# Uncomment if you have a price attribute in group_class %>
             <%# <div class="price"> %>
-              <%# <p class="text-end fs-5 mb-0">€ <%= group_class.price %>
+            <%#   <p class="text-end fs-5 mb-0">€ <%= group_class.price %>
             <%# </div> %>
           </div>
         </div>
       <% end %>
     <% end %>
-  <%else%>
-    <p>No upcoming class.</p>
-  <%end%>
+  <% else %>
+    <p>No upcoming classes.</p>
+  <% end %>
 </div>
-<%# #the profile bar %>

@@ -22,6 +22,17 @@
     <%# </nav> %>
 
     <%= yield %>
-    <%= render "shared/bottom_bar"%>
+    <% if controller_name == 'pages' && action_name == 'home' %>
+      <%= render "shared/bottom_bar"%>
+    <% end %>
+    <% if controller_name == 'workouts' && action_name == 'overview'%>
+      <%= render "shared/bottom_bar"%>
+    <% end %>
+    <% if controller_name == 'workouts' && action_name == 'summary' %>
+      <%= render "shared/bottom_bar"%>
+    <% end %>
+        <% if controller_name == 'profiles' && action_name == 'show' %>
+      <%= render "shared/bottom_bar"%>
+    <% end %>
   </body>
 </html>
