@@ -1,15 +1,15 @@
 .profile-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 
   p {
     margin: 0 0;
-    color: #0b0b0b;
+    color: black;
     font-size: 0.8rem;
   }
 
@@ -18,7 +18,7 @@
   }
 
   .card {
-    width: 375px;
+    width: 90%;
     border-radius: 25px;
     text-align: center;
     display: flex;
@@ -35,12 +35,12 @@
     img {
       border-radius: 8px;
       margin-bottom: 10px;
-      background-color: black;
+      background-color: grey;
     }
 
     &.profile-card {
       background-color: transparent;
-      color: #000;
+      color: white;
       padding: 0;
       box-shadow: none;
 
@@ -66,7 +66,7 @@
           text-align: left;
 
           .level-bar {
-            width: 275px;
+            width: 28vh;
             height: 8px;
             background-color: #007AB3;
             border-radius: 15px;
@@ -164,21 +164,7 @@
     cursor: pointer;
     padding: 0;
     position: absolute;
-    top: 10px;
+    top: 30px;
     right: 10px;
-  }
-
-  .popup {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 1;
-
-    &.show {
-      display: block;
-    }
   }
 }
