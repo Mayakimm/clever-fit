@@ -1,0 +1,64 @@
+.profile-edit-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 50px auto; /* Center the container horizontally */
+  text-align: center; /* Center the contents */
+  border: 1px solid #0b3954; /* Border color */
+
+  .profile-title {
+    font-size: 28px; /* Increased font size */
+    margin-bottom: 20px;
+    color: #0b3954; /* Dark blue color */
+    font-weight: bold;
+  }
+
+  .field {
+    margin-bottom: 15px;
+    text-align: left; /* Align labels and inputs to the left */
+
+    .profile-label {
+      display: none; /* Hide the labels */
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #0b3954; /* Dark blue border */
+      border-radius: 50px; /* Rounded input fields */
+      box-sizing: border-box;
+      text-align: center; /* Center text inside the inputs */
+      font-size: 16px;
+      color: #0b3954; /* Dark blue text */
+    }
+
+    textarea {
+      height: 50px;
+    }
+  }
+
+  .actions {
+    margin-top: 20px;
+
+    .btn-primary {
+      background-color: #0b3954; /* Dark blue button */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px; /* Rounded button */
+      cursor: pointer;
+      width: 100%; /* Full width button */
+      font-size: 16px;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #08324e; /* Slightly darker blue on hover */
+      }
+    }
+  }
+}
