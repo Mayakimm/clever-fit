@@ -13,11 +13,13 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @exercises = @workout.exercises.includes(:exercise_category)
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
+    @workout_exercise = @workout.workout_exercises.first
   end
 
   def description
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
+    @workout_exercise = @workout_exercises.first
   end
 
   def summary
