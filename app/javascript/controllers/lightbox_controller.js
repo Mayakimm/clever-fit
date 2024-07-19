@@ -1,8 +1,7 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-    static targets = ["lightbox"];
-
+    static targets = [ "box"];
     connect() {
         console.log("Lightbox controller connected!");
     }
@@ -10,12 +9,12 @@ export default class extends Controller {
     open(event) {
         event.preventDefault();
         console.log("Opening lightbox...");
-        this.lightboxTarget.classList.add('open');
+        this.boxTarget.classList.add('open');
     }
 
     close(event) {
         event.preventDefault();
         console.log("Closing lightbox...");
-        this.lightboxTarget.classList.remove('open');
+        this.boxTarget.classList.remove('open');
     }
 }

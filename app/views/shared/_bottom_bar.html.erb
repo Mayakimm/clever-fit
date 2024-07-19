@@ -1,36 +1,39 @@
-<div class="bottom-bar rounded-pill">
-    <p class="bar-button ms-3">
-        <%= link_to home_path, class: "text-decoration-none text-white", onclick: "window.location.href='#{home_path}'" do %>
-            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-        <% end %>
-    </p>
+<div data-controller="lightbox">
+  <div class="bottom-bar rounded-pill">
+      <p class="bar-button ms-3">
+          <%= link_to home_path, class: "text-decoration-none text-white", onclick: "window.location.href='#{home_path}'" do %>
+              <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+          <% end %>
+      </p>
 
-    <p class="bar-button">
-        <%= link_to "#", id: "chooseWorkoutButton", class: "text-decoration-none text-white btn btn-link", data: { action: "click->lightbox#open", turbo: false } do %>
-             Choose Workout
-        <% end %>
-    </p>
+      <p class="bar-button">
+          <%= link_to "Choose Workout", workouts_path, id: "chooseWorkoutButton", class: "text-decoration-none text-white btn btn-link", data: { action: "click->lightbox#open" } %>
+      </p>
 
-    <p class="bar-button me-3">
-        <%= link_to profile_path, class: "text-decoration-none text-white" do %>
-            <i class="fa-solid fa-user" style="color: #ffffff;"></i>
-        <% end %>
-    </p>
-</div>
+      <p class="bar-button me-3">
+          <%= link_to profile_path, class: "text-decoration-none text-white" do %>
+              <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+          <% end %>
+      </p>
+  </div>
 
-<div data-controller="lightbox" data-action="click->lightbox#open" class="lightbox">
-    <div class="lightbox-content">
-        <span data-action="click->lightbox#close" class="close">&times;</span>
-        <h1>💪</h1>
-        <h2>Choose Today's Program!</h2>
-        <ul>
-            <% @workouts.each do |workout| %>
-                <li>
-                    <%= link_to workout_path(workout), class: "workout-type-button" do %>
-                        <%= workout.name %>
-                    <% end %>
-                </li>
-            <% end %>
-        </ul>
-    </div>
+  <div class="lightbox" data-lightbox-target="box">
+      <div class="lightbox-content">
+          <span data-action="click->lightbox#close" class="close">&times;</span>
+          <h1>💪</h1>
+          <h2>Choose Today's Program!</h2>
+          <ul>
+              <% @workouts.each do |workout| %>
+                  <li>
+                      <%= link_to workout_path(workout), class: "workout-type-button" do %>
+                          <%= workout.name %>
+                      <% end %>
+                  </li>
+              <% end %>
+          </ul>
+      </div>
+  </div>
+
+
+
 </div>
