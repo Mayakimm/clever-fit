@@ -39,11 +39,4 @@ class PagesController < ApplicationController
     @workouts = Workout.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
   end
 
-  def index
-   @workout_types = Workout.distinct.pluck(:workout_type)
-    #class.all
-    @profile = Profile.find(current_user.id)
-    @groupe_classes = GroupClass.where(city: @profile.city)
-    #the profile bar
-  end
 end
