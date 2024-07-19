@@ -10,8 +10,7 @@ class WorkoutExercisesController < ApplicationController
     #   break unless @next_workout_exercise
     # end
     # @next_exercise = @next_workout_exercise.exercise
-    #
-    # raise
+    @workout = @workout_exercise.workout
   end
 
   def next_set
