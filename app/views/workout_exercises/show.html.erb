@@ -5,7 +5,7 @@
     Calories 500kcal
   </p>
   <p class= "btn btn-primary rounded">
-      Time in Gym
+    <span id="timer">00:00:00</span>
   </p>
 </div>
 
@@ -28,12 +28,32 @@
 </div>
 
 <div class="button-container" style="width:80%; margin:0 auto; margin-top: 30px; margin-bottom:200px">
-  <%= link_to "EndWorkout", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+  <%#= link_to "EndWorkout", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+  <%= button_to 'End now', stop_workout_exercise_path(@workout_exercise), method: :patch, class: "btn btn-primary-custom" %>
   <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
   <%# <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%> <%#" data-action="click->next#next"> Complete this set</button> %>
   <% if @current_index < @max_index %>
   <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "btn btn-primary-custom" %>
   <% else %>
-    <%= link_to "COMPLETED", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+    <%#= link_to "COMPLETED", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+    <%= button_to 'Stop Workout', stop_workout_exercise_path(@workout_exercise), method: :patch, class: "btn btn-primary-custom" %>
+
   <% end %>
-  </div>
+</div>
+
+<script>
+function updateTime() {
+  const startTime = new Date('<%= @day_summary.start_time.iso8601 %>');
+  const now = new Date();
+  const diff = new Date(now - startTime);
+  const hours = String(diff.getUTCHours()).padStart(2, '0');
+  const minutes = String(diff.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(diff.getUTCSeconds()).padStart(2, '0');
+  document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  updateTime();
+  setInterval(updateTime, 1000);
+});
+</script>

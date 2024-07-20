@@ -13,9 +13,22 @@ class WorkoutExercisesController < ApplicationController
     # end
     # @next_exercise = @next_workout_exercise.exercise
     @workout = @workout_exercise.workout
+    @profile = current_user.profile
+    @day_summary = @profile.day_summaries.find_by(date: Date.today)
+  end
+
+  def stop
+    @workout_exercise = WorkoutExercise.find(params[:id])
+    @profile = current_user.profile
+    @day_summary = @profile.day_summaries.find_by(date: Date.today)
+    @day_summary.update(end_time: Time.current)
+    redirect_to summary_workout_path(@workout_exercise.workout)
   end
 
   def next_set
     # render json: {data: 'test'}
   end
+
+  private
+
 end

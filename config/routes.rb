@@ -16,12 +16,14 @@ end
       get 'description'
       get 'summary'
       post 'complete'
+      patch 'start'
     end
   end
 
   resources :workout_exercises, only: %i[show] do
     member do
       post 'next_set'
+      patch 'stop'
     end
   end
 

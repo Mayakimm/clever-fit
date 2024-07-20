@@ -16,6 +16,16 @@ class WorkoutsController < ApplicationController
     @workout_exercise = @workout.workout_exercises.first
   end
 
+  def start
+    @workout = Workout.find(params[:id])
+    @workout_exercise = @workout.workout_exercises.first
+    @profile = current_user.profile
+    @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
+    @day_summary.start_time = nil
+    @day_summary.update(start_time: Time.current) unless @day_summary.start_time
+    redirect_to workout_exercise_path(@workout_exercise)
+  end
+
   def description
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
@@ -27,7 +37,10 @@ class WorkoutsController < ApplicationController
     @exercises = @workout.exercises
 
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
-
+    @summary_today = current_user.profile.day_summaries.find_by(date:Date.today)
+    @end_time_today = @summary_today.end_time
+    @start_time_today = @summary_today.start_time
+    @duration_today = ((@end_time_today - @start_time_today)/ 60).to_i
     @total_kg_lifted = @exercises.sum(:kg)
     @pr_count = 0
 
@@ -91,4 +104,6 @@ class WorkoutsController < ApplicationController
                                 .maximum(:kg)
     current_weight > max_weight ? 'PR' : nil
   end
+
+
 end
