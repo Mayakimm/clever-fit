@@ -1,7 +1,6 @@
 class WorkoutExercisesController < ApplicationController
   def show
     @workout_exercise = WorkoutExercise.find(params[:id])
-    # @workout_all_exercises = @workout.workout_exercises
     @current_workout_exercises = @workout_exercise.workout.workout_exercises
     @current_index = @current_workout_exercises.find_index(@workout_exercise)
     @current_exercise = @current_workout_exercises[@current_index].exercise
@@ -12,9 +11,16 @@ class WorkoutExercisesController < ApplicationController
     #   break unless @next_workout_exercise
     # end
     # @next_exercise = @next_workout_exercise.exercise
-    @workout = @workout_exercise.workout
+    #forcaloriesupdate
+    @duration = @workout_exercise.time.strftime("%M").to_f
+    @total_calories = @workout_exercise.calories
+    @calories_burnt_per_second = (@total_calories / @duration) / 60
+
+    #forstopwatch
     @profile = current_user.profile
     @day_summary = @profile.day_summaries.find_by(date: Date.today)
+
+    @workout = @workout_exercise.workout
   end
 
   def stop

@@ -2,7 +2,7 @@
 
 <div class="update-container d-flex justify-content-evenly">
   <p class= "btn  btn-primary rounded">
-    Calories 500kcal
+    <span id="calories_burnt"><%= @calories_burnt_per_second.round(2) %></span> kcals
   </p>
   <p class= "btn btn-primary rounded">
     <span id="timer">00:00:00</span>
@@ -52,8 +52,22 @@ function updateTime() {
   document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
 }
 
+function updateCalories() {
+  const startTime = new Date('<%= @day_summary.start_time.iso8601 %>');
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - startTime) / 1000);
+  const caloriesBurntPerSecond = parseFloat('<%= @calories_burnt_per_second %>');
+  const caloriesBurnt = (caloriesBurntPerSecond * diffInSeconds).toFixed(2);
+  document.getElementById("calories_burnt").textContent = caloriesBurnt;
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
   updateTime();
-  setInterval(updateTime, 1000);
+  updateCalories();
+
+  setInterval(() => {
+    updateTime();
+    updateCalories();
+  }, 500);
 });
 </script>
