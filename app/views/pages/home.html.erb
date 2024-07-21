@@ -71,7 +71,7 @@
   <h2>Activities</h2>
   <div class="d-flex justify-content-evenly" data-controller="activity">
     <% @type_workout.each do |type| %>
-      <div class="activity-category  mt-3">
+      <div class="activity-category mt-3">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <button class="activity-item p-3 mb-0" data-action="click->activity#open">🧘‍♀️</button>
           <p> <%= type.name %> </p>
@@ -87,7 +87,7 @@
             <% end %>
           </ul>
         </div>
-    </div>
+      </div>
     <% end %>
   </div>
 </div>
