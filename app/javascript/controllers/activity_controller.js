@@ -16,6 +16,6 @@ export default class extends Controller {
 
   close(event) {
     event.preventDefault();
-    this.boxTarget.classList.remove('open');
+    this.typeTarget.classList.remove('open');
   }
 }
