@@ -16,6 +16,11 @@ class PagesController < ApplicationController
     # Workout info
     @workout_exercises = WorkoutExercise.all
     @workout_names = @workout_exercises.map { |workout_exercise| workout_exercise.workout.name }.uniq
+    @exercises = Exercise.all
+    @exercises_category = @exercises.flat_map(&:workout_exercises)
+    @grouped_workout_exercises = @exercises_category.group_by(&:workout_id)
+
+    @type_workout = @grouped_workout_exercises.map { |grouped_workout_exercise| Workout.find(grouped_workout_exercise.first) }
 
     # Profile and group classes (if user is logged in and has a profile)
     if user_signed_in? && current_user.profile.present?
