@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show] do
 
+
   resources :events, only: [:index]
 end
 
@@ -34,4 +35,5 @@ end
 
   resources :group_classes, only: [:show]
   get "home", to: "pages#home"
+  get "monthly_calendar", to: "pages#monthly_calendar", as: "monthly_calendar"  # Added route for monthly calendar
 end

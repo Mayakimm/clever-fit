@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :monthly_calendar]
 
   def home
     @img_sources = [
@@ -37,6 +37,10 @@ class PagesController < ApplicationController
 
     start_date = params.fetch(:start_date, Date.today).to_date
     @workouts = Workout.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
+    @workouts = Workout.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
   end
-
+  def monthly_calendar
+    @start_date = params.fetch(:start_date, Date.today).to_date
+    @workouts = Workout.where(start_time: @start_date.beginning_of_month..@start_date.end_of_month)
+  end
 end
