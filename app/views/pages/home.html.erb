@@ -65,33 +65,32 @@
     🔥 Calories Burnt : 350 kcal
   </p>
 </div>
-<%# #Activities list %>
-<div class="activity-section" data-controller="activity">
-  <h2>Activities</h2>
-  <div class="activity-category d-flex justify-content-evenly mt-3">
-    <% @workout_names.each do |type| %>
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <button class="activity-item p-3 mb-0" data-action="click->activity#open">🧘‍♀️</button>
-        <p> <%= type %> </p>
-      </div>
-    <% end %>
-  </div>
-  <%# Pop up for activities  %>
-  <div class="lightbox" data-activity-target="type">
-  <div class="lightbox-content">
-    <span data-action="click->activity#close" class="close">&times;</span>
-    <% @type_workout.each do |type| %>
-      <h2><%= type.name %></h2>
-      <ul>
-        <% type.exercises.each do |exercise| %>
-          <li><%= exercise.name %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-</div>
-</div>
 
+<%# #Activities list %>
+<div class="activity-list">
+  <h2>Activities</h2>
+  <div class="d-flex justify-content-evenly" data-controller="activity">
+    <% @type_workout.each do |type| %>
+      <div class="activity-category  mt-3">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <button class="activity-item p-3 mb-0" data-action="click->activity#open">🧘‍♀️</button>
+          <p> <%= type.name %> </p>
+        </div>
+      </div>
+      <%# Pop up for activities  %>
+      <div class="lightbox" data-activity-target="type">
+        <div class="lightbox-content">
+          <span data-action="click->activity#close" class="close">&times;</span>
+          <ul>
+            <% type.exercises.each do |exercise| %>
+              <li><%= exercise.name %></li>
+            <% end %>
+          </ul>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
 <%# #Class for you title with class cards %>
 <div class="group-class-index">
   <h2>Class for you</h2>
