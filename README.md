@@ -7,19 +7,10 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 
 // THE LOGIC;
 // ------------------------------------------
-// set default experience point to 0 so level 0, do this in the profile.rb
-// set a xp = level method up to level 55 -- (level) 1 => 100 (xp)
-// set xp value -- 1 kg lifted = 2.5 xp, 1 minute = 1 xp, strenght training (PPLF) = 50 xp, cardio = 100xp
+// set default experience point to 0 so level 0, do this in the profile.rb ---- Get checked
+// set a xp = level method up to level 55 -- (level) 1 => 100 (xp) --- Get checked
+// set xp value --- Get checked
 // create method to get exercises done and time spent then add to profile total xp
-//  def calculate_xp
-      xp = 0
-
-      xp += workouts.sum(:total_volume) * 2.5
-
-      xp += achievements.sum(:points)
-
-      update(experience_points: xp)
-    end
 
 // FOR THE TOTAL VOLUME
 // ------------------------------------------

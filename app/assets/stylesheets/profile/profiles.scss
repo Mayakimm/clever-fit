@@ -43,6 +43,7 @@
       color: white;
       padding: 0;
       box-shadow: none;
+      border: none;
 
 
       .profile-details {
@@ -97,6 +98,7 @@
       padding: 0;
       box-shadow: none;
       position: relative;
+      border: none;
 
       .achievements-images {
         display: flex;
@@ -129,8 +131,9 @@
         width: 100%;
 
         .stat {
-          text-align: left;
+          text-align: center;
           width: 33%;
+
 
           .stat-value {
             color: #fff;
