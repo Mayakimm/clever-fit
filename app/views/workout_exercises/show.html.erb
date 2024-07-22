@@ -1,10 +1,10 @@
 
 <div class="update-container d-flex justify-content-evenly mt-3">
-  <div class= "update-item">
+  <div class="update-item">
     <p>Calories</p>
-    <span id="calories_burnt"><%= @calories_burnt_per_second.round(2) %></span> kcals
+    <span id="calories_burnt"><%= @total_calories_burnt.round(2) %></span> kcals
   </div>
-  <div class= "update-item">
+  <div class="update-item">
     <p>Time</p>
     <span id="timer">00:00:00</span>
   </div>
@@ -34,7 +34,7 @@
   <%= link_to "Skip", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "sec-btn" %>
   <%# <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%> <%#" data-action="click->next#next"> Complete this set</button> %>
   <% if @current_index < @max_index %>
-  <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "pri-btn" %>
+    <%= button_to 'Next set', update_last_time_workout_exercise_path(@workout_exercise), method: :patch, class: "pri-btn", form: { data: { turbo: false } } %>
   <% else %>
     <%#= link_to "COMPLETED", summary_workout_path(@workout), class: "pri-btn" %>
     <%= button_to 'Complete', stop_workout_exercise_path(@workout_exercise), method: :patch, class: "pri-btn-complete" %>
