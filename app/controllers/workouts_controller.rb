@@ -21,8 +21,7 @@ class WorkoutsController < ApplicationController
     @workout_exercise = @workout.workout_exercises.first
     @profile = current_user.profile
     @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
-    @day_summary.update(start_time: Time.current, calories_burnt: 0)
-
+    @day_summary.update(start_time: Time.current, calories_burnt: 0, end_time: nil, last_update_time: nil)
     redirect_to workout_exercise_path(@workout_exercise)
   end
 

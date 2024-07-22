@@ -49,8 +49,11 @@ class WorkoutExercisesController < ApplicationController
     @total_calories = @workout_exercise.calories
     @duration = @workout_exercise.time.strftime("%M").to_f
     @calories_burnt_per_second = (@total_calories / @duration) / 60
-
-    @total_calories_burnt = calculate_total_calories_burnt(@day_summary, @calories_burnt_per_second)
+    if @current_index == 0
+      @day_summary.calories_burnt = 0
+    else
+      @total_calories_burnt = calculate_total_calories_burnt(@day_summary, @calories_burnt_per_second)
+    end
 
     @current_workout_exercises = @workout_exercise.workout.workout_exercises
     @current_index = @current_workout_exercises.find_index(@workout_exercise)
@@ -58,7 +61,6 @@ class WorkoutExercisesController < ApplicationController
     @max_index = @current_workout_exercises.count - 1
 
     @workout = @workout_exercise.workout
-    binding.pry
   end
 
   def stop
@@ -69,7 +71,6 @@ class WorkoutExercisesController < ApplicationController
     @calories_burnt_per_second = (@total_calories / @duration) / 60
     @total_calories_burnt = calculate_total_calories_burnt(@day_summary, @calories_burnt_per_second)
     @day_summary.update(end_time: Time.current, calories_burnt: @total_calories_burnt)
-
 
     redirect_to summary_workout_path(@workout_exercise.workout)
   end
@@ -99,7 +100,7 @@ class WorkoutExercisesController < ApplicationController
     last_update_time = day_summary.last_update_time || day_summary.start_time
     elapsed_seconds = (Time.current - last_update_time).to_i
 
-    accumulated_calories = day_summary.calories_burnt || 0
+    accumulated_calories = day_summary.calories_burnt
     additional_calories = calories_burnt_per_second * elapsed_seconds
 
     total_calories_burnt = accumulated_calories + additional_calories
