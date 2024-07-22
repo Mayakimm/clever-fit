@@ -28,6 +28,8 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 // check the data base for the total amount of workouts logged
 // Do this in the user model? --- Done
 
+// CREATE MIGRATION FOR PROFILE IMAGE
+
 // GET HELP FOR IMAGE
 // ------------------------------------------
 

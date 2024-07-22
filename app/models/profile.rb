@@ -23,7 +23,7 @@ class Profile < ApplicationRecord
     end.sum
     hours = seconds / 3600
     minutes = (seconds % 3600) / 60
-    "#{hours} hours #{minutes} minutes"
+    "#{hours.to_i}h #{minutes.to_i}m"
   end
 
   def total_kg_lifted_all
