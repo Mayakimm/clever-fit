@@ -1,4 +1,20 @@
 class WorkoutsController < ApplicationController
+  before_action :set_workout, only: [:show, :overview, :start, :description, :summary, :freestyle, :add_exercise]
+
+  def freestyle
+    @exercises = Exercise.all
+  end
+
+  def add_exercise
+    exercise = Exercise.find(params[:exercise_id])
+    @workout_exercise = @workout.workout_exercises.build(exercise: exercise, kg: params[:kg], volume: params[:volume])
+    if @workout_exercise.save
+      redirect_to @workout, notice: 'Exercise added successfully! :D'
+    else
+      redirect_to freestyle_workout_path(@workout), alert: 'Failed to add exercise.:('
+    end
+  end
+
   def index
     @workouts = Workout.all
   end
@@ -62,6 +78,10 @@ class WorkoutsController < ApplicationController
 
   private
 
+  def set_workout
+    @workout = Workout.find(params[:id])
+  end
+
   def workout_params
     params.require(:workout).permit(:name, :workout_type, :user_id, :start_time, :end_time)
   end
@@ -104,6 +124,4 @@ class WorkoutsController < ApplicationController
                                 .maximum(:kg)
     current_weight > max_weight ? 'PR' : nil
   end
-
-
 end
