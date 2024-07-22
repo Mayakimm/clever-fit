@@ -1,26 +1,27 @@
 class WorkoutsController < ApplicationController
-  before_action :set_workout, only: [:show, :overview, :start, :description, :summary, :freestyle, :add_exercise]
+  before_action :set_workout, only: [:show, :overview, :start, :description, :summary, :freestyle, :add_exercise, :remove_exercise]
 
   def freestyle
     @exercises = Exercise.all
+    @in_freestyle_mode = params[:from_freestyle].present?
   end
 
   def add_exercise
     exercise = Exercise.find(params[:exercise_id])
     @workout_exercise = @workout.workout_exercises.build(exercise: exercise, kg: params[:kg], volume: params[:volume])
     if @workout_exercise.save
-      redirect_to @workout, notice: 'Exercise added successfully! :D'
+      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), notice: 'Exercise added successfully! :D'
     else
-      redirect_to freestyle_workout_path(@workout), alert: 'Failed to add exercise.:('
+      redirect_to freestyle_workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), alert: 'Failed to add exercise.:('
     end
   end
 
   def remove_exercise
     @workout_exercise = @workout.workout_exercises.find_by(exercise_id: params[:exercise_id])
     if @workout_exercise&.destroy
-      redirect_to @workout, notice: 'Exercise removed successfully! :D'
+      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle]), notice: 'Exercise removed successfully! :D'
     else
-      redirect_to @workout, alert: 'Failed to remove exercise.'
+      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle]), alert: 'Failed to remove exercise.'
     end
   end
 
@@ -31,7 +32,9 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
-    @muscle_groups = @workout_exercises.map {|workout_exercise| workout_exercise.exercise.muscle_group}.uniq
+    @muscle_groups = @workout_exercises.map { |workout_exercise| workout_exercise.exercise.muscle_group }.uniq
+
+    @in_freestyle_mode = params[:from_freestyle].present?
   end
 
   def overview
@@ -54,6 +57,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
     @workout_exercise = @workout_exercises.first
+    @in_freestyle_mode = params[:from_freestyle].present?
   end
 
   def summary
