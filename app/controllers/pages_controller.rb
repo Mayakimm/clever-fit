@@ -40,8 +40,9 @@ class PagesController < ApplicationController
 
     # Or, for a weekly view:
     @events = Event.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
-
-
+    @date_range = (start_date.beginning_of_week..start_date.end_of_week)
+    @day_summaries = DaySummary.where(profile: @profile, date: @date_range).pluck(:date, :status).to_h
+    #@date_of_summaries = DaySummary.find_by(date: Date.today).date
   end
 
   def index
