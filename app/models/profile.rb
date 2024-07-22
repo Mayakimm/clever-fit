@@ -35,11 +35,7 @@ class Profile < ApplicationRecord
   end
 
   def set_default_stats
-    p self
     self.experience_points ||= 0
-    self.total_workouts_logged ||= 0
-    self.total_kg_lifted_all ||= 0
-    self.total_time_spent_in_gym ||= 0
   end
 
   def self.calculate_xp(total_kg_lifted, duration_minutes)
@@ -108,13 +104,15 @@ class Profile < ApplicationRecord
       55  => 148700,
     }
 
-    self.level = level_thresholds.keys.select { |l| self.current_xp >= level_thresholds[l] }.max || 1
+    self.level = level_thresholds.keys.select { |l| self.experience_points >= level_thresholds[l] }.max || 1
     save
   end
 
-  def add_workout_xp
-    self.current_xp += self.class.calculate_xp()
+  def add_workout_xp(total_kg_lifted, duration_minutes)
+    self.experience_points += self.class.calculate_xp(total_kg_lifted, duration_minutes)
     xp_level
     save
   end
+
+  private :set_default_stats, :xp_level
 end
