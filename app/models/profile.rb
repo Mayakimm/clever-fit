@@ -1,5 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  has_many :day_summaries
+  has_many :workouts, through: :user
 
   validates :name, presence: true
   validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 16, less_than_or_equal_to: 99 }

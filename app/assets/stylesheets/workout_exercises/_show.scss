@@ -1,0 +1,73 @@
+.update-item {
+  background-color: $blue3;
+  border-radius: 20px;
+  padding: 20px 30px;
+  color: white;
+  align-items: center;
+
+  p {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+}
+
+.exercise-instruction {
+  width:80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 10px;
+
+  .exercise-info {
+    padding: 10px 20px;
+  }
+}
+
+#watch-button {
+  background-color: $blue2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: smaller;
+}
+
+.button-container {
+  margin: 0 auto;
+  width:80%;
+}
+.sec-btn{
+  background-color: $blue1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color:white;
+  text-align: center;
+  align-items: center;
+}
+
+.pri-btn{
+  background-color: $blue3;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color:white;
+  text-align: center;
+  align-items: center;
+  border: none;
+}
+.pri-btn-complete{
+  background-color: $blue3;
+  width: 160px;
+  height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color:white;
+  text-align: center;
+  align-items: center;
+  border: none;
+}

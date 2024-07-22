@@ -4,6 +4,6 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 
-const application = Application.start()
-const context = require.context("controllers", true, /\.js$/)
-application.load(definitionsFromContext(context))
+// const application = Application.start()
+// const context = require.context("controllers", true, /\.js$/)
+// application.load(definitionsFromContext(context))

@@ -1,15 +1,16 @@
-<h1> You're doing <%= @current_exercise.name %></h1>
 
-<div class="update-container d-flex justify-content-evenly">
-  <p class= "btn  btn-primary rounded">
-    Calories 500kcal
-  </p>
-  <p class= "btn btn-primary rounded">
-      Time in Gym
-  </p>
+<div class="update-container d-flex justify-content-evenly mt-3">
+  <div class= "update-item">
+    <p>Calories</p>
+    <span id="calories_burnt"><%= @calories_burnt_per_second.round(2) %></span> kcals
+  </div>
+  <div class= "update-item">
+    <p>Time</p>
+    <span id="timer">00:00:00</span>
+  </div>
 </div>
 
-<div class="exercise-instruction d-flex flex-column m-auto p-3" style="width:80%; margin:0 auto; box-shadow: 10px 5px 5px gray;">
+<div class="exercise-instruction d-flex flex-column p-3">
   <h3 class="text-center my-3"><%= @current_exercise.description %></h3>
   <%= image_tag @current_exercise.image_url, style:"width:80%; margin:0 auto" %>
   <div class="exercise-info" style="margin-top: 30px">
@@ -17,9 +18,9 @@
     <p>Instruction:<br><%= @current_exercise.instruction %></p>
   </div>
   <div class="exercise-buttons m-auto" data-controller="toggle-video">
-    <button> history </button>
-    <button data-toggle-video-target="watch" data-action="click->toggle-video#toggle">Watch Video</button>
-    <div data-toggle-video-target="content">
+    <%# <button> history </button> %>
+    <button id="watch-button"data-toggle-video-target="watch" data-action="click->toggle-video#toggle">Watch Video</button>
+    <div data-toggle-video-target="content" class="d-none">
       <%# <p class="">hello</p> %>
       <%#= video_tag @current_exercise.video_url, class:"" %>
       <iframe class="mt-3"style="width:95%; margin:0 auto;" src="<%= @current_exercise.video_url %>" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -27,13 +28,46 @@
   </div>
 </div>
 
-<div class="button-container" style="width:80%; margin:0 auto; margin-top: 30px; margin-bottom:200px">
-  <%= link_to "EndWorkout", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
-  <%= link_to "Skip this Set", "#", class: "btn btn-primary-custom" %>
+<div class="button-container d-flex justify-content-between" style="width:80%; margin:0 auto; margin-top: 30px; margin-bottom:200px">
+  <%#= link_to "EndWorkout", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+  <%= button_to 'End', stop_workout_exercise_path(@workout_exercise), method: :patch, class: "sec-btn" %>
+  <%= link_to "Skip", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "sec-btn" %>
   <%# <button class="btn btn-success-custom" data-controller="next" data-next-url-value="<%= next_set_workout_exercise_path(@workout_exercise)%> <%#" data-action="click->next#next"> Complete this set</button> %>
   <% if @current_index < @max_index %>
-  <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "btn btn-primary-custom" %>
+  <%= link_to "Next set", workout_exercise_path(@workout_exercise.id.to_i + 1), class: "pri-btn" %>
   <% else %>
-    <%= link_to "COMPLETED", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
+    <%#= link_to "COMPLETED", summary_workout_path(@workout), class: "pri-btn" %>
+    <%= button_to 'Complete', stop_workout_exercise_path(@workout_exercise), method: :patch, class: "pri-btn-complete" %>
   <% end %>
-  </div>
+</div>
+
+<script>
+function updateTime() {
+  const startTime = new Date('<%= @day_summary.start_time.iso8601 %>');
+  const now = new Date();
+  const diff = new Date(now - startTime);
+  const hours = String(diff.getUTCHours()).padStart(2, '0');
+  const minutes = String(diff.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(diff.getUTCSeconds()).padStart(2, '0');
+  document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+function updateCalories() {
+  const startTime = new Date('<%= @day_summary.start_time.iso8601 %>');
+  const now = new Date();
+  const diffInSeconds = Math.floor((now - startTime) / 1000);
+  const caloriesBurntPerSecond = parseFloat('<%= @calories_burnt_per_second %>');
+  const caloriesBurnt = (caloriesBurntPerSecond * diffInSeconds).toFixed(2);
+  document.getElementById("calories_burnt").textContent = caloriesBurnt;
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  updateTime();
+  updateCalories();
+
+  setInterval(() => {
+    updateTime();
+    updateCalories();
+  }, 500);
+});
+</script>

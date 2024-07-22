@@ -10,18 +10,20 @@ Rails.application.routes.draw do
   }
 
 
-  resources :workouts, only: %i[index show create] do
+  resources :workouts, only: %i[index create] do
     member do
       get 'overview'
       get 'description'
       get 'summary'
       post 'complete'
+      patch 'start'
     end
   end
 
   resources :workout_exercises, only: %i[show] do
     member do
       post 'next_set'
+      patch 'stop'
     end
   end
 
