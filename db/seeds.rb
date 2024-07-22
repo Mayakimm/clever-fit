@@ -2,11 +2,13 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
+
 WorkoutExercise.destroy_all
 Exercise.destroy_all
 Workout.destroy_all
 GroupClass.destroy_all
 Profile.destroy_all
+DaySummary.destroy_all
 User.destroy_all
 
 puts "starting seed"

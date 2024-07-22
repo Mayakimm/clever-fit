@@ -1,0 +1,21 @@
+<h1>Freestyle Workout</h1>
+
+<%= form_with url: add_exercise_workout_path(@workout, from_freestyle: params[:from_freestyle]), method: :post do |form| %>
+  <%= hidden_field_tag :from_freestyle, params[:from_freestyle] || 'false' %>
+
+  <%= form.label :exercise_id, 'Exercise' %>
+  <%= form.collection_select :exercise_id, Exercise.all, :id, :name %>
+
+  <%= form.label :kg, 'Weight (kg)' %>
+  <%= form.number_field :kg %>
+
+  <%= form.label :volume, 'Volume' %>
+  <%= form.number_field :volume %>
+
+  <%= form.submit 'Add Exercise', class: "btn btn-primary" %>
+<% end %>
+
+
+
+<%= link_to "Back to Workout", workout_path(@workout, from_freestyle: true), class: "btn btn-primary" %>
+<%= link_to "View Description", description_workout_path(@workout, from_freestyle: true), class: "btn btn-primary" %>

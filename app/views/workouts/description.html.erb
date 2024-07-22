@@ -19,7 +19,11 @@
   </ul>
 
   <div class="button-container">
+  <% if params[:from_freestyle] == 'true' %>
+    <%= link_to "Back to Freestyle", workout_path(@workout, from_freestyle: 'true'), class: "btn btn-primary-custom" %>
+  <% else %>
     <%= link_to "Back to Overview", overview_workout_path(@workout), class: "btn btn-primary-custom" %>
-     <%= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom" %>
-  </div>
+  <% end %>
+  <%= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom" %>
 </div>
+
