@@ -5,25 +5,51 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_many :day_summaries
   has_many :workouts, through: :user
+  has_many :workout_exercises, through: :workouts
 
-  # validates :name, presence: true
-  # validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 16, less_than_or_equal_to: 99 }
-  # validates :gender, presence: true
-  # validates :goal, presence: true
-  # validates :height, numericality: true
-  # validates :weight, numericality: true
+  validates :name, presence: true
+  validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 16, less_than_or_equal_to: 99 }
+  validates :gender, presence: true
+  validates :goal, presence: true
+  validates :height, numericality: true
+  validates :weight, numericality: true
 
   # For the Levelling sytem
 
+  def total_time_spent_in_gym
+    time_stamps = workouts.pluck(:start_time, :end_time)
+    seconds = time_stamps.map do |t|
+      t.last - t.first
+    end.sum
+    hours = seconds / 3600
+    minutes = (seconds % 3600) / 60
+    "#{hours} hours #{minutes} minutes"
+  end
+
+  def total_kg_lifted_all
+    workout_exercises.sum(:kg)
+  end
+
+  def total_workouts_logged
+    workouts.count
+  end
+
   def set_default_stats
+    p self
     self.experience_points ||= 0
     self.total_workouts_logged ||= 0
     self.total_kg_lifted_all ||= 0
     self.total_time_spent_in_gym ||= 0
   end
 
+  def self.calculate_xp(total_kg_lifted, duration_minutes)
+    xp_per_kg = 2.5
+    xp_per_minute = 1
+    gained_xp = (total_kg_lifted * xp_per_kg) + (duration_minutes * xp_per_minute)
+    gained_xp.round
+  end
+
   def xp_level
-    current_xp = experience_points
     level_thresholds = {
       1   => 100,
       2   => 250,
@@ -82,7 +108,13 @@ class Profile < ApplicationRecord
       55  => 148700,
     }
 
-    self.level = level_thresholds.keys.select { |l| current_xp >= level_thresholds[l] }.max || 1
+    self.level = level_thresholds.keys.select { |l| self.current_xp >= level_thresholds[l] }.max || 1
+    save
+  end
+
+  def add_workout_xp
+    self.current_xp += self.class.calculate_xp()
+    xp_level
     save
   end
 end

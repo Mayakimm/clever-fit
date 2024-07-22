@@ -16,17 +16,17 @@ Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/ra
 // FOR THE TOTAL VOLUME
 // ------------------------------------------
 // check the data base for the total amount of KGs logged
-// Do this in the user model? --- Done?
+// Do this in the user model? --- Done
 
 // FOR THE TOTAL TIME IN GYM
 // ------------------------------------------
 // check the data base for the total amount of time logged
-// Do this in the user model? --- Done?
+// Do this in the user model? --- Done
 
 // FOR THE TOTAL WORKOUTS
 // ------------------------------------------
 // check the data base for the total amount of workouts logged
-// Do this in the user model? --- Done?
+// Do this in the user model? --- Done
 
 // GET HELP FOR IMAGE
 // ------------------------------------------

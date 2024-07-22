@@ -19,24 +19,17 @@ User.create!([
   { email: 'charlie.wilson@example.com', password: 'password5', admin: false }
 ])
 
-def calculate_xp(total_kg_lifted, duration_minutes)
-  xp_per_kg = 2.5
-  xp_per_minute = 1
-  total_xp = (total_kg_lifted * xp_per_kg) + (duration_minutes * xp_per_minute)
-  total_xp.round
-end
-
 Profile.create!([
   { name: 'John Doe', gender: 'Male', age: 30, goal: 'Weight Loss', address: '123 Main St, London, UK', city: 'London', user: User.first, weight: 80.5, height: 175.0,
-    experience_points: calculate_xp(335, 180), level: 1 },
+    experience_points: Profile.calculate_xp(335, 180), level: 1 },
   { name: 'Jane Smith', gender: 'Female', age: 25, goal: 'Muscle Gain', address: '456 Elm St, Paris, France', city: 'Paris', user: User.second, weight: 65.0, height: 165.0,
-    experience_points: calculate_xp(790, 240), level: 2 },
+    experience_points: Profile.calculate_xp(790, 240), level: 2 },
   { name: 'Alice Jones', gender: 'Female', age: 28, goal: 'Maintain Fitness', address: '789 Oak St, Berlin, Germany', city: 'Berlin', user: User.third, weight: 70.0, height: 170.0,
-    experience_points: calculate_xp(510, 200), level: 1 },
+    experience_points: Profile.calculate_xp(510, 200), level: 1 },
   { name: 'Bob Brown', gender: 'Male', age: 35, goal: 'Cardio Fitness', address: '101 Pine St, Rome, Italy', city: 'Rome', user: User.fourth, weight: 85.0, height: 180.0,
-    experience_points: calculate_xp(1010, 300), level: 3 },
+    experience_points: Profile.calculate_xp(1010, 300), level: 3 },
   { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', city: 'New York', user: User.fifth, weight: 90.0, height: 175.0,
-    experience_points: calculate_xp(750, 270), level: 2 }
+    experience_points: Profile.calculate_xp(750, 270), level: 2 }
 ])
 
 Exercise.create!([
