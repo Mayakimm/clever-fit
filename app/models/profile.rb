@@ -17,9 +17,9 @@ class Profile < ApplicationRecord
 
   def set_default_stats
     self.experience_points ||= 0
-    self.total_workouts ||= 0
-    self.total_kg_lifted ||= 0
-    self.total_time_gym ||= 0
+    self.total_workouts_logged ||= 0
+    self.total_kg_lifted_all ||= 0
+    self.total_time_spent_in_gym ||= 0
   end
 
   def xp_level
