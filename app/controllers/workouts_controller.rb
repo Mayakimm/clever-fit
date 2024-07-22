@@ -57,6 +57,8 @@ class WorkoutsController < ApplicationController
       }
     end
 
+    current_user.profile.add_workout_xp(@total_kg_lifted, @duration_today)
+
     @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
   end
 

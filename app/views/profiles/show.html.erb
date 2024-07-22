@@ -12,7 +12,7 @@
           <div class="level-bar">
             <div class="level-bar-fill" id="level-bar-fill"></div>
           </div>
-          <p id="xp-display"><span id="current-xp">5,977</span>/<span id="xp-to-next-level">19,000</span></p>
+          <p id="xp-display"><span id="current-xp"><%= @profile.experience_points %></span>/<span id="xp-to-next-level"><%= Profile::LEVEL_THRESHOLDS[ current_user.profile.level + 1] %></span></p>
         </div>
       </div>
     </div>
