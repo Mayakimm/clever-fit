@@ -9,28 +9,36 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :events, only: [:index]
 
-  resources :workouts, only: %i[index create] do
+  resources :workouts, only: %i[index show create] do
     member do
       get 'overview'
       get 'description'
       get 'summary'
       post 'complete'
       patch 'start'
+      get 'freestyle'
+      post 'add_exercise'
+      post 'add_exercise'
+      delete 'remove_exercise'
     end
   end
 
-  resources :workout_exercises, only: %i[show] do
+  resources :workout_exercises, only: %i[show create] do
     member do
       post 'next_set'
       patch 'stop'
+      patch 'update_last_time'
     end
   end
+
+  resources :exercises, only: [:index]
 
   resource :profile, only: %i[edit update show] do
     member do
     end
   end
   resources :group_classes, only: [:show]
-get 'home', to: 'pages#home', as: 'home'
+  get 'home', to: 'pages#home', as: 'home'
 end

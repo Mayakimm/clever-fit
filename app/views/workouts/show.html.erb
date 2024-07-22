@@ -1,0 +1,18 @@
+<h1><%= @workout.name %></h1>
+
+<h2>Exercises</h2>
+<% if @workout.workout_exercises.any? %>
+  <ul>
+    <% @workout.workout_exercises.each do |workout_exercise| %>
+      <li>
+        <%= workout_exercise.exercise.name %> -
+        Weight: <%= workout_exercise.kg %> kg,
+        Volume: <%= workout_exercise.volume %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No exercises added yet.</p>
+<% end %>
+
+<%= link_to 'Add Exercises', freestyle_workout_path(@workout) %>
