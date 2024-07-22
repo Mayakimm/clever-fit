@@ -46,8 +46,7 @@ class WorkoutsController < ApplicationController
     @workout_exercise = @workout.workout_exercises.first
     @profile = current_user.profile
     @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
-    @day_summary.start_time = nil
-    @day_summary.update(start_time: Time.current) unless @day_summary.start_time
+    @day_summary.update(start_time: Time.current, calories_burnt: 0, end_time: nil, last_update_time: nil)
     redirect_to workout_exercise_path(@workout_exercise)
   end
 
@@ -66,6 +65,7 @@ class WorkoutsController < ApplicationController
     @end_time_today = @summary_today.end_time
     @start_time_today = @summary_today.start_time
     @duration_today = ((@end_time_today - @start_time_today)/ 60).to_i
+    @calories_burnt_today = @summary_today.calories_burnt.round(2)
     @total_kg_lifted = @exercises.sum(:kg)
     @pr_count = 0
 
@@ -133,4 +133,5 @@ class WorkoutsController < ApplicationController
                                 .maximum(:kg)
     current_weight > max_weight ? 'PR' : nil
   end
+
 end

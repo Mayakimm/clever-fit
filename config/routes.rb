@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     member do
       post 'next_set'
       patch 'stop'
+      patch 'update_last_time'
     end
   end
 
