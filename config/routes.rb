@@ -1,26 +1,31 @@
 Rails.application.routes.draw do
+  get 'events/new'
+  get 'events/create'
+  get 'events/index'
+  get 'events/show'
   root to: "profiles#edit"
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
 
-  resources :events, only: [:index, :show] do
-
   resources :events, only: [:index]
-end
 
-  resources :workouts, only: %i[index create] do
+  resources :workouts, only: %i[index show create] do
     member do
       get 'overview'
       get 'description'
       get 'summary'
       post 'complete'
       patch 'start'
+      get 'freestyle'
+      post 'add_exercise'
+      post 'add_exercise'
+      delete 'remove_exercise'
     end
   end
 
-  resources :workout_exercises, only: %i[show] do
+  resources :workout_exercises, only: %i[show create] do
     member do
       post 'next_set'
       patch 'stop'
@@ -28,13 +33,12 @@ end
     end
   end
 
+  resources :exercises, only: [:index]
+
   resource :profile, only: %i[edit update show] do
     member do
-      get 'profile_dashboard'
     end
   end
-
-
   resources :group_classes, only: [:show]
-  get "home", to: "pages#home"
+  get 'home', to: 'pages#home', as: 'home'
 end

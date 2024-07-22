@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
+
   def home
     @img_sources = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUkUalpMEX6rmV97y5I_7K-fGHKkNlJ83Hug&s",
@@ -29,7 +30,18 @@ class PagesController < ApplicationController
       # Handle case where user is not logged in or doesn't have a profile
       @profile = nil
       @groupe_classes = []  # Ensure @groupe_classes is initialized as an empty array
+      @events = Event.all
     end
+
+    start_date = params.fetch(:start_date, Date.today).to_date
+
+    # For a monthly view:
+    @events = Event.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+
+    # Or, for a weekly view:
+    @events = Event.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
+
+
   end
 
   def index
@@ -38,9 +50,8 @@ class PagesController < ApplicationController
     #class.all
     @profile = Profile.find(current_user.id)
     @groupe_classes = GroupClass.where(city: @profile.city)
-
+    # For a monthly view:
     start_date = params.fetch(:start_date, Date.today).to_date
-    @workouts = Workout.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
+    @workouts = Workout.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
   end
-
 end
