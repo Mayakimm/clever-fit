@@ -1,19 +1,23 @@
 <div class="simple-calendar calendar-container text-center">
-    <%= link_to '&larr;'.html_safe, calendar.url_for_previous_view, class: "previous-link" %>
-    <span class="calendar-title">📅</span>
-    <%= link_to '&rarr;'.html_safe, calendar.url_for_next_view, class: "next-link" %>
+  <%= link_to '&larr;'.html_safe, calendar.url_for_previous_view, class: "previous-link" %>
+  <span class="calendar-title">📅</span>
+  <%= link_to '&rarr;'.html_safe, calendar.url_for_next_view, class: "next-link" %>
 </div>
 
 <div class="weekly-calendar d-flex justify-content-between">
-    <% date_range.each_slice(7) do |week| %>
-        <% week.each do |day| %>
-          <div class="daily-calendar d-flex flex-column py-0">
-            <%#= content_tag :td, class: calendar.td_classes_for(day) do %>
-            <p class="mt-1 mb-0">●</p> <%# if there is a record%>
-            <p class="mb-0"><%= t('date.abbr_day_names')[day.wday] %></p>
-            <p class="mt-0 mb-1"><%= day.day %></p>
-          </div>
+  <% @date_range.each_slice(7) do |week| %>
+    <% week.each do |day| %>
+      <% day_summary = @day_summaries[day] %>
+      <div class="daily-calendar d-flex flex-column py-0">
+        <% if day_summary == "completed" %>
+          <p class="mt-1 mb-0">●</p> <!-- Present -->
+        <% else %>
+          <p class="mt-1 mb-0">○</p> <!-- Absent -->
         <% end %>
+        <p class="mb-0"><%= t('date.abbr_day_names')[day.wday] %></p>
+        <p class="mt-0 mb-1"><%= day.day %></p>
+      </div>
     <% end %>
+  <% end %>
 </div>
 </div>
