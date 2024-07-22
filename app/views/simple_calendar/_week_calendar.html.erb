@@ -1,0 +1,27 @@
+<div class="simple-calendar calendar-container">
+    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+    <% if calendar.number_of_weeks == 1 %>
+      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %></span>
+    <% else %>
+      <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
+    <% end %>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+  </div>
+
+  <div class="weekly-calendar d-flex justify-content-between">
+
+      <% date_range.each_slice(7) do |week| %>
+
+          <% week.each do |day| %>
+            <div class="daily-calendar d-flex flex-column py-0">
+              <%#= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <p class="mt-1 mb-0">●</p> <%# if there is a record%>
+              <p class="mb-0"><%= t('date.abbr_day_names')[day.wday] %></p>
+              <p class="mt-0 mb-1"><%= day.day %></p>
+            </div>
+          <% end %>
+
+      <% end %>
+
+  </div>
+</div>
