@@ -65,7 +65,7 @@ class WorkoutsController < ApplicationController
     @exercises = @workout.exercises
 
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
-    @summary_today = current_user.profile.day_summaries.find_by(date:Date.today)
+    @summary_today = current_user.profile.day_summaries.find_by(date: Date.today)
     @end_time_today = @summary_today.end_time
     @start_time_today = @summary_today.start_time
     @duration_today = ((@end_time_today - @start_time_today)/ 60).to_i
@@ -85,6 +85,8 @@ class WorkoutsController < ApplicationController
         pr: pr
       }
     end
+
+    current_user.profile.add_workout_xp(@total_kg_lifted, @duration_today)
 
     @calories_burnt = calculate_calories_burnt(@workout.workout_exercises)
   end
@@ -137,5 +139,6 @@ class WorkoutsController < ApplicationController
                                 .maximum(:kg)
     current_weight > max_weight ? 'PR' : nil
   end
+
 
 end
