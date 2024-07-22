@@ -25,7 +25,7 @@
           <ul>
               <% @workouts.each do |workout| %>
                   <li>
-                      <%= link_to workout_path(workout), class: "workout-type-button" do %>
+                      <%= link_to overview_workout_path(workout), class: "workout-type-button" do %>
                           <%= workout.name %>
                       <% end %>
                   </li>

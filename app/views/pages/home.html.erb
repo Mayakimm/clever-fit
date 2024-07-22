@@ -8,55 +8,10 @@
   </div>
 </div>
 
-
-<%# #calendar of the week #with toggleable button %>
-<div class="weekly-calendar d-flex justify-content-between">
-  <div class="daily-calendar d-flex flex-column py-0">
-    <p class="mt-1 mb-0">●</p> <%# if there is a record%>
-    <p class="mb-0">Sun</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-  <div class="daily-calendar d-flex flex-column py-0">
-    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
-    <p class="mb-0">Mon</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-  <div class="daily-calendar d-flex flex-column py-0">
-    <p class="mt-1 mb-0">●</p> <%# if there is a record%>
-    <p class="mb-0">Tue</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-  <div class="daily-calendar d-flex flex-column py-0">
-    <p class="mt-1 mb-0">●</p> <%# if there is a record%>
-    <p class="mb-0">Wed</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-  <div class="daily-calendar d-flex flex-column py-0">
-    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
-    <p class="mb-0">Thu</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-  <div class="daily-calendar d-flex flex-column py-0">
-    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
-    <p class="mb-0">Fri</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-    <div class="daily-calendar d-flex flex-column px-2 py-0">
-    <p class="mt-1 mb-0">○</p> <%# if there is a record%>
-    <p class="mb-0">Sat</p>
-    <p class="mt-0 mb-1"><%= @today_date%></p>
-  </div>
-</div>
-
-<%#= week_calendar(events: @workouts, end_attribute: :end_time) do |date, workouts| %>
-  <%#= date %>
-
-  <%# workouts.each do |workout| %>
-    <%# <div class="workout"> %>
-      <%# <p><%= workout.name %></p>
-    <%# </div> %>
-  <%# <% end %>
-<%# <% end %>
+<%# #calendar of the month %>
+<%= week_calendar do |date| %>
+  <%= date %>
+<% end %>
 
 <div class="daily-summary d-none">
   <p class="mb-0 fs-6">
