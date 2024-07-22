@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index]
 
-  resources :workouts, only: %i[index show create] do
+  resources :workouts, only: %i[index show create delete] do
     member do
       get 'overview'
       get 'description'
@@ -19,7 +19,6 @@ Rails.application.routes.draw do
       post 'complete'
       patch 'start'
       get 'freestyle'
-      post 'add_exercise'
       post 'add_exercise'
       delete 'remove_exercise'
     end
