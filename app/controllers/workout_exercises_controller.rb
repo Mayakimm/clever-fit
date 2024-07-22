@@ -27,7 +27,7 @@ class WorkoutExercisesController < ApplicationController
     @workout_exercise = WorkoutExercise.find(params[:id])
     @profile = current_user.profile
     @day_summary = @profile.day_summaries.find_by(date: Date.today)
-    @day_summary.update(end_time: Time.current)
+    @day_summary.update(end_time: Time.current, status: "completed")
     redirect_to summary_workout_path(@workout_exercise.workout)
   end
 
