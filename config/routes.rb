@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index]
 end
 
-  resources :workouts, only: %i[index show create] do
+  resources :workouts, only: %i[index create] do
     member do
       get 'overview'
       get 'description'
