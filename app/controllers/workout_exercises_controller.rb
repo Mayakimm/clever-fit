@@ -49,16 +49,15 @@ class WorkoutExercisesController < ApplicationController
     @total_calories = @workout_exercise.calories
     @duration = @workout_exercise.time.strftime("%M").to_f
     @calories_burnt_per_second = (@total_calories / @duration) / 60
-    if @current_index == 0
-      @day_summary.calories_burnt = 0
-    else
-      @total_calories_burnt = calculate_total_calories_burnt(@day_summary, @calories_burnt_per_second)
-    end
+
+    @day_summary.calories_burnt = 0 if @current_index == 0
 
     @current_workout_exercises = @workout_exercise.workout.workout_exercises
     @current_index = @current_workout_exercises.find_index(@workout_exercise)
     @current_exercise = @current_workout_exercises[@current_index].exercise
     @max_index = @current_workout_exercises.count - 1
+
+    @total_calories_burnt = @day_summary.calories_burnt
 
     @workout = @workout_exercise.workout
   end

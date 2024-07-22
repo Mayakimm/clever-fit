@@ -1,12 +1,15 @@
 
-<div class="update-container d-flex justify-content-evenly mt-3">
+<div class="update-container d-flex justify-content-evenly mt-3" data-controller="update"
+                                                                 data-update-start-time="<%= @day_summary.start_time.iso8601 %>"
+                                                                 data-update-calories-burnt-per-second="<%= @calories_burnt_per_second %>"
+                                                                 data-update-total-calories-burnt="<%= @total_calories_burnt %>">
   <div class="update-item">
     <p>Calories</p>
-    <span id="calories_burnt"><%= @total_calories_burnt.round(2) %></span> kcals
+    <span id="calories_burnt" data-update-target="caloriesBurnt"><%= @total_calories_burnt.round(2) %></span> kcals
   </div>
   <div class="update-item">
     <p>Time</p>
-    <span id="timer">00:00:00</span>
+    <span id="timer" data-update-target="timer">00:00:00</span>
   </div>
 </div>
 
@@ -40,34 +43,3 @@
     <%= button_to 'Complete', stop_workout_exercise_path(@workout_exercise), method: :patch, class: "pri-btn-complete" %>
   <% end %>
 </div>
-
-<script>
-function updateTime() {
-  const startTime = new Date('<%= @day_summary.start_time.iso8601 %>');
-  const now = new Date();
-  const diff = new Date(now - startTime);
-  const hours = String(diff.getUTCHours()).padStart(2, '0');
-  const minutes = String(diff.getUTCMinutes()).padStart(2, '0');
-  const seconds = String(diff.getUTCSeconds()).padStart(2, '0');
-  document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
-}
-
-function updateCalories() {
-  const startTime = new Date('<%= @day_summary.start_time.iso8601 %>');
-  const now = new Date();
-  const diffInSeconds = Math.floor((now - startTime) / 1000);
-  const caloriesBurntPerSecond = parseFloat('<%= @calories_burnt_per_second %>');
-  const caloriesBurnt = (caloriesBurntPerSecond * diffInSeconds).toFixed(2);
-  document.getElementById("calories_burnt").textContent = caloriesBurnt;
-}
-
-document.addEventListener('DOMContentLoaded', (event) => {
-  updateTime();
-  updateCalories();
-
-  setInterval(() => {
-    updateTime();
-    updateCalories();
-  }, 500);
-});
-</script>
