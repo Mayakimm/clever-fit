@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       patch 'start'
       get 'freestyle'
       post 'add_exercise'
+      post 'add_exercise'
+      delete 'remove_exercise'
     end
   end
 

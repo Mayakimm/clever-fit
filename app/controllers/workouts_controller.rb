@@ -15,8 +15,17 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def remove_exercise
+    @workout_exercise = @workout.workout_exercises.find_by(exercise_id: params[:exercise_id])
+    if @workout_exercise&.destroy
+      redirect_to @workout, notice: 'Exercise removed successfully! :D'
+    else
+      redirect_to @workout, alert: 'Failed to remove exercise.'
+    end
+  end
+
   def index
-    @workouts = Workout.all
+    @workouts = Workout.all.first(5)
   end
 
   def show

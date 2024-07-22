@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :set_workouts
+  before_action :authenticate_user!, :display_workouts
 
   private
 
-  def set_workouts
-    @workouts = Workout.all
+  def display_workouts
+    @workouts = Workout.all.first(5)
   end
 end
