@@ -71,7 +71,6 @@ class WorkoutExercisesController < ApplicationController
     @total_calories_burnt = calculate_total_calories_burnt(@day_summary, @calories_burnt_per_second)
     @day_summary.update(end_time: Time.current, calories_burnt: @total_calories_burnt, status: "completed")
 
-
     redirect_to summary_workout_path(@workout_exercise.workout)
   end
 
@@ -88,6 +87,7 @@ class WorkoutExercisesController < ApplicationController
 
     next_exercise_id = @workout_exercise.id.to_i + 1
     redirect_to workout_exercise_path(next_exercise_id)
+
   end
 
   private
