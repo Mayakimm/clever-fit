@@ -15,6 +15,11 @@ body {
   background-color: white;
 }
 
+.title {
+  font-family: $headers-font;
+
+}
+
 .img-container {
   width:80%;
   margin: 0px auto;
@@ -29,8 +34,10 @@ body {
     color: white;
     font-weight: bolder;
     font-family: 'Montserrat', sans-serif;
+
   }
 }
+
 
 .image-box {
   width: 90%;
@@ -42,6 +49,7 @@ body {
   max-height: 230px;
   object-fit: cover;
   object-position: center;
+  border-radius: 30px;
 }
 
 
@@ -75,15 +83,73 @@ body {
   font-family: 'Questrial', sans-serif;
 }
 
+#title-activity {
+  color: $blue1;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom:0px;
+}
+
+.see-all {
+  color: $blue1;
+  margin-bottom: 0px;
+}
+
+.activity-container{
+  margin-top: 10px;
+  // padding: 0 20px;
+  border-radius: 10px;
+  overflow-x: scroll;
+}
+::-webkit-scrollbar {
+  // width: 2px; /* Change the width of the scrollbar */
+  height: 2px; /* Change the height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $blue1; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background color of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the scrollbar track */
+}
+
+.activity-box {
+  margin-right: 15px;
+}
+
 .activity-list {
   width: 80%;
   margin: 0 auto;
   margin-top: 30px;
-
 }
+
+.activity-category {
+  font-family: $body-font;
+}
+
 .activity-item {
+  font-size: 22px !important;
+  color:rgb(155, 155, 155);
+  text-align: center;
   border-radius: 100px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 60px; height: 60px;
+  padding: 50px;
+  // border: 0.5px solid rgba(#003A54, 0.3);
+  border: none;
+  &:hover {
+    border: none;
+    box-shadow: 0 0 10px $blue2;
+  }
+}
+.activity-type-name {
+  font-size: 16px;
+  color: $blue1;
+  &:hover {
+    color: $blue1;
+  }
 }
 
 .group-class-index {
@@ -108,7 +174,11 @@ body {
 //   display: flex;
 //   align-items: center;
 // }
-
+#title-group-classes{
+  color: $blue1;
+  font-size: 20px;
+  font-weight: 600;
+}
 .group-class-image {
   // background-color: rgb(185, 185, 255);
   width: 100px;
@@ -152,13 +222,19 @@ body {
 .calendar-container {
   width: 80%;
   margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 15px;
-  background-color: white;
-  font-family: 'Questrial', sans-serif;
-  padding: 20px;
+  margin-bottom: 10px;
+
+  .move-week {
+    width:80%;
+    text-decoration: none;
+    color:$blue1;
+  }
+  .move-month {
+    margin-left: 100px;
+    margin-right: 100px;
+    color:$blue1;
+  }
+
 }
 
 .calendar {
@@ -167,8 +243,8 @@ body {
 }
 
 .weekly-calendar {
+  width: 80%;
   margin: 0 auto;
-  width: 100%;
   max-width: 600px;
 }
 

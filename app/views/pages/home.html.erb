@@ -4,7 +4,7 @@
     <%= image_tag @rand_img, alt: "Random Image", class:"rand-image rounded-5"%>
   </div>
   <div class="img-title">
-    <h2 class="fs-1">Weekly<br>Highlights</h2>
+    <h2 class="fs-1 title">Weekly<br>Highlights</h2>
   </div>
 </div>
 
@@ -23,35 +23,40 @@
 
 <%# #Activities list %>
 <div class="activity-list">
-  <h2>Activities</h2>
-  <div class="d-flex justify-content-evenly" >
+  <div class="d-flex justify-content-between">
+    <h2 class="title" id="title-activity">Activities</h2>
+    <p class="see-all"> see all > </p>
+  </div>
+  <div class="d-flex justify-content-between activity-container" >
     <% @type_workout.each do |type| %>
-    <div data-controller="activity">
-      <div class="activity-category mt-3" >
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <button class="activity-item p-3 mb-0" data-action="click->activity#open">🧘‍♀️</button>
-          <p> <%= type.name %> </p>
+      <% if type.name == "Freestyle" %>
+      <% else %>
+        <div class="activity-box" data-controller="activity">
+          <div class="activity-category ms-0">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button class="activity-item" data-action="click->activity#open"><%= @emoji.sample %></button>
+              <p class="activity-type-name"> <%= type.name %> </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <%# Pop up for activities  %>
-      <div class="lightbox" data-activity-target="type">
-        <div class="lightbox-content">
-          <span data-action="click->activity#close" class="close">&times;</span>
-          <ul>
-            <% type.exercises.each do |exercise| %>
-              <li><%= exercise.name %></li>
-            <% end %>
-          </ul>
+        <%# Pop up for activities  %>
+        <div class="lightbox" data-activity-target="type">
+          <div class="lightbox-content">
+            <span data-action="click->activity#close" class="close">&times;</span>
+            <ul>
+              <% type.exercises.each do |exercise| %>
+                <li><%= exercise.name %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
-
-    </div>
+      <% end %>
     <% end %>
   </div>
 </div>
 <%# #Class for you title with class cards %>
 <div class="group-class-index">
-  <h2>Class for you</h2>
+  <h2 class="title" id="title-group-classes">Class for you</h2>
   <% if @groupe_classes.present? %>  <%# Check if @groupe_classes is not nil or empty %>
     <% @groupe_classes.each do |group_class| %>
       <%= link_to group_class_path(group_class), class: "group-class-card-link text-decoration-none text-dark" do %>

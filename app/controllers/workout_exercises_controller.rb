@@ -1,49 +1,8 @@
-# class WorkoutExercisesController < ApplicationController
-#   before_action :set_workout_exercise, only: [:show, :stop]
-#   def show
-#     #for stopwatch and calories burnt
-#     @profile = current_user.profile
-#     @day_summary = @profile.day_summaries.find_by(date: Date.today)
-#     @total_calories = @workout_exercise.calories
-#     @duration = @workout_exercise.time.strftime("%M").to_f
-#     @calories_burnt_per_second = (@total_calories / @duration) / 60
-
-
-#     @current_workout_exercises = @workout_exercise.workout.workout_exercises
-#     @current_index = @current_workout_exercises.find_index(@workout_exercise)
-#     @current_exercise = @current_workout_exercises[@current_index].exercise
-#     @max_index = @current_workout_exercises.count - 1
-
-#     @workout = @workout_exercise.workout
-#   end
-
-#   def stop
-#     @profile = current_user.profile
-#     @day_summary = @profile.day_summaries.find_by(date: Date.today)
-#     @day_summary.update(end_time: Time.current)
-
-#     redirect_to summary_workout_path(@workout_exercise.workout)
-#   end
-
-#   def next_set
-#     # render json: {data: 'test'}
-#   end
-
-#   private
-#   def set_workout_exercise
-#     @workout_exercise = WorkoutExercise.find(params[:id])
-#   end
-
-#   def day_summary_params
-#     params.require(:day_summary).permit(:date, :start_time, :end_time, :goal, :city, :address, :height, :weight)
-#   end
-# end
-
 class WorkoutExercisesController < ApplicationController
   before_action :set_workout_exercise, only: [:show, :stop, :update_last_time]
 
   def show
-    @workout_exercise = WorkoutExercise.find(params[:id])
+    #@workout_exercise = WorkoutExercise.find(params[:id])
     @profile = current_user.profile
     @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
     @total_calories = @workout_exercise.calories
@@ -58,8 +17,26 @@ class WorkoutExercisesController < ApplicationController
     @max_index = @current_workout_exercises.count - 1
 
     @total_calories_burnt = @day_summary.calories_burnt
+  end
 
-    @workout = @workout_exercise.workout
+  def freestyle_show
+    @workout = Workout.all[4]
+    @workout_exercise = WorkoutExercise.find(params[:id])
+
+    @profile = current_user.profile
+    @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
+    @total_calories = @workout_exercise.calories
+    @duration = @workout_exercise.time.strftime("%M").to_f
+    @calories_burnt_per_second = (@total_calories / @duration) / 60
+
+    @day_summary.calories_burnt = 0 if @current_index == 0
+
+    @free_workout_exercises = @workout.workout_exercises #array
+    @current_index = @free_workout_exercises.find_index(@free_workout_exercises.first)
+    @current_freestyle_exercise = @free_workout_exercises[@current_index].exercise
+    @max_index = @free_workout_exercises.count - 1
+
+    @total_calories_burnt = @day_summary.calories_burnt
   end
 
   def stop
@@ -72,6 +49,7 @@ class WorkoutExercisesController < ApplicationController
     @day_summary.update(end_time: Time.current, calories_burnt: @total_calories_burnt, status: "completed")
 
     redirect_to summary_workout_path(@workout_exercise.workout)
+
   end
 
   def update_last_time
