@@ -85,7 +85,7 @@ class Profile < ApplicationRecord
 
   def total_kg_lifted_all
     self.total_volume_lifted += workout_exercises.sum(:kg)
-    self.save
+    save
     total_volume_lifted
   end
 
