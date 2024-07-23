@@ -1,0 +1,11 @@
+<% @exercises.each do |exercise| %>
+  <div class="exercise-display-card d-flex px-4 py-2">
+    <div class="exercise-display-image-box p-3">
+      <img class="exercise-display-image" src="<%= exercise.image_url %>" alt="<%= exercise.name %>">
+    </div>
+    <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
+        <p class="mb-0 fs-5 exercise-display-name"><%= exercise.name %></p>
+        <p class="exercise-display-instruction"><%= exercise.description %></p>
+    </div>
+  </div>
+<% end %>

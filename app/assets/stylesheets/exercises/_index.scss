@@ -1,0 +1,27 @@
+.exercise-display-card {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding-bottom: 100px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.exercise-display-image-box{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;  /* Prevents the image from overflowing the div */
+  position: relative;
+
+  .exercise-display-image{
+    width: 100%;  /* Makes the image take up the full width of the div */
+    height: 100%; /* Makes the image take up the full height of the div */
+    object-fit: cover;  /* Ensures the image covers the div without distortion */
+    position: absolute; /* Allows the image to be positioned absolutely within the div */
+    top: 0;
+    left: 0;
+  }
+}
