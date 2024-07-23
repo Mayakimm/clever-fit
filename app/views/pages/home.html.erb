@@ -25,29 +25,32 @@
 <div class="activity-list">
   <div class="d-flex justify-content-between">
     <h2 class="title" id="title-activity">Activities</h2>
-    <p class="see-all"> see all > </p>
+    <%= link_to "see all >", exercises_path, class:"see-all" %>
+    <%# <p class="see-all">link_to "see all >", exercises_path</p> %>
   </div>
-  <div class="d-flex justify-content-between activity-container" >
+  <div class="d-flex justify-content-between activity-container">
     <% @type_workout.each do |type| %>
       <% if type.name == "Freestyle" %>
       <% else %>
-        <div class="activity-box" data-controller="activity">
-          <div class="activity-category ms-0">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-              <button class="activity-item" data-action="click->activity#open"><%= @emoji.sample %></button>
-              <p class="activity-type-name"> <%= type.name %> </p>
+        <div class="activity-wrapper" data-controller="activity">
+          <div class="activity-box">
+            <div class="activity-category ms-0">
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <button class="activity-item" data-action="click->activity#open"><%= @emoji.sample %></button>
+                <p class="activity-type-name"> <%= type.name %> </p>
+              </div>
             </div>
           </div>
-        </div>
-        <%# Pop up for activities  %>
-        <div class="lightbox" data-activity-target="type">
-          <div class="lightbox-content">
-            <span data-action="click->activity#close" class="close">&times;</span>
-            <ul>
-              <% type.exercises.each do |exercise| %>
-                <li><%= exercise.name %></li>
-              <% end %>
-            </ul>
+          <!-- Pop up for activities -->
+          <div class="lightbox" data-activity-target="type">
+            <div class="lightbox-content">
+              <span data-action="click->activity#close" class="close">&times;</span>
+              <ul>
+                <% type.exercises.each do |exercise| %>
+                  <li><%= exercise.name %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
       <% end %>
