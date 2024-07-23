@@ -74,7 +74,7 @@ class Profile < ApplicationRecord
   # For the Levelling sytem
 
   def total_time_spent_in_gym
-    time_stamps = workouts.pluck(:start_time, :end_time)
+    time_stamps = day_summaries.pluck(:start_time, :end_time)
     seconds = time_stamps.map do |t|
       t.last - t.first
     end.sum
@@ -83,13 +83,10 @@ class Profile < ApplicationRecord
     "#{hours.to_i}h #{minutes.to_i}m"
   end
 
-  current_xp = @profile.experience_points
-  xp_to_next_level = Profile::LEVEL_THRESHOLDS[ current_user.profile.level + 1]
-
   def total_kg_lifted_all
-    # binding.pry
-    #raise
-    user.workout_exercises.sum(:kg)
+    self.total_volume_lifted += workout_exercises.sum(:kg)
+    self.save
+    total_volume_lifted
   end
 
   def total_workouts_logged
@@ -110,6 +107,7 @@ class Profile < ApplicationRecord
   def xp_level
     self.level = LEVEL_THRESHOLDS.keys.select { |l| self.experience_points >= LEVEL_THRESHOLDS[l] }.max || 1
     save
+    level
   end
 
   def add_workout_xp(total_kg_lifted, duration_minutes)

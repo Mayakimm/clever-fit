@@ -7,6 +7,7 @@ class WorkoutsController < ApplicationController
   end
 
   def add_exercise
+    binding.pry
     exercise = Exercise.find(params[:exercise_id])
     @workout_exercise = @workout.workout_exercises.build(exercise: exercise, kg: params[:kg], volume: params[:volume])
     if @workout_exercise.save
