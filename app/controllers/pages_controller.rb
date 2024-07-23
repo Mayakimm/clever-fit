@@ -21,6 +21,7 @@ class PagesController < ApplicationController
     @exercises = Exercise.all
     @exercises_category = @exercises.flat_map(&:workout_exercises)
     @grouped_workout_exercises = @exercises_category.group_by(&:workout_id)
+    @emoji = ["🏹","💪","🏊","👟","🏋️"]
 
     @type_workout = @grouped_workout_exercises.map { |grouped_workout_exercise| Workout.find(grouped_workout_exercise.first) }
     # Profile and group classes (if user is logged in and has a profile)
@@ -44,6 +45,7 @@ class PagesController < ApplicationController
     @date_range = (start_date.beginning_of_week..start_date.end_of_week)
     @day_summaries = DaySummary.where(profile: @profile, date: @date_range).pluck(:date, :status).to_h
     #@date_of_summaries = DaySummary.find_by(date: Date.today).date
+    @current_month_year = @date_range.first.strftime("%b.%Y")
   end
 
   def index
