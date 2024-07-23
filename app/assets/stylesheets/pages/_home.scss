@@ -1,4 +1,16 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Questrial&display=swap');
+
+// Specific CSS for your home-page
+body {
+  background-color: white;
+  font-family: 'Questrial', sans-serif; // Apply Questrial font to body text
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; // Apply Montserrat font to titles
+}
+
 body {
   background-color: white;
 }
@@ -20,6 +32,8 @@ body {
     top:40px;
     left:40px;
     color: white;
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
 
   }
 }
@@ -66,6 +80,7 @@ body {
   background-color: $blue1;
   color: white;
   padding: 20px;
+  font-family: 'Questrial', sans-serif;
 }
 
 #title-activity {
@@ -142,6 +157,7 @@ body {
   margin: 0 auto;
   margin-top: 30px;
   padding-bottom: 100px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .group-class-card {
@@ -218,6 +234,7 @@ body {
     margin-right: 100px;
     color:$blue1;
   }
+
 }
 
 .calendar {
@@ -234,6 +251,7 @@ body {
 .daily-calendar {
   width: 12.5%; /* Adjust width as needed */
   text-align: center;
+  font-family: 'Questrial', sans-serif;
   cursor: pointer;
 }
 
