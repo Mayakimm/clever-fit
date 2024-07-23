@@ -60,7 +60,7 @@ class Profile < ApplicationRecord
   after_initialize :set_default_stats, if: :new_record?
 
   belongs_to :user
-  has_many :day_summaries
+  has_many :day_summaries, dependent: :destroy
   has_many :workouts, through: :user
   has_many :workout_exercises, through: :workouts
 
@@ -83,8 +83,13 @@ class Profile < ApplicationRecord
     "#{hours.to_i}h #{minutes.to_i}m"
   end
 
+  current_xp = @profile.experience_points
+  xp_to_next_level = Profile::LEVEL_THRESHOLDS[ current_user.profile.level + 1]
+
   def total_kg_lifted_all
-    workout_exercises.sum(:kg)
+    # binding.pry
+    #raise
+    user.workout_exercises.sum(:kg)
   end
 
   def total_workouts_logged

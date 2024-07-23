@@ -10,7 +10,7 @@
         <p><strong>"</strong> <%= @profile.goal %>"</p>
         <div class="level-bar-container">
           <div class="level-bar">
-            <div class="level-bar-fill" id="level-bar-fill"></div>
+            <div class="level-bar-fill" style="width:<%= current_xp.fdiv(xp_to_next_level) * 100 %>" id="level-bar-fill"></div>
           </div>
           <p id="xp-display"><span id="current-xp"><%= @profile.experience_points %></span>/<span id="xp-to-next-level"><%= Profile::LEVEL_THRESHOLDS[ current_user.profile.level + 1] %></span></p>
         </div>
