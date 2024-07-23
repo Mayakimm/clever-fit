@@ -18,11 +18,17 @@
                 <% @workout_exercises.each do |workout_exercise| %>
                 <li class="workout-exercise-item">
                     <div class="card-workouts">
-                        <img class="exercise-image" src="<%= workout_exercise.exercise.image_url %>" alt="<%= workout_exercise.exercise.name %>">
-                        <div class="exercise-details">
-                            <h2 class="exercise-name"><%= workout_exercise.exercise.name %></h2>
-                            <p class="exercise-instruction"><%= workout_exercise.exercise.description %></p>
-                            <p class="exercise-sets">🔁 Sets: <%= workout_exercise.set %> ⏱️ 1 minute rest</p>
+                        <div class="exercise-image-box">
+                          <img class="exercise-image" src="<%= workout_exercise.exercise.image_url %>" alt="<%= workout_exercise.exercise.name %>">
+                        </div>
+                        <div class="exercise-details d-flex flex-column justify-content-between">
+                            <div class="exercise-name-box">
+                              <h2 class="exercise-name"><%= workout_exercise.exercise.name %></h2>
+                            </div>
+                            <div class="exercise-info-box">
+                              <p class="exercise-instruction"><%= workout_exercise.exercise.description %></p>
+                              <p class="exercise-sets">🔁 <%= workout_exercise.set %> sets</p>
+                            </div>
                         </div>
                     </div>
                 </li>
