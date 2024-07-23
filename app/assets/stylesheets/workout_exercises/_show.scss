@@ -1,7 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: 'Questrial', sans-serif; // Apply Questrial font to the body
+  font-family: 'Questrial', sans-serif; /* Apply Questrial font to the body */
 }
 
 .center-content {
@@ -18,10 +18,11 @@ html, body {
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  border-radius: 10px;
+}
 
-  img {
-    display: none; // Hide the image tag within header-image
-  }
+.header-image img {
+  display: none; /* Hide the image tag within header-image */
 }
 
 .content {
@@ -29,160 +30,85 @@ html, body {
   color: black;
   padding: 20px;
   text-align: center;
-
-  h1 {
-    margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em;
-    margin-bottom: 40px;
-  }
-
-  h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .workout-exercises-list {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .workout-exercise-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-
-  .exercise-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 8px;
-    margin-right: 20px;
-  }
-
-  .exercise-details {
-    text-align: left;
-    flex-grow: 1;
-  }
-
-  .exercise-name {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-
-  .exercise-instruction,
-  .exercise-sets {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-
-    .btn {
-      padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .btn-primary-custom {
-      background-color: #007bff;
-      color: white;
-    }
-
-    .btn-success-custom {
-      color: white;
-    }
-  }
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-// Existing styles
+h1 {
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+}
 
-.update-item {
-  background-color: $blue3;
-  border-radius: 20px;
-  padding: 20px 30px;
-  color: white;
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.workout-exercises-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.workout-exercise-item {
+  margin-bottom: 30px;
+}
+
+.card-workouts {
+  display: flex;
   align-items: center;
-
-  p {
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-}
-
-.exercise-instruction {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 30px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
   border-radius: 10px;
-  padding: 10px;
-
-  .exercise-info {
-    padding: 10px 20px;
-  }
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
-#watch-button {
-  background-color: $blue2;
-  color: white;
+.exercise-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
   border: none;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: smaller;
-  font-family: 'Questrial', sans-serif;
+  margin-right: 20px;
+}
+
+.exercise-details {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.exercise-name {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.exercise-instruction,
+.exercise-sets {
+  font-size: 2.0em;
+  margin-bottom: 10px;
 }
 
 .button-container {
-  margin: 0 auto;
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.sec-btn {
-  background-color: $blue1;
+.btn {
   padding: 10px 20px;
-  border-radius: 10px;
+  font-size: 1em;
+  border-radius: 5px;
   text-decoration: none;
-  color: white;
-  text-align: center;
-  align-items: center;
-  font-family: 'Questrial', sans-serif;
 }
 
-.pri-btn {
-  background-color: $blue3;
-  width: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  text-decoration: none;
+.btn-primary-custom {
+  background-color: #007bff;
   color: white;
-  text-align: center;
-  font-family: 'Questrial', sans-serif;
-  align-items: center;
-  border: none;
 }
 
-.pri-btn-complete {
-  background-color: $blue3;
-  width: 160px;
-  height: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  text-decoration: none;
+.btn-success-custom {
   color: white;
-  text-align: center;
-  align-items: center;
-  border: none;
 }
