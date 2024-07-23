@@ -4,7 +4,7 @@
     <%= image_tag @rand_img, alt: "Random Image", class:"rand-image rounded-5"%>
   </div>
   <div class="img-title">
-    <h2 class="fs-1">Weekly<br>Highlights</h2>
+    <h2 class="fs-1 title">Weekly<br>Highlights</h2>
   </div>
 </div>
 
@@ -23,7 +23,7 @@
 
 <%# #Activities list %>
 <div class="activity-list">
-  <h2>Activities</h2>
+  <h2 class="title">Activities</h2>
   <div class="d-flex justify-content-evenly" >
     <% @type_workout.each do |type| %>
     <div data-controller="activity">
@@ -51,7 +51,7 @@
 </div>
 <%# #Class for you title with class cards %>
 <div class="group-class-index">
-  <h2>Class for you</h2>
+  <h2 class="title">Class for you</h2>
   <% if @groupe_classes.present? %>  <%# Check if @groupe_classes is not nil or empty %>
     <% @groupe_classes.each do |group_class| %>
       <%= link_to group_class_path(group_class), class: "group-class-card-link text-decoration-none text-dark" do %>

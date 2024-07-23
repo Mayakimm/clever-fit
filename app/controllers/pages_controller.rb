@@ -9,6 +9,7 @@ class PagesController < ApplicationController
       "https://img.goodfon.com/original/2560x1707/7/81/poza-figura-fitnes-shtanga-trenirovka-vorkaut-workout-fitn-2.jpg",
       "https://cdn10.picryl.com/photo/1981/09/03/a-recruit-from-the-physical-conditioning-platoon-does-weight-lifting-exercises-390008-1024.jpg"]
     @rand_img = @img_sources.sample
+    # @rand_img = "brand.png"
 
     # Workout status of the day
     @today_date = Date.today.day
