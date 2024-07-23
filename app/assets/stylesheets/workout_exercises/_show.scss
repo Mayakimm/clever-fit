@@ -1,3 +1,18 @@
+h1 {
+  font-family: 'Montserrat', sans-serif; // Apply Montserrat font
+  font-size: 2.5em; // Adjust the size as needed
+  margin-bottom: 20px; // Space below the h1 element
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif; // Apply Montserrat font
+  font-size: 2em; // Adjust the size as needed
+  margin-top: 20px; // Space above the h2 element
+  margin-bottom: 20px; // Space below the h2 element
+}
+
+// Existing styles
+
 .update-item {
   background-color: $blue3;
   border-radius: 20px;
@@ -13,10 +28,10 @@
 }
 
 .exercise-instruction {
-  width:80%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 30px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 10px;
 
@@ -32,41 +47,46 @@
   padding: 10px;
   border-radius: 10px;
   font-size: smaller;
+  font-family: 'Questrial', sans-serif;
 }
 
 .button-container {
   margin: 0 auto;
-  width:80%;
+  width: 80%;
 }
-.sec-btn{
+
+.sec-btn {
   background-color: $blue1;
   padding: 10px 20px;
   border-radius: 10px;
   text-decoration: none;
-  color:white;
+  color: white;
   text-align: center;
   align-items: center;
+  font-family: 'Questrial', sans-serif;
 }
 
-.pri-btn{
+.pri-btn {
   background-color: $blue3;
   width: 300px;
   padding: 10px;
   border-radius: 10px;
   text-decoration: none;
-  color:white;
+  color: white;
   text-align: center;
+  font-family: 'Questrial', sans-serif;
   align-items: center;
   border: none;
 }
-.pri-btn-complete{
+
+.pri-btn-complete {
   background-color: $blue3;
   width: 160px;
   height: 100%;
   padding: 10px;
   border-radius: 10px;
   text-decoration: none;
-  color:white;
+  color: white;
   text-align: center;
   align-items: center;
   border: none;

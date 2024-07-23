@@ -12,7 +12,7 @@
         <div class="exercise-details">
           <h3 class="exercise-name"><%= workout_exercise.exercise.name %></h3>
           <p class="exercise-instruction"><%= workout_exercise.exercise.description %></p>
-          <p class="exercise-sets">Sets: <%= workout_exercise.set %></p>
+          <p class="exercise-sets"> 🔁 Sets:<%= workout_exercise.set %>⏱️1 minute rest </p>
         </div>
       </li>
     <% end %>
@@ -26,4 +26,3 @@
   <% end %>
   <%= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom" %>
 </div>
-
