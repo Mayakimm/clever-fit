@@ -93,13 +93,13 @@ body {
 .see-all {
   color: $blue1;
   margin-bottom: 0px;
+  text-decoration: none;
 }
 
 .activity-container{
-  margin-top: 10px;
-  // padding: 0 20px;
   border-radius: 10px;
   overflow-x: scroll;
+  margin-top: 10px;
 }
 ::-webkit-scrollbar {
   // width: 2px; /* Change the width of the scrollbar */
@@ -118,6 +118,7 @@ body {
 
 .activity-box {
   margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .activity-list {
@@ -128,28 +129,26 @@ body {
 
 .activity-category {
   font-family: $body-font;
+  padding: 5px;
 }
 
 .activity-item {
+  background-color: white;
+  padding: 6px 7px;
+  align-items: center;
+  text-align: center;
+
   font-size: 22px !important;
   color:rgb(155, 155, 155);
   text-align: center;
-  border-radius: 100px;
   width: 60px; height: 60px;
-  padding: 50px;
-  // border: 0.5px solid rgba(#003A54, 0.3);
+  border-radius: 100%;
   border: none;
-  &:hover {
-    border: none;
-    box-shadow: 0 0 10px $blue2;
-  }
 }
 .activity-type-name {
   font-size: 16px;
   color: $blue1;
-  &:hover {
-    color: $blue1;
-  }
+  margin-bottom: 0px;
 }
 
 .group-class-index {
