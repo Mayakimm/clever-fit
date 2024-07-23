@@ -7,6 +7,7 @@ Exercise.destroy_all
 Workout.destroy_all
 GroupClass.destroy_all
 Profile.destroy_all
+DaySummary.destroy_all
 User.destroy_all
 
 puts "starting seed"
