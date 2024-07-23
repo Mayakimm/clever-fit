@@ -21,7 +21,7 @@
   <%= hidden_field_tag :from_freestyle, params[:from_freestyle] || 'false' %>
 
   <%= form.label :exercise_id, 'Exercise' %>
-  <%= form.collection_select :exercise_id, Exercise.all, :id, :name, {}, { onchange: 'this.form.submit();' } %>
+  <%= form.collection_select :exercise_id, Exercise.all, :id, :name %>
 
   <%= form.label :kg, 'Weight (kg)' %>
   <%= form.number_field :kg %>

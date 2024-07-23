@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get 'summary'
       post 'complete'
       patch 'start'
+      patch 'freestyle_start'
       get 'freestyle'
       post 'add_exercise'
       delete 'remove_exercise'
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
       post 'next_set'
       patch 'stop'
       patch 'update_last_time'
+      get 'freestyle_show'
     end
   end
 

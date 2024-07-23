@@ -20,7 +20,8 @@ class WorkoutsController < ApplicationController
 
     @workout_exercise = @workout.workout_exercises.build(
       exercise: @selected_exercise,
-      kg: @selected_exercise.workout_exercises.first.kg,
+      set: @selected_exercise.workout_exercises.first.set,
+      kg:  @selected_exercise.workout_exercises.first.kg,
       volume: @selected_exercise.workout_exercises.first.volume,
       time: @selected_exercise.workout_exercises.first.time,
       calories: @selected_exercise.workout_exercises.first.calories
@@ -72,6 +73,14 @@ class WorkoutsController < ApplicationController
     redirect_to workout_exercise_path(@workout_exercise)
   end
 
+  def freestyle_start
+    @workout = Workout.all[4]
+    @free_workout_exercises = @workout.workout_exercises
+    @profile = current_user.profile
+    @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
+    @day_summary.update(start_time: Time.current, calories_burnt: 0, end_time: nil, last_update_time: nil)
+    redirect_to freestyle_show_workout_exercise_path(@free_workout_exercises.first)
+  end
   def description
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
