@@ -60,6 +60,9 @@ class WorkoutExercisesController < ApplicationController
     @total_calories_burnt = @day_summary.calories_burnt
 
     @workout = @workout_exercise.workout
+
+    #freestyle logic
+    @free_workout_exercises = @workout.workout_exercises #array
   end
 
   def stop
