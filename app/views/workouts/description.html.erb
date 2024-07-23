@@ -4,7 +4,6 @@
 
 <div class="content">
   <h1>Today is <%= @workout.name %> day</h1>
-
   <ul class="workout-exercises-list">
     <% @workout_exercises.each do |workout_exercise| %>
       <li class="workout-exercise-item">
@@ -12,17 +11,18 @@
         <div class="exercise-details">
           <h3 class="exercise-name"><%= workout_exercise.exercise.name %></h3>
           <p class="exercise-instruction"><%= workout_exercise.exercise.description %></p>
-          <p class="exercise-sets"> 🔁 Sets:<%= workout_exercise.set %>⏱️1 minute rest </p>
+          <p class="exercise-sets"> 🔁 Sets: <%= workout_exercise.set %> ⏱️ 1 minute rest</p>
         </div>
       </li>
     <% end %>
   </ul>
 
   <div class="button-container">
-  <% if params[:from_freestyle] == 'true' %>
-    <%= link_to "Back to Freestyle", workout_path(@workout, from_freestyle: 'true'), class: "btn btn-primary-custom" %>
-  <% else %>
-    <%= link_to "Back to Overview", overview_workout_path(@workout), class: "btn btn-primary-custom" %>
-  <% end %>
-  <%= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom" %>
+    <% if params[:from_freestyle] == 'true' %>
+      <%= link_to "Back to Freestyle", workout_path(@workout, from_freestyle: 'true'), class: "btn btn-primary-custom" %>
+    <% else %>
+      <%= link_to "Back to Overview", overview_workout_path(@workout), class: "btn btn-primary-custom" %>
+    <% end %>
+    <%= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom" %>
+  </div>
 </div>
