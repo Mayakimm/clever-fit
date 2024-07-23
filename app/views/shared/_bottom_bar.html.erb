@@ -17,20 +17,25 @@
       </p>
   </div>
 
-  <div class="lightbox" data-lightbox-target="box">
-      <div class="lightbox-content">
-          <span data-action="click->lightbox#close" class="close">&times;</span>
-          <h1>💪</h1>
-          <h2>Choose Today's Program!</h2>
-          <ul>
-              <% @workouts.each do |workout| %>
-                  <li>
-                      <%= link_to overview_workout_path(workout), class: "workout-type-button" do %>
-                          <%= workout.name %>
-                      <% end %>
-                  </li>
-              <% end %>
-          </ul>
-      </div>
+<div class="lightbox" data-lightbox-target="box">
+  <div class="lightbox-content">
+    <span data-action="click->lightbox#close" class="close">&times;</span>
+    <h1>💪</h1>
+    <h2>Choose Today's Program!</h2>
+    <ul>
+      <% @workouts.each do |workout| %>
+        <li>
+          <% if workout.name == 'Freestyle' %>
+            <%= link_to workout_path(workout, from_freestyle: true), class: "workout-type-button" do %>
+              <%= workout.name %>
+            <% end %>
+          <% else %>
+            <%= link_to overview_workout_path(workout), class: "workout-type-button" do %>
+              <%= workout.name %>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

@@ -1,0 +1,38 @@
+<div class="center-content">
+  <div class="workout-show-container">
+    <h1>Today is <%= @workout.name %> day</h1>
+    <%= image_tag "#{@workout.name.downcase}.png" %>
+
+    <h2>Exercises</h2>
+    <% if @workout.workout_exercises.any? %>
+      <ul>
+        <% @workout.workout_exercises.each do |workout_exercise| %>
+          <li>
+            <%= workout_exercise.exercise.name %> -
+            Weight: <%= workout_exercise.kg %> kg,
+            Volume: <%= workout_exercise.volume %>
+            <%= button_to 'Remove Exercise', remove_exercise_workout_path(@workout, exercise_id: workout_exercise.exercise_id, from_freestyle: params[:from_freestyle]), method: :delete, class: "btn btn-danger-custom", data: { confirm: 'Are you sure you want to remove this exercise?' } %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No exercises added yet.</p>
+    <% end %>
+
+    <%= link_to 'Add Exercises', freestyle_workout_path(@workout), class: "btn btn-primary" %>
+
+    <div>
+      <p><strong>Activated muscles:</strong> <%= @workout.muscle_group %></p>
+      <p>⏰ <%= @duration %> minutes</p>
+    </div>
+
+    <div class="button-container">
+      <% if @in_freestyle_mode %>
+        <%= link_to "See List of Exercises in This Program", description_workout_path(@workout, from_freestyle: true), class: "btn btn-primary-custom" %>
+      <% else %>
+        <%= link_to "See List of Exercises in This Program", description_workout_path(@workout), class: "btn btn-primary-custom" %>
+      <% end %>
+      <%= button_to 'Start Workout', start_workout_path(@workout), method: :patch, class: "btn btn-success-custom" %>
+    </div>
+  </div>
+</div>
