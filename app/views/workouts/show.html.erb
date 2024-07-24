@@ -5,12 +5,13 @@
 
     <h2>Exercises</h2>
     <% if @workout.workout_exercises.any? %>
-      <ul>
+      <ul class="exercise-list">
         <% @workout.workout_exercises.each do |workout_exercise| %>
-          <li>
-            <%= workout_exercise.exercise.name %> -
-            Weight: <%= workout_exercise.kg %> kg,
-            Volume: <%= workout_exercise.volume %>
+          <li class="exercise-item">
+            <div class="exercise-info">
+              <span class="exercise-name"><%= workout_exercise.exercise.name %></span>
+              <span class="exercise-details">Weight: <%= workout_exercise.kg %> kg, Volume: <%= workout_exercise.volume %></span>
+            </div>
             <%= button_to remove_exercise_workout_path(@workout, exercise_id: workout_exercise.exercise_id, from_freestyle: params[:from_freestyle]), method: :delete, class: "btn btn-danger-custom", data: { confirm: 'Are you sure you want to remove this exercise?' } do %>
               <i class="fa fa-trash"></i>
             <% end %>
@@ -23,7 +24,7 @@
 
     <%= link_to 'Add Exercises', freestyle_workout_path(@workout), class: "btn btn-primary", style: "margin-bottom: 30px; margin-top: 20px;" %>
 
-    <div class="button-container" id= "exercise_list">
+    <div class="button-container" id="exercise_list">
       <% if @in_freestyle_mode %>
         <%= link_to "See List of Exercises", description_workout_path(@workout, from_freestyle: true), class: "btn btn-primary-custom" %>
       <% else %>
