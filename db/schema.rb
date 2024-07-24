@@ -80,7 +80,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_122016) do
     t.string "city"
     t.integer "experience_points"
     t.integer "level"
-    t.float "total_volume_lifted"
+    t.float "total_volume_lifted", default: 0.0
     t.string "profile_picture"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
