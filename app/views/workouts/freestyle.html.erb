@@ -1,33 +1,21 @@
-<h1>Freestyle Workout</h1>
-
-<%#= form_with url: add_exercise_workout_path(@workout, from_freestyle: params[:from_freestyle]), method: :post do |form| %>
-  <%#= hidden_field_tag :from_freestyle, params[:from_freestyle] || 'false' %>
-
-  <%#= form.label :exercise_id, 'Exercise' %>
-  <%#= form.collection_select :exercise_id, Exercise.all, :id, :name %>
-
-  <%#= form.label :kg, 'Weight (kg)' %>
-  <%#= form.number_field :kg %>
-
-  <%#= form.label :volume, 'Volume' %>
-  <%#= form.number_field :volume %>
-
-  <%#= form.submit 'Add Exercise', class: "btn btn-primary" %>
-<%# end %>
-
-<%#= link_to "Back to Workout", workout_path(@workout, from_freestyle: true), class: "btn btn-primary" %>
-<%#= link_to "View Description", description_workout_path(@workout, from_freestyle: true), class: "btn btn-primary" %>
-<%= form_with url: add_exercise_workout_path(@workout, from_freestyle: params[:from_freestyle]), method: :post, local: true do |form| %>
+<%= form_with url: add_exercise_workout_path(@workout, from_freestyle: params[:from_freestyle]), method: :post, local: true, html: { class: 'freestyle-workout-form' } do |form| %>
   <%= hidden_field_tag :from_freestyle, params[:from_freestyle] || 'false' %>
+<h2>💪</h2>
+<h1>Add a exercise!</h1>
+  <div class="form-group">
+    <%= form.label :exercise_id, 'Exercise:', class: 'form-label' %>
+    <%= form.collection_select :exercise_id, Exercise.all, :id, :name %>
+  </div>
 
-  <%= form.label :exercise_id, 'Exercise' %>
-  <%= form.collection_select :exercise_id, Exercise.all, :id, :name %>
+  <div class="form-group">
+    <%= form.label :kg, 'Weight (kg):', class: 'form-label' %>
+    <%= form.number_field :kg %>
+  </div>
 
-  <%= form.label :kg, 'Weight (kg)' %>
-  <%= form.number_field :kg %>
-
-  <%= form.label :volume, 'Volume' %>
-  <%= form.number_field :volume %>
+  <div class="form-group">
+    <%= form.label :volume, 'Volume:', class: 'form-label' %>
+    <%= form.number_field :volume %>
+  </div>
 
   <% if @selected_exercise %>
     <div>
@@ -38,11 +26,10 @@
       <label>Calories: <%= @selected_exercise.workout_exercises.first.calories %></label>
       <%= form.hidden_field :calories, value: @selected_exercise.workout_exercises.first.calories %>
     </div>
-
   <% end %>
 
-  <%= form.submit 'Add Exercise', class: "btn btn-primary" %>
+  <div class="buttons">
+    <%= form.submit 'Add Exercise', class: "btn btn-primary" %>
+    <%= link_to "Back to Workout", workout_path(@workout, from_freestyle: params[:from_freestyle]), class: "btn btn-secondary" %>
+  </div>
 <% end %>
-
-<%= link_to "Back to Workout", workout_path(@workouts[4]), class: "btn btn-primary" %>
-<%= link_to "View Description", description_workout_path(@workouts[4]), class: "btn btn-primary" %>
