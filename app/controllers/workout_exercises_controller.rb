@@ -49,6 +49,7 @@ class WorkoutExercisesController < ApplicationController
     @day_summary.update(end_time: Time.current, calories_burnt: @total_calories_burnt, status: "completed")
 
     redirect_to summary_workout_path(@workout_exercise.workout)
+
   end
 
   def update_last_time

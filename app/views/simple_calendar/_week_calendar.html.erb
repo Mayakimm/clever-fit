@@ -1,7 +1,7 @@
-<div class="simple-calendar calendar-container text-center">
-  <%= link_to '&larr;'.html_safe, calendar.url_for_previous_view, class: "previous-link" %>
-  <span class="calendar-title">📅</span>
-  <%= link_to '&rarr;'.html_safe, calendar.url_for_next_view, class: "next-link" %>
+ <div class="simple-calendar calendar-container text-center d-flex justify-content-between">
+  <%= link_to '&larr;'.html_safe, calendar.url_for_previous_view, class: "previous-link move-week"%>
+  <span class="calendar-title move-month"><%= @current_month_year %></span>
+  <%= link_to '&rarr;'.html_safe, calendar.url_for_next_view, class: "next-link move-week" %>
 </div>
 
 <div class="weekly-calendar d-flex justify-content-between">

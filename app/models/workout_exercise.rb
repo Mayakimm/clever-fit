@@ -4,6 +4,4 @@ class WorkoutExercise < ApplicationRecord
 
   validates :kg, presence: true, numericality: true
   validates :volume, presence: true, numericality: true
-
-  
 end

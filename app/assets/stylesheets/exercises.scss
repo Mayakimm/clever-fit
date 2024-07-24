@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Questrial&display=swap');
+
 .header-image {
   width: 100%;
   height: auto;
+
   img {
     width: 100%;
     height: auto;
@@ -13,9 +16,14 @@
   color: black;
   padding: 20px;
   text-align: center;
+  font-family: 'Questrial', sans-serif; // Apply Questrial font to the body text
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; // Apply Montserrat font to titles
+  }
 
   h1 {
-    margin-top: 20px; /* Space between the header image and the title */
+    margin-top: 20px; // Space between the header image and the title
   }
 
   .workout-exercises-list {
@@ -25,29 +33,29 @@
 
   .workout-exercise-item {
     display: flex;
-    align-items: center; /* Center align items */
+    align-items: center; // Center align items
     margin-bottom: 30px;
   }
 
   .exercise-image {
-    width: 70px; /* Smaller image size */
+    width: 70px; // Smaller image size
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-right: 20px;
-    border: 2px solid black; /* Add border around image */
-    padding: 5px; /* Add padding inside the border */
+    border: 2px solid black; // Add border around image
+    padding: 5px; // Add padding inside the border
   }
 
   .exercise-details {
     text-align: left;
-    font-style: sans-serif;
-    flex-grow: 1; /* Ensures the details take the remaining space */
+    flex-grow: 1; // Ensures the details take the remaining space
   }
 
   .exercise-name {
     font-size: 1.5em;
     margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif; // Apply Montserrat font to exercise names
   }
 
   .exercise-instruction,
