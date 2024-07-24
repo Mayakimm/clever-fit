@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
   #   end
   # end
   def add_exercise
+
     @selected_exercise = Exercise.find_by(id: params[:exercise_id]) if params[:exercise_id]
 
     @workout_exercise = @workout.workout_exercises.build(
