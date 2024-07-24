@@ -58,4 +58,8 @@ class PagesController < ApplicationController
     start_date = params.fetch(:start_date, Date.today).to_date
     @workouts = Workout.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
   end
+
+  def show
+    @exercise = Exercise.all
+  end
 end

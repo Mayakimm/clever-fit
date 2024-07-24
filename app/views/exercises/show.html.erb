@@ -1,0 +1,10 @@
+<h1 class="exercise-show-exercise-head"><%= @exercise.name %></h1>
+<div class="exercise-show-exercise-img">
+  <img src="<%= @exercise.image_url %>" alt="<%= @exercise.name %>" style="width: 100%; object-fit: cover; object-position: center;">
+</div>
+<div class="exercise-show-exercise-info">
+  <p><strong>Instruction📝</strong><br> : <%= @exercise.instruction %></p>
+  <p><strong>Equipment🏹</strong><br> : <%= @exercise.equipment %></p>
+  <p><strong>Muscle Group💪</strong> <br> : <%= @exercise.muscle_group %></p>
+  <p><strong>MET Value🔥</strong> <br> : <%= @exercise.met_value %></p>
+</div>
