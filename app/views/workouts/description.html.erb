@@ -41,7 +41,7 @@
                 <% else %>
                     <%= link_to "Program Guide", overview_workout_path(@workout), class: "btn btn-primary-custom-description" %>
                 <% end %>
-                <%= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom-description" %>
+                <%= button_to "Start Workout", start_workout_path(@workout), method: :patch, class: "btn btn-success-custom-description" %>
             </div>
         </div>
     </div>
