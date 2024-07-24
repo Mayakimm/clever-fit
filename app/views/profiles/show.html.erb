@@ -4,7 +4,7 @@
   <div class="popup-menu hidden" data-popup-target="menu">
     <ul>
       <li><a href="<%= root_path %>">Edit Profile</a></li>
-      <li><%= link_to 'Log Off', log_off_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <li><%= link_to 'Log Off', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
   </div>
 
