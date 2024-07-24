@@ -42,14 +42,17 @@
             </div>
           </div>
           <!-- Pop up for activities -->
-          <div class="lightbox" data-activity-target="type">
-            <div class="lightbox-content">
+          <div class="activity-popup" data-activity-target="type">
+            <div class="activity-popup-content">
               <span data-action="click->activity#close" class="close">&times;</span>
-              <ul>
-                <% type.exercises.each do |exercise| %>
-                  <li><%= exercise.name %></li>
-                <% end %>
-              </ul>
+              <div class="activity-popup-text-box">
+                <p class="activity-popup-title"><%= type.name %></p>
+                <ul class="activity-popup-exercise-list p-0">
+                  <% type.exercises.each do |exercise| %>
+                    <li class="activity-popup-exercise"><%= exercise.name %></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
