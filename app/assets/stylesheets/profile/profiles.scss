@@ -74,39 +74,31 @@
             background-color: grey;
             border-radius: 15px;
             position: relative;
+            overflow-x: hidden;
+
+
 
             .level-bar-fill {
               height: 100%;
-              width: 30%;
               background-color: #007AB3;
               border-radius: 15px;
               transition: width 0.3s ease;
             }
 
-            .level-number {
-              position: absolute;
-              top: -6px;
-              left: 0px;
-              font-size: 1rem;
-              font-weight: 100;
-              background-color: #007AB3;
-              width: 40px;
-              text-align: center;
-              border-radius: 20px;
-            }
-
-            // .level-number {
-            //   display: flex;
-            //   background-color: #007AB3;
-            //   color: white;
-            //   padding: 5px 10px;
-            //   border-radius: 15px;
-            //   font-size: 0.5rem;
-            //   text-align: center;
-            // }
           }
 
-
+          .level-number {
+            position: absolute;
+            top: 50px;
+            left: 100px;
+            font-size: 1rem;
+            font-weight: 100;
+            background-color: #007AB3;
+            width: 40px;
+            text-align: center;
+            border-radius: 20px;
+            z-index: 1000;
+          }
 
           #xp-display {
             margin-top: 0;
@@ -136,9 +128,9 @@
       }
 
       #achievement-bar-podium {
-        width: 100%;
+        width: 95%;
         height: 8px;
-        background-color: grey;
+        background-color: goldenrod;
         border-radius: 15px;
         overflow: hidden;
         position: absolute;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_23_130444) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_154000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_23_130444) do
     t.integer "experience_points"
     t.integer "level"
     t.float "total_volume_lifted"
+    t.string "profile_picture"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
