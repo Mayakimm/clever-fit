@@ -30,13 +30,31 @@
 }
 
 .workout-show-container ul {
+  font-family: "Questrial";
   list-style-type: none;
   padding: 0;
 }
 
-.workout-show-container li {
+.workout-show-container .exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
+}
+
+.workout-show-container .exercise-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-show-container .exercise-name {
+  font-weight: bold;
+}
+
+.workout-show-container .exercise-details {
+  font-size: 0.9em;
+  color: #666;
 }
 
 .workout-show-container .btn {
@@ -59,9 +77,8 @@
 }
 
 .btn-primary,
-.btn-primary-custom,
 .btn-success-custom {
-  background-color: #007ab3;
+  background-color: #007ab3 !important;
   border: none;
   color: white;
   padding: 8px 0;
@@ -74,10 +91,11 @@
 }
 
 .btn-primary:hover {
-  background-color: #007ab3;
+  background-color: #003A54 !important;
 }
 
 .btn-primary-custom {
+  background-color: #007ab3 !important;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 16px;
@@ -87,7 +105,7 @@
   justify-content: center;
   box-sizing: border-box;
   white-space: normal;
-  line-height: 1.5;
+  line-height: 1;
 
   @media (max-width: 768px) {
     width: 200px;
@@ -120,6 +138,10 @@
     font-size: 12px;
     padding: 8px;
   }
+}
+
+.btn-primary-custom:hover {
+  background-color: #003A54 !important;
 }
 
 .btn-success-custom:hover {

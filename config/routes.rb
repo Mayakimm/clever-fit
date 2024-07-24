@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  delete 'logout', to: 'sessions#destroy', as: 'log_off'
   get 'events/new'
   get 'events/create'
   get 'events/index'
