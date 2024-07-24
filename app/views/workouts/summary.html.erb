@@ -28,6 +28,9 @@
     </thead>
     <tbody>
       <% @exercise_detail.each do |exercise| %>
+      <% current_user.add_pushups(exercise[:volume]) if exercise[:name] == "Push-up" %>
+      <% current_user.add_squats(exercise[:volume]) if exercise[:name] == "Squat" %>
+      <% current_user.add_pullups(exercise[:volume]) if exercise[:name] == "Pull-up" %>
         <tr>
           <td><%= exercise[:name] %></td>
           <td><%= exercise[:volume] %></td>
