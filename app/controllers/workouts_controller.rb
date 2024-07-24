@@ -29,8 +29,8 @@ class WorkoutsController < ApplicationController
     )
 
     if @workout_exercise.save
-      # redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), notice: 'Exercise added successfully! :D'
-      redirect_to workout_path(@workout), notice: 'Exercise added successfully! :D'
+      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), notice: 'Exercise added successfully! :D'
+      #redirect_to workout_path(@workout), notice: 'Exercise added successfully! :D'
     else
       render :freestyle, alert: 'Failed to add exercise. :('
     end

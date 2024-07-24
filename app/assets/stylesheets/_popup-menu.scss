@@ -1,0 +1,41 @@
+
+.popup-menu {
+  position: absolute;
+  right: 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  z-index: 1000;
+  width: 150px;
+}
+
+.popup-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-menu li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.popup-menu li a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+.popup-menu li:hover {
+  background-color: #e9ecef;
+}
+
+.popup-menu li:focus {
+  background-color: #e9ecef;
+}
+
+.popup-menu.hidden {
+  display: none;
+}

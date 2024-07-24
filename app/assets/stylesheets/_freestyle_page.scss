@@ -1,0 +1,153 @@
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.workout-show-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+}
+
+.workout-show-container h1 {
+  font-size: 2.2em;
+  font-family: "Nunito";
+  color: #007ab3;
+  margin-bottom: 20px;
+}
+
+.workout-show-container h2 {
+  font-size: 1.5em;
+  font-family: "Nunito";
+  color: #007ab3;
+  margin-bottom: 15px;
+}
+
+.workout-show-container ul {
+  font-family: "Questrial";
+  list-style-type: none;
+  padding: 0;
+}
+
+.workout-show-container .exercise-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.workout-show-container .exercise-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-show-container .exercise-name {
+  font-weight: bold;
+}
+
+.workout-show-container .exercise-details {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.workout-show-container .btn {
+  margin: 5px;
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+}
+
+.btn-danger-custom {
+  color: red;
+
+  &:hover {
+    color: black;
+  }
+
+  i {
+    font-size: 18px;
+  }
+}
+
+.btn-primary,
+.btn-success-custom {
+  background-color: #007ab3 !important;
+  border: none;
+  color: white;
+  padding: 8px 0;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #003A54 !important;
+}
+
+.btn-primary-custom {
+  background-color: #007ab3 !important;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: normal;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  @media (max-width: 480px) {
+    width: 150px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+#start_button {
+  @extend .btn-primary-custom;
+
+  font-family: "Montserrat";
+
+  @media (max-width: 768px) {
+    width: 80%;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 375px) {
+    width: 100%;
+    max-width: none;
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+.btn-primary-custom:hover {
+  background-color: #003A54 !important;
+}
+
+.btn-success-custom:hover {
+  background-color: #218838 !important;
+}
+
+.button-container {
+  margin-top: 20px;
+}

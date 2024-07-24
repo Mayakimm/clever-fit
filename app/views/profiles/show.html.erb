@@ -1,17 +1,23 @@
-<div class="profile-container">
-  <button class="btn btn-dots" >...</button>
+<div class="profile-container" data-controller="popup">
+  <button class="btn btn-dots" data-action="click->popup#toggleMenu">...</button>
 
+  <div class="popup-menu hidden" data-popup-target="menu">
+    <ul>
+      <li><a href="<%= root_path %>">Edit Profile</a></li>
+      <li><%= link_to 'Log Off', destroy_user_session_path, data: { turbo_method: :delete, confirm: 'Are you sure?' } %></li>
+    </ul>
+  </div>
 
   <div class="card profile-card">
     <div class="profile-details">
-      <img src="" alt="placeholder image" class="profile-image">
+      <%= image_tag @profile.profile_picture, alt: "placeholder image", class: "profile-image" %>
       <div class="profile-info">
         <p><strong></strong> <%= @profile.name %></p>
         <p><strong>"</strong> <%= @profile.goal %>"</p>
         <div class="level-bar-container">
+            <div class="level-number"><%= @profile.level %></div>
           <div class="level-bar">
             <div class="level-bar-fill" style="width:<%= @profile.experience_points.to_f /  Profile::LEVEL_THRESHOLDS[ current_user.profile.level + 1] * 100 %>%" id="level-bar-fill"></div>
-            <div class="level-number"><%= @profile.level %></div>
           </div>
           <p id="xp-display"><span id="current-xp"><%= @profile.experience_points %></span>/<span id="xp-to-next-level"><%= Profile::LEVEL_THRESHOLDS[ current_user.profile.level + 1] %></span></p>
         </div>
@@ -35,7 +41,7 @@
         <p class="stat-value"><strong># Workouts</strong></p>
       </div>
       <div class="stat">
-        <p id="total-volume" class="stat-number"><%= @profile.total_kg_lifted_all.to_i %>kg</p>
+        <p id="total-volume" class="stat-number"><%= @profile.total_volume_lifted.to_i %>kg</p>
         <p class="stat-value"><strong>Total Volume</strong></p>
       </div>
       <div class="stat">
