@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :exercises, only: [:index]
+  resources :exercises, only: [:index, :show]
 
   resource :profile, only: %i[edit update show] do
     member do

@@ -208,6 +208,7 @@ body {
   justify-content: space-between;
   padding: 16px;
   z-index: 1000;
+  align-items: center;
 }
 
 .bar-button {
@@ -312,8 +313,18 @@ body {
 .activity-popup-exercise {
   font-family: 'Questrial', sans-serif;
   padding: 10px 0;
-
   position: relative;
+
+  .exercise-name-popup {
+    text-decoration: none;
+    color: $blue1;
+
+    &:hover {
+      background-color: $blue1;
+      color: white;
+      padding: 10px;
+    }
+  }
 
   &:after {
     content: "";
@@ -325,6 +336,8 @@ body {
     bottom: 0;
     left: 0; // Start from the left side
   }
+
+
 }
 
 .activity-popup-content .close {
