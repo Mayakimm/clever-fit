@@ -13,6 +13,13 @@ User.destroy_all
 
 puts "starting seed"
 
+Achievement.create!([
+  { name: 'Pushups Noob', description: 'Logged 100 pushups', image_url: 'push_ups.png' },
+  { name: 'Squat Noob', description: 'Logged 100 squats', image_url: 'squat.png' },
+  { name: 'Pull up Noob', description: 'Logged 100 pull ups', image_url: 'pull_ups.png' },
+  { name: 'Bench Press Noob', description: 'Logged 100 bench press reps', image_url: 'bench_press.png' }
+])
+
 User.create!([
   { email: 'john.doe@example.com', password: 'password1', admin: false },
   { email: 'jane.smith@example.com', password: 'password2', admin: false },
@@ -23,13 +30,13 @@ User.create!([
 
 Profile.create!([
   { name: 'John Doe', gender: 'Male', age: 30, goal: 'Weight Loss', address: '123 Main St, London, UK', city: 'London', user: User.first, weight: 80.5, height: 175.0,
-    experience_points: Profile.calculate_xp(335, 180), level: 1, profile_picture: 'male_1.png' },
+    experience_points: Profile.calculate_xp(0, 0), level: 1, profile_picture: 'male_1.png' },
   { name: 'Jane Smith', gender: 'Female', age: 25, goal: 'Muscle Gain', address: '456 Elm St, Paris, France', city: 'Paris', user: User.second, weight: 65.0, height: 165.0,
-    experience_points: Profile.calculate_xp(790, 240), level: 2, profile_picture: 'female_1.png' },
+    experience_points: Profile.calculate_xp(0, 0), level: 2, profile_picture: 'female_1.png' },
   { name: 'Alice Jones', gender: 'Female', age: 28, goal: 'Maintain Fitness', address: '789 Oak St, Berlin, Germany', city: 'Berlin', user: User.third, weight: 70.0, height: 170.0,
-    experience_points: Profile.calculate_xp(510, 200), level: 1, profile_picture: 'female_2.png' },
+    experience_points: Profile.calculate_xp(0, 0), level: 1, profile_picture: 'female_2.png' },
   { name: 'Bob Brown', gender: 'Male', age: 35, goal: 'Cardio Fitness', address: '101 Pine St, Rome, Italy', city: 'Rome', user: User.fourth, weight: 85.0, height: 180.0,
-    experience_points: Profile.calculate_xp(1010, 300), level: 3, profile_picture: 'male_2.png' },
+    experience_points: Profile.calculate_xp(0, 0), level: 3, profile_picture: 'male_2.png' },
   { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', city: 'New York', user: User.fifth, weight: 90.0, height: 175.0,
     experience_points: Profile.calculate_xp(750, 270), level: 2, profile_picture: 'male_3.png' }
 ])
@@ -110,14 +117,14 @@ GroupClass.create!([
   ])
 
 Workout.create!([
-  { name: 'Push', workout_type: 'Push', icon: '<i class="fa-solid fa-dumbbell icon-blue"></i>' ,user: User.first, start_time: '2024-07-20 08:00:00', muscle_group: 'chest, triceps, sholders',  end_time: '2024-07-20 09:00:00'  },
-  { name: 'Pull', workout_type: 'Pull', icon: '<i class="fa-solid fa-people-pulling icon-blue"></i>',user: User.second, start_time: '2024-07-21 08:00:00', muscle_group: 'back, biceps, forearms', end_time: '2024-07-21 09:00:00' },
-  { name: 'Legs', workout_type: 'Legs', icon: '<i class="fa-solid fa-drumstick-bite icon-blue"></i>',user: User.third, start_time: '2024-07-22 08:00:00', muscle_group: 'quadriceps, glutes, hamstrings', end_time: '2024-07-22 09:00:00' },
-  { name: 'Cardio', workout_type: 'Cardio', icon: '<i class="fa-solid fa-person-running icon-blue"></i>',user: User.fourth, start_time: '2024-07-23 08:00:00', muscle_group: 'full body', end_time: '2024-07-23 09:00:00' },
+  { name: 'Push', workout_type: 'Push', icon: '<i class="fa-solid fa-dumbbell icon-blue"></i>' ,user: User.fifth, start_time: '2024-07-20 08:00:00', muscle_group: 'chest, triceps, sholders',  end_time: '2024-07-20 09:00:00'  },
+  { name: 'Pull', workout_type: 'Pull', icon: '<i class="fa-solid fa-people-pulling icon-blue"></i>',user: User.fifth, start_time: '2024-07-21 08:00:00', muscle_group: 'back, biceps, forearms', end_time: '2024-07-21 09:00:00' },
+  { name: 'Legs', workout_type: 'Legs', icon: '<i class="fa-solid fa-drumstick-bite icon-blue"></i>',user: User.fifth, start_time: '2024-07-22 08:00:00', muscle_group: 'quadriceps, glutes, hamstrings', end_time: '2024-07-22 09:00:00' },
+  { name: 'Cardio', workout_type: 'Cardio', icon: '<i class="fa-solid fa-person-running icon-blue"></i>',user: User.fifth, start_time: '2024-07-23 08:00:00', muscle_group: 'full body', end_time: '2024-07-23 09:00:00' },
   { name: 'Freestyle', workout_type: 'Freestyle', icon: '<i class="fa-solid fa-fire icon-blue"></i>' ,user: User.fifth, start_time: '2024-07-24 08:00:00',end_time: '2024-07-24 09:00:00' },
-  { name: 'Core', workout_type: 'Core', icon: '<i class="fa-solid fa-table icon-blue"></i>',user: User.first, start_time: '2024-07-25 08:00:00', muscle_group: 'abdominals, obliques', end_time: '2024-07-25 09:00:00' },
-  { name: 'Stretching', workout_type: 'Stretching', icon: '<i class="fa-solid fa-align-center icon-blue"></i>',user: User.second, start_time: '2024-07-26 08:00:00', muscle_group: 'full body', end_time: '2024-07-26 09:00:00' },
-  { name: 'Mobility', workout_type: 'Mobility', icon: '<i class="fa-solid fa-person-biking icon-blue"></i>',user: User.third, start_time: '2024-07-27 08:00:00', muscle_group: 'joints, connective tissue', end_time: '2024-07-27 09:00:00' }
+  { name: 'Core', workout_type: 'Core', icon: '<i class="fa-solid fa-table icon-blue"></i>',user: User.fifth, start_time: '2024-07-25 08:00:00', muscle_group: 'abdominals, obliques', end_time: '2024-07-25 09:00:00' },
+  { name: 'Stretching', workout_type: 'Stretching', icon: '<i class="fa-solid fa-align-center icon-blue"></i>',user: User.fifth, start_time: '2024-07-26 08:00:00', muscle_group: 'full body', end_time: '2024-07-26 09:00:00' },
+  { name: 'Mobility', workout_type: 'Mobility', icon: '<i class="fa-solid fa-person-biking icon-blue"></i>',user: User.fifth, start_time: '2024-07-27 08:00:00', muscle_group: 'joints, connective tissue', end_time: '2024-07-27 09:00:00' }
 ])
 
 WorkoutExercise.create!([
