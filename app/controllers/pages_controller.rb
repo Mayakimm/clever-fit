@@ -24,6 +24,7 @@ class PagesController < ApplicationController
     @emoji = ["🏹","💪","🏊","👟","🏋️"]
 
     @type_workout = @grouped_workout_exercises.map { |grouped_workout_exercise| Workout.find(grouped_workout_exercise.first) }
+
     # Profile and group classes (if user is logged in and has a profile)
     if user_signed_in? && current_user.profile.present?
       @profile = current_user.profile
