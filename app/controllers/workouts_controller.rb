@@ -1,36 +1,26 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: [:show, :overview, :start, :description, :summary, :freestyle, :add_exercise, :remove_exercise]
   before_action :store_previous_path, only: [:show, :overview]
+
   def freestyle
     @exercises = Exercise.all
     @in_freestyle_mode = params[:from_freestyle].present?
   end
 
-  # def add_exercise
-  #   exercise = Exercise.find(params[:exercise_id])
-  #   @workout_exercise = @workout.workout_exercises.build(exercise: exercise, kg: params[:kg], volume: params[:volume])
-  #   if @workout_exercise.save
-  #     redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), notice: 'Exercise added successfully! :D'
-  #   else
-  #     redirect_to freestyle_workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), alert: 'Failed to add exercise.:('
-  #   end
-  # end
   def add_exercise
-
     @selected_exercise = Exercise.find_by(id: params[:exercise_id]) if params[:exercise_id]
 
     @workout_exercise = @workout.workout_exercises.build(
       exercise: @selected_exercise,
       set: @selected_exercise.workout_exercises.first.set,
-      kg:  @selected_exercise.workout_exercises.first.kg,
+      kg: @selected_exercise.workout_exercises.first.kg,
       volume: @selected_exercise.workout_exercises.first.volume,
       time: @selected_exercise.workout_exercises.first.time,
       calories: @selected_exercise.workout_exercises.first.calories
     )
 
     if @workout_exercise.save
-      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), notice: 'Exercise added successfully! :D'
-      #redirect_to workout_path(@workout), notice: 'Exercise added successfully! :D'
+      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle]), notice: 'Exercise added successfully!💪'
     else
       render :freestyle, alert: 'Failed to add exercise. :('
     end
@@ -45,10 +35,6 @@ class WorkoutsController < ApplicationController
     end
   end
 
-  def index
-    @workouts = Workout.all.first(5)
-  end
-
   def show
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
@@ -57,12 +43,20 @@ class WorkoutsController < ApplicationController
     @in_freestyle_mode = params[:from_freestyle].present?
   end
 
+  def update
+    @workout = Workout.find(params[:id])
+    if @workout.update(workout_params)
+      redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle])
+    else
+      render :edit
+    end
+  end
+
   def overview
     @workout = Workout.find(params[:id])
     @exercises = @workout.exercises.includes(:exercise_category)
     @duration = (@workout.end_time - @workout.start_time) / 60 # in minutes
     @workout_exercise = @workout.workout_exercises.first
-
   end
 
   def start
@@ -82,6 +76,7 @@ class WorkoutsController < ApplicationController
     @day_summary.update(start_time: Time.current, calories_burnt: 0, end_time: nil, last_update_time: nil)
     redirect_to freestyle_show_workout_exercise_path(@free_workout_exercises.first)
   end
+
   def description
     @workout = Workout.find(params[:id])
     @workout_exercises = @workout.workout_exercises
@@ -172,5 +167,4 @@ class WorkoutsController < ApplicationController
   def store_previous_path
     session[:previous_path] = request.referer
   end
-
 end
