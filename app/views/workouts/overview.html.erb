@@ -9,7 +9,7 @@
   </div>
 
   <div class="button-container">
-    <%= link_to "See List of Exercises in This Program", description_workout_path(@workout), class: "btn btn-primary-custom" %>
+    <%= link_to "Program Guide", description_workout_path(@workout), class: "btn btn-primary-custom" %>
     <%#= link_to "Start Workout", workout_exercise_path(@workout_exercise), class: "btn btn-success-custom" %>
     <%= button_to 'Start Workout', start_workout_path(@workout), method: :patch, class: "btn btn-success-custom" %>
   </div>
