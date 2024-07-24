@@ -84,6 +84,7 @@ class Profile < ApplicationRecord
   end
 
   def total_kg_lifted_all
+    self.total_volume_lifted = 0 if self.total_volume_lifted == nil
     self.total_volume_lifted += workout_exercises.sum(:kg)
     self.save
     total_volume_lifted
@@ -95,6 +96,7 @@ class Profile < ApplicationRecord
 
   def set_default_stats
     self.experience_points ||= 0
+    self.total_volume_lifted ||= 0
   end
 
   def self.calculate_xp(total_kg_lifted, duration_minutes)
