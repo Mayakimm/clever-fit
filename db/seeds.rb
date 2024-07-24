@@ -23,15 +23,15 @@ User.create!([
 
 Profile.create!([
   { name: 'John Doe', gender: 'Male', age: 30, goal: 'Weight Loss', address: '123 Main St, London, UK', city: 'London', user: User.first, weight: 80.5, height: 175.0,
-    experience_points: Profile.calculate_xp(335, 180), level: 1, profile_picture: Rails.root.join('app/assets/images/male_1.png').to_s },
+    experience_points: Profile.calculate_xp(335, 180), level: 1, profile_picture: 'male_1.png' },
   { name: 'Jane Smith', gender: 'Female', age: 25, goal: 'Muscle Gain', address: '456 Elm St, Paris, France', city: 'Paris', user: User.second, weight: 65.0, height: 165.0,
-    experience_points: Profile.calculate_xp(790, 240), level: 2, profile_picture: Rails.root.join('app/assets/images/female_1.png').to_s },
+    experience_points: Profile.calculate_xp(790, 240), level: 2, profile_picture: 'female_1.png' },
   { name: 'Alice Jones', gender: 'Female', age: 28, goal: 'Maintain Fitness', address: '789 Oak St, Berlin, Germany', city: 'Berlin', user: User.third, weight: 70.0, height: 170.0,
-    experience_points: Profile.calculate_xp(510, 200), level: 1, profile_picture: Rails.root.join('app/assets/images/female_2.png').to_s },
+    experience_points: Profile.calculate_xp(510, 200), level: 1, profile_picture: 'female_2.png' },
   { name: 'Bob Brown', gender: 'Male', age: 35, goal: 'Cardio Fitness', address: '101 Pine St, Rome, Italy', city: 'Rome', user: User.fourth, weight: 85.0, height: 180.0,
-    experience_points: Profile.calculate_xp(1010, 300), level: 3, profile_picture: Rails.root.join('app/assets/images/male_2.png').to_s },
+    experience_points: Profile.calculate_xp(1010, 300), level: 3, profile_picture: 'male_2.png' },
   { name: 'Charlie Wilson', gender: 'Male', age: 40, goal: 'General Health', address: '202 Maple St, New York, USA', city: 'New York', user: User.fifth, weight: 90.0, height: 175.0,
-    experience_points: Profile.calculate_xp(750, 270), level: 2, profile_picture: Rails.root.join('app/assets/images/male_3.png').to_s }
+    experience_points: Profile.calculate_xp(750, 270), level: 2, profile_picture: 'male_3.png' }
 ])
 
 Exercise.create!([

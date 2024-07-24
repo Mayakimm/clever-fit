@@ -71,10 +71,12 @@
             background-color: grey;
             border-radius: 15px;
             position: relative;
+            overflow-x: hidden;
+
+
 
             .level-bar-fill {
               height: 100%;
-              width: 30%;
               background-color: #007AB3;
               border-radius: 15px;
               transition: width 0.3s ease;
