@@ -5,6 +5,7 @@ class WorkoutExercisesController < ApplicationController
     #@workout_exercise = WorkoutExercise.find(params[:id])
     @profile = current_user.profile
     @day_summary = @profile.day_summaries.find_or_create_by(date: Date.today)
+    @day_summary.update(start_time: Time.current) unless @day_summary.start_time.present?
     @total_calories = @workout_exercise.calories
     @duration = @workout_exercise.time.strftime("%M").to_f
     @calories_burnt_per_second = (@total_calories / @duration) / 60
