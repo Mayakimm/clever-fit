@@ -6,15 +6,6 @@ class WorkoutsController < ApplicationController
     @in_freestyle_mode = params[:from_freestyle].present?
   end
 
-  # def add_exercise
-  #   exercise = Exercise.find(params[:exercise_id])
-  #   @workout_exercise = @workout.workout_exercises.build(exercise: exercise, kg: params[:kg], volume: params[:volume])
-  #   if @workout_exercise.save
-  #     redirect_to workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), notice: 'Exercise added successfully! :D'
-  #   else
-  #     redirect_to freestyle_workout_path(@workout, from_freestyle: params[:from_freestyle] || 'false'), alert: 'Failed to add exercise.:('
-  #   end
-  # end
   def add_exercise
 
     @selected_exercise = Exercise.find_by(id: params[:exercise_id]) if params[:exercise_id]
