@@ -9,6 +9,7 @@
 @import "lightbox";
 @import "_freestyle_page";
 @import 'popup-menu';
+@import "_freestyle_add_ex";
 
 // Your CSS partials
 @import "components/index";
@@ -21,6 +22,7 @@
 @import "exercises";
 @import "simple_calendar";
 @import "edit_profile";
-@import "workout_exercises/show";
-@import 'overview';
+@import "workout_exercises/description";
+@import 'workouts/overview';
 @import "exercises/index";
+@import "exercises/show";

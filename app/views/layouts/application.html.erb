@@ -41,5 +41,11 @@
     <% if controller_name == 'group_classes' && action_name == 'show' %>
       <%= render "shared/bottom_bar"%>
     <% end %>
+    <% if controller_name == 'exercises' && action_name == 'show' %>
+      <%= render "shared/bottom_bar"%>
+    <% end %>
+    <% if controller_name == 'workouts' && action_name == 'show' %>
+      <%= render "shared/bottom_bar"%>
+    <% end %>
   </body>
 </html>

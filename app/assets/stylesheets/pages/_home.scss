@@ -97,7 +97,7 @@ body {
 .activity-container{
   border-radius: 10px;
   overflow-x: scroll;
-  margin-top: 10px;
+  // margin-top: 10px;
 }
 ::-webkit-scrollbar {
   // width: 2px; /* Change the width of the scrollbar */
@@ -115,7 +115,7 @@ body {
 }
 
 .activity-box {
-  margin-right: 15px;
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 
@@ -127,12 +127,28 @@ body {
 
 .activity-category {
   font-family: $body-font;
-  padding: 5px;
+  padding: 4px;
+  margin-top: 5px;
+}
+
+.activity-hover-box {
+  padding: 0px 5px;
+  &:hover {
+    background-color: $blue1;
+    border-radius: 10px;
+
+    .icon-blue {
+      color: white;
+    }
+    .activity-type-name {
+      color: white;
+    }
+  }
 }
 
 .activity-item {
-  background-color: white;
-  padding: 6px 7px;
+  background-color: transparent;
+  padding: 0px;
   align-items: center;
   text-align: center;
   font-size: 22px !important;
@@ -141,12 +157,14 @@ body {
   width: 60px; height: 60px;
   border-radius: 100%;
   border: none;
+  height: 40px;
+
 }
 
 .activity-type-name {
   font-size: 16px;
   color: $blue1;
-  margin-bottom: 0px;
+  margin: 0;
 }
 
 .group-class-index {
@@ -208,6 +226,7 @@ body {
   justify-content: space-between;
   padding: 16px;
   z-index: 1000;
+  align-items: center;
 }
 
 .bar-button {
@@ -256,6 +275,13 @@ body {
   margin: 0;
 }
 
+.icon-blue {
+  color: $blue1;
+
+  // &:hover {
+  //   color: $blue2;
+  // }
+}
 
 .activity-popup {
   display: none;
@@ -312,8 +338,18 @@ body {
 .activity-popup-exercise {
   font-family: 'Questrial', sans-serif;
   padding: 10px 0;
-
   position: relative;
+
+  .exercise-name-popup {
+    text-decoration: none;
+    color: $blue1;
+
+    &:hover {
+      background-color: $blue1;
+      color: white;
+      padding: 10px;
+    }
+  }
 
   &:after {
     content: "";
@@ -325,6 +361,8 @@ body {
     bottom: 0;
     left: 0; // Start from the left side
   }
+
+
 }
 
 .activity-popup-content .close {

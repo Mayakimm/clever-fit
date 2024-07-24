@@ -117,14 +117,14 @@ GroupClass.create!([
   ])
 
 Workout.create!([
-  { name: 'Push', workout_type: 'Push', user: User.fifth , start_time: '2024-07-20 08:00:00', muscle_group: 'chest, triceps, sholders',  end_time: '2024-07-20 09:00:00'  },
-  { name: 'Pull', workout_type: 'Pull', user: User.fifth, start_time: '2024-07-21 08:00:00', muscle_group: 'back, biceps, forearms', end_time: '2024-07-21 09:00:00' },
-  { name: 'Legs', workout_type: 'Legs', user: User.fifth, start_time: '2024-07-22 08:00:00', muscle_group: 'quadriceps, glutes, hamstrings', end_time: '2024-07-22 09:00:00' },
-  { name: 'Cardio', workout_type: 'Cardio', user: User.fifth, start_time: '2024-07-23 08:00:00', muscle_group: 'full body', end_time: '2024-07-23 09:00:00' },
-  { name: 'Freestyle', workout_type: 'Freestyle', user: User.fifth, start_time: '2024-07-24 08:00:00',end_time: '2024-07-24 09:00:00' },
-  { name: 'Core', workout_type: 'Core', user: User.fifth , start_time: '2024-07-25 08:00:00', muscle_group: 'abdominals, obliques', end_time: '2024-07-25 09:00:00' },
-  { name: 'Stretching', workout_type: 'Stretching', user: User.fifth, start_time: '2024-07-26 08:00:00', muscle_group: 'full body', end_time: '2024-07-26 09:00:00' },
-  { name: 'Mobility', workout_type: 'Mobility', user: User.fifth, start_time: '2024-07-27 08:00:00', muscle_group: 'joints, connective tissue', end_time: '2024-07-27 09:00:00' }
+  { name: 'Push', workout_type: 'Push', icon: '<i class="fa-solid fa-dumbbell icon-blue"></i>' ,user: User.fifth, start_time: '2024-07-20 08:00:00', muscle_group: 'chest, triceps, sholders',  end_time: '2024-07-20 09:00:00'  },
+  { name: 'Pull', workout_type: 'Pull', icon: '<i class="fa-solid fa-people-pulling icon-blue"></i>',user: User.fifth, start_time: '2024-07-21 08:00:00', muscle_group: 'back, biceps, forearms', end_time: '2024-07-21 09:00:00' },
+  { name: 'Legs', workout_type: 'Legs', icon: '<i class="fa-solid fa-drumstick-bite icon-blue"></i>',user: User.fifth, start_time: '2024-07-22 08:00:00', muscle_group: 'quadriceps, glutes, hamstrings', end_time: '2024-07-22 09:00:00' },
+  { name: 'Cardio', workout_type: 'Cardio', icon: '<i class="fa-solid fa-person-running icon-blue"></i>',user: User.fifth, start_time: '2024-07-23 08:00:00', muscle_group: 'full body', end_time: '2024-07-23 09:00:00' },
+  { name: 'Freestyle', workout_type: 'Freestyle', icon: '<i class="fa-solid fa-fire icon-blue"></i>' ,user: User.fifth, start_time: '2024-07-24 08:00:00',end_time: '2024-07-24 09:00:00' },
+  { name: 'Core', workout_type: 'Core', icon: '<i class="fa-solid fa-table icon-blue"></i>',user: User.fifth, start_time: '2024-07-25 08:00:00', muscle_group: 'abdominals, obliques', end_time: '2024-07-25 09:00:00' },
+  { name: 'Stretching', workout_type: 'Stretching', icon: '<i class="fa-solid fa-align-center icon-blue"></i>',user: User.fifth, start_time: '2024-07-26 08:00:00', muscle_group: 'full body', end_time: '2024-07-26 09:00:00' },
+  { name: 'Mobility', workout_type: 'Mobility', icon: '<i class="fa-solid fa-person-biking icon-blue"></i>',user: User.fifth, start_time: '2024-07-27 08:00:00', muscle_group: 'joints, connective tissue', end_time: '2024-07-27 09:00:00' }
 ])
 
 WorkoutExercise.create!([

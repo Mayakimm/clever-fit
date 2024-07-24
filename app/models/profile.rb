@@ -76,6 +76,7 @@ class Profile < ApplicationRecord
   def total_time_spent_in_gym
     time_stamps = day_summaries.pluck(:start_time, :end_time)
     seconds = time_stamps.map do |t|
+      next 0 if t.last.nil?
       t.last - t.first
     end.sum
     hours = seconds / 3600

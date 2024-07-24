@@ -24,6 +24,7 @@ class PagesController < ApplicationController
     @emoji = ["🏹","💪","🏊","👟","🏋️"]
 
     @type_workout = @grouped_workout_exercises.map { |grouped_workout_exercise| Workout.find(grouped_workout_exercise.first) }
+
     # Profile and group classes (if user is logged in and has a profile)
     if user_signed_in? && current_user.profile.present?
       @profile = current_user.profile
@@ -57,5 +58,9 @@ class PagesController < ApplicationController
     # For a monthly view:
     start_date = params.fetch(:start_date, Date.today).to_date
     @workouts = Workout.where(starts_at: start_date.beginning_of_week..start_date.end_of_week)
+  end
+
+  def show
+    @exercise = Exercise.all
   end
 end
