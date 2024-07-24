@@ -7,6 +7,8 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "lightbox";
+@import "workouts";
+@import 'popup-menu';
 
 // Your CSS partials
 @import "components/index";
@@ -21,3 +23,4 @@
 @import "edit_profile";
 @import "workout_exercises/show";
 @import 'overview';
+@import "exercises/index";
