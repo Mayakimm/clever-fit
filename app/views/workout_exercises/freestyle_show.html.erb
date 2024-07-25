@@ -3,32 +3,31 @@
                                                                 data-update-calories-burnt-per-second="<%= @calories_burnt_per_second %>"
                                                                 data-update-total-calories-burnt="<%= @total_calories_burnt %>">
   <div class="update-item">
-    <p>Calories</p>
+    <p class="mb-1">Calories</p>
     <span id="calories_burnt" data-update-target="caloriesBurnt"><%= @total_calories_burnt.round(2) %></span> kcals
   </div>
   <div class="update-item">
-    <p>Time</p>
+    <p class="mb-1">Time</p>
     <span id="timer" data-update-target="timer">00:00:00</span>
   </div>
 </div>
 
-<div class="exercise-instruction d-flex flex-column p-3">
-  <h3 class="text-center my-3"><%= @current_freestyle_exercise.description %></h3>
+<div class="exercise-instruction-show d-flex flex-column p-3">
+  <h3 class="exercise-description-show my-3"><%= @current_freestyle_exercise.description %></h3>
   <%= image_tag @current_freestyle_exercise.image_url, style:"width:80%; margin:0 auto" %>
-  <div class="exercise-info" style="margin-top: 30px">
-    <p>Activated Muscles: <%= @current_freestyle_exercise.muscle_group %></p>
-    <p>Instruction:<br><%= @current_freestyle_exercise.instruction %></p>
+  <div class="exercise-info-show" style="margin-top: 30px">
+    <p class="exercise-info-bold mb-0">💪 Activated Muscles:</p><p class="exercise-info-thin"> <%= @current_freestyle_exercise.muscle_group %></p>
+    <p class="exercise-info-bold mb-0">📝 Instruction:</p><p class="exercise-info-thin"><%= @current_freestyle_exercise.instruction %></p>
   </div>
   <div class="exercise-buttons m-auto" data-controller="toggle-video">
     <%# <button> history </button> %>
-    <button id="watch-button"data-toggle-video-target="watch" data-action="click->toggle-video#toggle">Watch Video</button>
+    <button id="watch-button"data-toggle-video-target="watch" data-action="click->toggle-video#toggle"><i class="fa-solid fa-video" style="font-size: 12px; color: white;"></i></button>
     <div data-toggle-video-target="content" class="d-none">
-      <%# <p class="">hello</p> %>
-      <%#= video_tag @current_freestyle_exercise.video_url, class:"" %>
-      <iframe class="mt-3"style="width:95%; margin:0 auto;" src="<%= @current_freestyle_exercise.video_url %>" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe class="mt-1"style="width:95%; margin:0 auto;" src="<%= @current_freestyle_exercise.video_url %>" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 </div>
+
 
 <div class="button-container d-flex justify-content-between" style="width:80%; margin:0 auto; margin-top: 30px; margin-bottom:200px">
   <%#= link_to "EndWorkout", summary_workout_path(@workout), class: "btn btn-primary-custom" %>
