@@ -1,31 +1,38 @@
 <div data-controller="lightbox">
   <div class="bottom-bar rounded-pill" data-controller="popup">
+    <div class="bar-content">
       <p class="bar-button ms-3">
-          <%= link_to home_path, class: "text-decoration-none text-white", onclick: "window.location.href='#{home_path}'" do %>
-              <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-          <% end %>
+        <%= link_to home_path, class: "text-decoration-none text-white", onclick: "window.location.href='#{home_path}'" do %>
+          <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+        <% end %>
       </p>
 
       <p class="bar-button">
-          <%= link_to "Choose Workout", workouts_path, id: "chooseWorkoutButton", class: "text-decoration-none text-white btn btn-link", data: { action: "click->lightbox#open" } %>
+        <%= link_to "Choose Workout", workouts_path, id: "chooseWorkoutButton", class: "text-decoration-none text-white btn btn-link", data: { action: "click->lightbox#open" } %>
       </p>
 
       <p class="bar-button me-3">
         <% if current_page?(profile_path) %>
           <i class="fa-solid fa-bars three-bars" style="color: #ffffff" data-action="click->popup#toggleMenu"></i>
-          <div class="popup-menu hidden" data-popup-target="menu">
-            <ul>
-              <li><a href="<%= root_path %>">Edit Profile</a></li>
-              <li><%= link_to 'Log Off', destroy_user_session_path, data: { turbo_method: :delete, confirm: 'Are you sure?' } %></li>
-            </ul>
-          </div>
         <% else %>
           <%= link_to profile_path, class: "text-decoration-none text-white" do %>
-              <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+            <i class="fa-solid fa-user" style="color: #ffffff;"></i>
           <% end %>
         <% end %>
       </p>
-  </div>
+    </div>
+
+    <div class="popup-wrapper">
+      <% if current_page?(profile_path) %>
+        <div class="popup-menu hidden" data-popup-target="menu">
+          <ul>
+            <li><a href="<%= root_path %>">Edit Profile</a></li>
+            <li><%= link_to 'Log Off', destroy_user_session_path, data: { turbo_method: :delete, confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+</div>
 
 <div class="lightbox" data-lightbox-target="box">
   <div class="lightbox-content">
