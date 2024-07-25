@@ -19,7 +19,7 @@ export default class extends Controller {
   }
 
   handleClickOutside(event) {
-    if (this.menuTarget && !this.menuTarget.contains(event.target) && !event.target.matches('.btn-dots')) {
+    if (this.menuTarget && !this.menuTarget.contains(event.target) && !event.target.matches('.fa-solid fa-bars')) {
       this.menuTarget.classList.add('hidden');
     }
   }
@@ -41,7 +41,7 @@ export default class extends Controller {
     })
     .then(response => {
       if (response.ok) {
-        window.location.href = '/'; 
+        window.location.href = '/';
       }
     });
   }

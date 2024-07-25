@@ -33,6 +33,17 @@ class User < ApplicationRecord
     save
   end
 
+
+  def total_kg_lifted_all
+    total_kg = 0
+    self.profile.day_summaries.each do |summary|
+      summary.kg = 0 if summary.kg.nil?
+      total_kg += summary.kg
+    end
+
+    return total_kg
+  end
+
   private
 
   def create_profile

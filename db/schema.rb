@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_24_143322) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_25_102140) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_24_143322) do
     t.datetime "last_update_time"
     t.float "calories_burnt"
     t.string "status"
+    t.float "kg"
     t.index ["profile_id"], name: "index_day_summaries_on_profile_id"
   end
 
