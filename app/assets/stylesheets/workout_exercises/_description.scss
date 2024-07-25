@@ -66,27 +66,32 @@ h2.unique-h2 {
   background-color: #f5f5f5;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 30px;
+  padding: 10px;
+  margin-bottom: 5px;
 }
 
 .exercise-image-box {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   text-align: center;
   align-items: center;
-  border-radius: 10px;
-  overflow: hidden; /* Prevents the image from overflowing the div */
+  border-radius: 20px;
+  overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically */
 }
 
 .exercise-image {
-  width: 100%; /* Makes the image take up the full width of the div */
-  height: 100%; /* Makes the image take up the full height of the div */
-  object-fit: cover; /* Ensures the image covers the div without distortion */
-  position: absolute; /* Allows the image to be positioned absolutely within the div */
-  top: 0;
-  left: 0;
+  position: absolute; 
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  width: 100%; /* Default width */
+  height: 100%; /* Default height */
+  object-fit: cover; /* Ensure the image covers the div */
+  transform: translate(-50%, -50%) scale(1.5); /* Scale the image up by 1.5 times */
+  transition: transform 0.3s ease; /* Smooth transition for scaling effect */
 }
 
 .exercise-details {
