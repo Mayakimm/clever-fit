@@ -71,15 +71,12 @@
           <div class="group-class-image p-3">
             <%= image_tag group_class.image_url, alt: "GroupClass Image", class: "group-class-img" %>
           </div>
-          <div class="flex-grow-1 card-info ms-4 d-flex flex-column">
-            <div class="card-letters pt-1 pb-3">
-              <p class="mb-0 fs-5"><%= group_class.name %></p>
-              <p class="mb-1"><%= group_class.time.strftime('%H:%M') %>, <%= group_class.date.day %>/<%= group_class.date.month %> (<%= group_class.date.strftime("%a") %>)</p>
+          <div class="card-info flex-grow-1" style="height:100px; margin-left:20px">
+            <div class="card-letters pt-1 d-flex flex-column justify-content-between ">
+              <p class="mb-3 fs-5"><%= group_class.name %></p>
+              <p class="pt-4 mb-0"><%= group_class.time.strftime('%H:%M') %>, <%= group_class.date.day %>/<%= group_class.date.month %> (<%= group_class.date.strftime("%a") %>)</p>
             </div>
-            <%# Uncomment if you have a price attribute in group_class %>
-            <%# <div class="price"> %>
-            <%#   <p class="text-end fs-5 mb-0">€ <%= group_class.price %>
-            <%# </div> %>
+
           </div>
         </div>
       <% end %>
