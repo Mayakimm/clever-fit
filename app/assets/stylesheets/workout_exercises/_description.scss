@@ -81,10 +81,14 @@ h2.unique-h2 {
   display: flex;
   justify-content: center;
   align-items: center; /* Center content vertically */
+  border: none;
+  outline: none;
+  box-shadow: none; /* Ensure no box shadow */
+  padding: 0; /* Ensure no padding affecting appearance */
 }
 
 .exercise-image {
-  position: absolute; 
+  position: absolute;
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   width: 100%; /* Default width */
@@ -92,6 +96,16 @@ h2.unique-h2 {
   object-fit: cover; /* Ensure the image covers the div */
   transform: translate(-50%, -50%) scale(1.5); /* Scale the image up by 1.5 times */
   transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+  border: none; /* Ensure no border around the image */
+  outline: none; /* Ensure no outline around the image */
+  clip-path: inset(0);
+}
+.exercise-image-box,
+.exercise-image {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important; /* Remove any box-shadow */
+  background: none !important; /* Remove any background that could show a border */
 }
 
 .exercise-details {
