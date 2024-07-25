@@ -95,7 +95,7 @@ class WorkoutsController < ApplicationController
     @duration_today = ((@end_time_today - @start_time_today)/ 60).to_i
     @calories_burnt_today = @summary_today.calories_burnt.round(2)
     @total_kg_lifted = @exercises.sum(:kg)
-    @summary_today ||= 0
+    @summary_today.kg ||= 0
     @summary_today.kg += @total_kg_lifted
     @summary_today.save
     @pr_count = 0
