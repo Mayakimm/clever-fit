@@ -1,7 +1,7 @@
-
 .popup-menu {
   position: absolute;
   right: 0;
+  top: -100px;
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
   border-radius: 4px;
@@ -24,9 +24,9 @@
 
 .popup-menu li a {
   text-decoration: none;
-  color: #333;
+  color:#007ab3;
+  font-weight: bolder;
 }
-
 
 .popup-menu li:hover {
   background-color: #e9ecef;
