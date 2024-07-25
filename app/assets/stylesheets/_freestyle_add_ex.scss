@@ -15,8 +15,8 @@
   }
 
   .add-exercise-title {
-    color: $blue1;
-    font-family: $headers-font;
+    color: #007ab3;
+    font-family: "Montserrat", "sans-serif";
     font-weight: bolder;
   }
 
@@ -25,9 +25,9 @@
     margin-bottom: 20px;
 
     .form-label {
-      font-family: $headers-font;
+      font-family: "Montserrat", "sans-serif";
       font-weight: bolder;
-      color: $blue1;
+      color: #007ab3;
       display: block;
       margin-bottom: 5px;
     }
