@@ -1,7 +1,8 @@
 <%= form_with url: add_exercise_workout_path(@workout, from_freestyle: params[:from_freestyle]), method: :post, local: true, html: { class: 'freestyle-workout-form' } do |form| %>
   <%= hidden_field_tag :from_freestyle, params[:from_freestyle] || 'false' %>
 <h2>💪</h2>
-<h1>Add a exercise!</h1>
+<h1 class= "add-exercise-title"> Add a exercise!</h1>
+<div class= "form-group-box">
   <div class="form-group">
     <%= form.label :exercise_id, 'Exercise:', class: 'form-label' %>
     <%= form.collection_select :exercise_id, Exercise.all, :id, :name %>
@@ -29,7 +30,8 @@
   <% end %>
 
   <div class="buttons">
+    <%= link_to "Back to Workout", workout_path(@workout, from_freestyle: params[:from_freestyle]), class: "btn btn-back" %>
     <%= form.submit 'Add Exercise', class: "btn btn-primary" %>
-    <%= link_to "Back to Workout", workout_path(@workout, from_freestyle: params[:from_freestyle]), class: "btn btn-secondary" %>
+  </div>
   </div>
 <% end %>
