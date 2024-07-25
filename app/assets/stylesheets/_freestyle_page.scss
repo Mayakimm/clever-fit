@@ -8,22 +8,24 @@
 
 .workout-show-container {
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   max-width: 800px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .workout-show-container h1 {
+  font-family: "Montserrat", "sans-serif";
   font-size: 2.2em;
-  font-family: "Nunito";
   color: #007ab3;
+  font-weight: bolder;
   margin-bottom: 20px;
 }
 
 .workout-show-container h2 {
   font-size: 1.5em;
   font-family: "Nunito";
-  color: #007ab3;
+  color: #00A9F8;
   margin-bottom: 15px;
 }
 
@@ -48,11 +50,13 @@
 
 .workout-show-container .exercise-name {
   font-weight: bold;
+  text-align: start;
+  color: #007ab3;
 }
 
 .workout-show-container .exercise-details {
   font-size: 0.9em;
-  color: #666;
+  color: #007ab3;
 }
 
 .workout-show-container .btn {
@@ -73,29 +77,22 @@
   }
 }
 
-.btn-primary,
-.btn-success-custom {
+.btn-add-exercise{
   background-color: #007ab3 !important;
   border: none;
   color: white;
   padding: 8px 0;
-  border-radius: 5px;
+  border-radius: 5px !important;
   font-size: 14px;
+  margin-bottom: 600px;
+  padding: 10px 20px;
 }
 
-.margin-bottom-20 {
-  margin-bottom: 20px;
-}
-
-.btn-primary:hover {
-  background-color: #003A54 !important;
-}
-
-.btn-primary-custom,
-.btn-success-custom {
+.freestyle-btn-success-custom {
   background-color: #007ab3 !important;
   padding: 10px 20px;
-  border-radius: 20px;
+  color: white;
+  border-radius: 5px;
   font-size: 16px;
 
   @media (max-width: 768px) {
@@ -109,18 +106,50 @@
   }
 }
 
-.btn-primary-custom:hover {
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+  color:white;
   background-color: #003A54 !important;
 }
 
-.btn-success-custom:hover {
-  background-color: #218838 !important;
+.freestyle-btn-primary-custom {
+  background-color: #007ab3 !important;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+.freestyle-btn-primary-custom:hover {
+  color:white;
+  background-color: #007ab3 !important;
+}
+
+.freestyle-btn-success-custom:hover {
+  color: white;
+  background-color: #007ab3 !important;
 }
 
 .button-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 
 .same-size-button {

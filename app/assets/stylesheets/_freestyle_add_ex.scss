@@ -6,8 +6,18 @@
   height: 100vh;
   padding-top: 50px;
 
-  h1 {
+  .form-group-box {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 30px;
+    height: 350px;
+  }
+
+  .add-exercise-title {
     color: #007ab3;
+    font-family: "Montserrat", "sans-serif";
+    font-weight: bolder;
   }
 
   .form-group {
@@ -15,6 +25,9 @@
     margin-bottom: 20px;
 
     .form-label {
+      font-family: "Montserrat", "sans-serif";
+      font-weight: bolder;
+      color: #007ab3;
       display: block;
       margin-bottom: 5px;
     }
@@ -34,14 +47,31 @@
 
     .btn {
       width: 48%;
+      padding: 10px;
     }
 
     .btn-primary {
+      margin-top: 20px;
       background-color: #007ab3;
+      line-height: normal;
+      border-radius: 5px;
     }
 
-    .btn-secondary {
-      margin-left: 10px;
+    .btn-back {
+      color: white;
+      margin-right: 10px;
+      margin-top: 20px;
+      background-color: gray;
+      padding: 5px 10px;
+      font-size: 13px;
+      height: 33px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; // Smooth transition for hover effect
+
+      &:hover {
+        background-color: rgb(84, 84, 84); // Change background color on hover
+      }
     }
   }
 }
