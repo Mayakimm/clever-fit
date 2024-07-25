@@ -84,13 +84,6 @@ class Profile < ApplicationRecord
     "#{hours.to_i}h #{minutes.to_i}m"
   end
 
-  def total_kg_lifted_all
-    self.total_volume_lifted = 0 if self.total_volume_lifted == nil
-    self.total_volume_lifted += workout_exercises.sum(:kg)
-    self.save
-    total_volume_lifted
-  end
-
   def total_workouts_logged
     workouts.count
   end
