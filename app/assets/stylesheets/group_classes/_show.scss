@@ -3,10 +3,30 @@
   border-radius: 10px;
   width: 80%;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 30px 30px;
+  .group-classes-show-text {
+    font-size: 18px;
+  }
 }
 
+.emoji {
+  margin-right: 5px; /* Adjust as necessary */
+}
 
+.students {
+  margin-left: 0; /* Ensure there is no additional margin */
+}
+
+/* Optional: Adjust font size and line height for consistent appearance */
+.emoji, .students {
+  font-size: 18px; /* Adjust as necessary */
+  line-height: 1.5; /* Adjust as necessary */
+}
+
+.mt-5 .contact {
+  font-size: 18px;
+  font-weight: 700 !important;
+}
 .group-class-img-container {
   width: 80%;
   margin: 0 auto;
