@@ -77,11 +77,8 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-# production:
-#   <<: *default
-#   database: clever_fit_production
-#   username: clever_fit
-#   password: <%= ENV["CLEVER_FIT_DATABASE_PASSWORD"] %>
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  database: clever_fit_production
+  username: clever_fit
+  password: <%= ENV["CLEVER_FIT_DATABASE_PASSWORD"] %>
