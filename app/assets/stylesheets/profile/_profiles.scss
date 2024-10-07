@@ -61,6 +61,12 @@
           border-radius: 50%;
           margin-right: 10px;
         }
+
+        .placeholder-circle {
+          background-color: black; /* Circle color */
+          width: 100px; /* Match the size of the image */
+          height: 100px; /* Match the size of the image */
+        }
       }
 
       .profile-info {
