@@ -1,7 +1,11 @@
 <div class="profile-container">
   <div class="card profile-card">
     <div class="profile-details">
-      <%= image_tag @profile.profile_picture, alt: "placeholder image", class: "profile-image" %>
+      <% if @profile.profile_picture.present? %>
+        <%= image_tag @profile.profile_picture, alt: "Profile Picture", class: "profile-image" %>
+      <% else %>
+        <div class="profile-image placeholder-circle"></div>
+      <% end %>
       <div class="profile-info">
         <p><strong></strong> <%= @profile.name %></p>
         <p><strong>"</strong> <%= @profile.goal %>"</p>
